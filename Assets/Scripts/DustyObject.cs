@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bookshelf : MonoBehaviour
+public class DustyObject : MonoBehaviour
 {
     [SerializeField] private ParticleSystem _dustParticles;
 
