@@ -14,16 +14,16 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text _timerText;
     [SerializeField] private Timer _timer;
 
+    public void OnDisplayDialog()
+    {
+        DisplayDialog(_dialogs.GetTestText(dialogIndex));
+    }
+
     // Update is called once per frame
     void Update()
     {
-        // Update timer text
+        //Update timer text
         _timerText.text = _timer.GetTime();
-
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            DisplayDialog(_dialogs.GetTestText(dialogIndex));
-        }
     }
 
     void DisplayDialog(string dialog)
