@@ -7,20 +7,25 @@ public class Timer : MonoBehaviour
     float currentTime = 0;
     bool timerOn = false;
 
+    public void OnTimerPlay()
+    {
+        timerOn = true;
+    }
+
+    public void OnTimerPause()
+    {
+        timerOn = false;
+    }
+
+    public void OnTimerReset()
+    {
+        currentTime = 0;
+        timerOn = false;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        // All keybinds are temporary, I just wanted to make sure they worked
-        if (Input.GetKeyDown(KeyCode.I)) //Play
-            timerOn = true;
-        else if (Input.GetKeyDown(KeyCode.O)) //Pause
-            timerOn = false;
-        else if (Input.GetKeyDown(KeyCode.P)) //Reset
-        {
-            currentTime = 0;
-            timerOn = false;
-        }
-
         if (timerOn)
         {
             currentTime += Time.deltaTime;
