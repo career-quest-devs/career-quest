@@ -36,7 +36,8 @@ public class PlayerMovement : MonoBehaviour
         {
             Default.SetBool("isWalking", true);
             Default.SetBool("isGoingRight", true);
-        } else if (_moveInput.x < 0)
+        }
+        else if (_moveInput.x < 0)
         {
             Default.SetBool("isWalking", true);
             Default.SetBool("isGoingRight", false);
