@@ -6,10 +6,10 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed = 5.0f;
-    [SerializeField] private Animator _playerAnimator;
 
     private Vector2 _moveInput;
     private Rigidbody2D _rb;
+    private PlayerController _player;
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _player = GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -34,17 +35,17 @@ public class PlayerMovement : MonoBehaviour
 
         if (_moveInput.x > 0)
         {
-            _playerAnimator.SetBool("IsWalking", true);
-            _playerAnimator.SetBool("IsGoingRight", true);
+            _player.currentAnimator.SetBool("IsWalking", true);
+            _player.currentAnimator.SetBool("IsGoingRight", true);
         }
         else if (_moveInput.x < 0)
         {
-            _playerAnimator.SetBool("IsWalking", true);
-            _playerAnimator.SetBool("IsGoingRight", false);
+            _player.currentAnimator.SetBool("IsWalking", true);
+            _player.currentAnimator.SetBool("IsGoingRight", false);
         }
         else
         {
-            _playerAnimator.SetBool("IsWalking", false);
+            _player.currentAnimator.SetBool("IsWalking", false);
         }
 
     }

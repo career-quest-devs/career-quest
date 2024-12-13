@@ -1,31 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerSneeze : MonoBehaviour
 {
-    private Animator _playerAnimator; // Assign the player's Animator in the Inspector
+    private PlayerController _player;
     private GameObject _nearbyClothes; // Tracks the clothes pile in range
 
-    public void OnSneeze()
+    public void OnSneeze(InputAction.CallbackContext context)
     {
-        // Trigger player sneeze animation
-        //_playerAnimator.SetBool("IsSneezing", true);
-
-        // Trigger declutter animation on clothes
-        if (_nearbyClothes != null)
+        if (context.performed)
         {
-            ClothesPile clothesPile = _nearbyClothes.GetComponent<ClothesPile>();
-            if (clothesPile != null)
+            // Trigger player sneeze animation
+            //_player.currentAnimator.SetBool("IsSneezing", true);
+
+            // Trigger declutter animation on clothes
+            if (_nearbyClothes != null)
             {
-                clothesPile.Declutter();
+                ClothesPile clothesPile = _nearbyClothes.GetComponent<ClothesPile>();
+                if (clothesPile != null)
+                {
+                    clothesPile.Declutter();
+                }
             }
         }
     }
 
     private void Start()
     {
-        _playerAnimator = GetComponent<Animator>();
+        _player = GetComponent<PlayerController>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
