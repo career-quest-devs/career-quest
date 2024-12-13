@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class ClothesPile : MonoBehaviour
 {
+    public GameObject hiddenItem;
+
     private Animator _clothesAnimator;
 
     public void Declutter()
     {
         // Trigger the declutter animation
-        _clothesAnimator.SetBool("IsDecluttered", true);
+        _clothesAnimator.SetBool("IsDecluttering", true);
+
+        //Reveal hidden item if exist
+        if (hiddenItem != null)
+        {
+            StartCoroutine(RevealHiddenItem());
+        }
 
         // Optionally, disable interaction after decluttering
         GetComponent<Collider2D>().enabled = false;
@@ -18,5 +26,11 @@ public class ClothesPile : MonoBehaviour
     private void Start()
     {
         _clothesAnimator = GetComponent<Animator>();
+    }
+
+    private IEnumerator RevealHiddenItem()
+    {
+        yield return new WaitForSeconds(0.5f);
+        hiddenItem.SetActive(true);
     }
 }
