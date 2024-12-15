@@ -648,6 +648,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 1a5348a0-e346-4790-a868-e93ce6088101
     m_ActionName: Player/Timer Reset[/Keyboard/p]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0aded9dc-e796-4f4b-b71d-f882a5190e02
+    m_ActionName: UI/Continue[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -674,6 +678,7 @@ MonoBehaviour:
   socksAnimator: {fileID: 8012802990699414523}
   tieAndSocksAnimator: {fileID: 7026425209313740390}
   currentAnimator: {fileID: 0}
+  _inputActions: {fileID: -944628639613478452, guid: e0dccc6b6f4311c43a7478cf32a8ffa6, type: 3}
 --- !u!114 &7573037557291600384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -687,7 +692,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 5
-  _player: {fileID: 1077020468534594466}
 --- !u!114 &8850614593325717080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -700,4 +704,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeb5a2feeeb2647408824121c0aa070e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 1077020468534594466}

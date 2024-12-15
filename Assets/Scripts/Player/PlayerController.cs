@@ -16,8 +16,11 @@ public class PlayerController : MonoBehaviour
     public Animator tieAndSocksAnimator;
     public Animator currentAnimator;
 
+    [SerializeField] private InputActionAsset _inputActions;
+
     private PlayerState _currentState;
     private PlayerInput _playerInput;
+    private InputAction _sneezeAction;
 
     public void ChangeState(PlayerState newState)
     {
@@ -45,12 +48,27 @@ public class PlayerController : MonoBehaviour
         _playerInput.enabled = false;
     }
 
+    public void EnableSneezeAction()
+    {
+        _sneezeAction.Enable();
+    }
+
+    private void Awake()
+    {
+        // Find the specific actions within the action map
+        var playerMap = _inputActions.FindActionMap("Player");
+        _sneezeAction = playerMap.FindAction("Sneeze");
+    }
+
     private void Start()
     {
         _playerInput = GetComponent<PlayerInput>();
 
         // Set initial PlayerState to default
         ChangeState(new PlayerDefaultState(this));
+
+        //Disable sneeze action until it is learned
+        _sneezeAction.Disable();
     }
 
     private void Update()
