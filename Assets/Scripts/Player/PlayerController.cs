@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public Animator currentAnimator;
 
     private PlayerState _currentState;
+    private PlayerInput _playerInput;
 
     public void ChangeState(PlayerState newState)
     {
@@ -33,8 +35,21 @@ public class PlayerController : MonoBehaviour
         currentAnimator = animator;
     }
 
+    public void EnablePlayerInput()
+    {
+        _playerInput.enabled = true;
+    }
+
+    public void DisablePlayerInput()
+    {
+        _playerInput.enabled = false;
+    }
+
     private void Start()
     {
+        _playerInput = GetComponent<PlayerInput>();
+
+        // Set initial PlayerState to default
         ChangeState(new PlayerDefaultState(this));
     }
 
