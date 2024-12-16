@@ -59,6 +59,9 @@ public class Level1Manager : MonoBehaviour
 
     private void Start()
     {
+        //Set sneeze button visibility to false
+        _uIManager.SetSneezeButtonVisibility(false);
+
         StartIntroDialog();
     }
 
@@ -74,6 +77,7 @@ public class Level1Manager : MonoBehaviour
 
         if (Application.platform == RuntimePlatform.Android)
         {
+            _uIManager.SetSneezeButtonVisibility(true);
             _uIManager.StartDialogue(sneezeTutorialDialogMobile);
         }
         else

@@ -15,6 +15,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text _timerText;
     [SerializeField] private Timer _timer;
 
+    [Header("Mobile Controls")]
+    [SerializeField] private GameObject _mobileControls;
+    [SerializeField] private GameObject _sneezeButton;
+
     private Queue<string> _dialogQueue;
 
     public void StartDialogue(string[] dialogLines)
@@ -47,9 +51,23 @@ public class UIManager : MonoBehaviour
         _dialogBox.SetActive(false);
     }
 
+    public void SetSneezeButtonVisibility(bool isVisible)
+    {
+        _sneezeButton.SetActive(isVisible);
+    }
+
     private void Awake()
     {
         _dialogQueue = new Queue<string>();
+
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            _mobileControls.SetActive(true);
+        }
+        else
+        {
+            _mobileControls.SetActive(false);
+        }
     }
 
     private void Update()
