@@ -15,7 +15,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Jump",
+                    "name": "Sneeze",
                     "type": "Button",
                     "id": "f020f2e5-7b82-4580-bc33-b1ec79745976",
                     "expectedControlType": "Button",
@@ -189,7 +189,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Jump",
+                    "action": "Sneeze",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -200,7 +200,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Jump",
+                    "action": "Sneeze",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
