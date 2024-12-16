@@ -100,93 +100,9 @@ TextureImporter:
       name: Asset_charWalking_Left_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2
-        width: 449
-        height: 1419
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ae6ee1d628a0cab4e94051b3fa9fef04
-      internalID: 1040977097
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Asset_charWalking_Left_1
-      rect:
-        serializedVersion: 2
-        x: 455
-        y: 0
-        width: 445
-        height: 1461
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b62658a97d090034e8b0e1d04f7b0010
-      internalID: 1568430250
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Asset_charWalking_Left_2
-      rect:
-        serializedVersion: 2
-        x: 913
-        y: 9
-        width: 470
-        height: 1412
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a0346acf2e245f9478d7763f37b969dd
-      internalID: 156548040
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Asset_charWalking_Left_3
-      rect:
-        serializedVersion: 2
-        x: 1385
-        y: 5
-        width: 567
-        height: 1384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: edc7867e7f9b64349a2d4e9f07ea62b8
-      internalID: -1593547852
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Asset_charWalking_Left_4
-      rect:
-        serializedVersion: 2
-        x: 1979
+        x: 11
         y: 11
-        width: 433
+        width: 434
         height: 1410
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -195,8 +111,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aaa6683ad3324f041933c3da37674403
-      internalID: 1701176425
+      spriteID: 6d83f442f24eb34438ecb2047b4e7a81
+      internalID: 886456977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset_charWalking_Left_1
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 5
+        width: 569
+        height: 1384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d43ecb4be4d638f41a9b9aefb861e888
+      internalID: -2031369575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset_charWalking_Left_2
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 9
+        width: 469
+        height: 1412
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1365943697ba3624ca23b460a32facba
+      internalID: -2006639870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset_charWalking_Left_3
+      rect:
+        serializedVersion: 2
+        x: 1501
+        y: 0
+        width: 448
+        height: 1461
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63a7c6a6314417b478dd89760371de0c
+      internalID: -935009210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset_charWalking_Left_4
+      rect:
+        serializedVersion: 2
+        x: 1960
+        y: 2
+        width: 447
+        height: 1419
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5009e376b47a410418740deeb5419b95
+      internalID: -1043952516
       vertices: []
       indices: 
       edges: []
@@ -212,11 +212,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Asset_charWalking_Left_0: 1040977097
-      Asset_charWalking_Left_1: 1568430250
-      Asset_charWalking_Left_2: 156548040
-      Asset_charWalking_Left_3: -1593547852
-      Asset_charWalking_Left_4: 1701176425
+      Asset_charWalking_Left_0: 886456977
+      Asset_charWalking_Left_1: -2031369575
+      Asset_charWalking_Left_2: -2006639870
+      Asset_charWalking_Left_3: -935009210
+      Asset_charWalking_Left_4: -1043952516
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
