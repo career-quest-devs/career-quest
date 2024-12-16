@@ -1,33 +1,60 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
     [Header("Dialog UI")]
-    [SerializeField] private TMP_Text _dialogBox;
     public int dialogIndex;
-    [SerializeField] private DictionaryDialogs _dialogs;
+    [SerializeField] private GameObject _dialogBox;
+    [SerializeField] private TMP_Text _dialogText;
 
     [Header("Timer UI")]
     [SerializeField] private TMP_Text _timerText;
     [SerializeField] private Timer _timer;
 
-    public void OnDisplayDialog()
+    private Queue<string> _dialogQueue;
+
+    public void StartDialogue(string[] dialogLines)
     {
-        DisplayDialog(_dialogs.GetTestText(dialogIndex));
+        _dialogQueue.Clear();
+        foreach (string line in dialogLines)
+        {
+            _dialogQueue.Enqueue(line);
+        }
+
+        _dialogBox.SetActive(true);
+        DisplayNextLine();
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool DisplayNextLine()
+    {
+        if (_dialogQueue.Count == 0)
+        {
+            EndDialog();
+            return false;
+        }
+
+        string nextLine = _dialogQueue.Dequeue();
+        _dialogText.text = nextLine;
+        return true;
+    }
+
+    public void EndDialog()
+    {
+        _dialogBox.SetActive(false);
+    }
+
+    private void Awake()
+    {
+        _dialogQueue = new Queue<string>();
+    }
+
+    private void Update()
     {
         //Update timer text
         _timerText.text = _timer.GetTime();
-    }
-
-    void DisplayDialog(string dialog)
-    {
-        _dialogBox.text = dialog;
     }
 }
