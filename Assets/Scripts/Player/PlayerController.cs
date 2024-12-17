@@ -19,12 +19,10 @@ public class PlayerController : MonoBehaviour
     private PlayerState _currentState;
     private PlayerInput _playerInput;
 
-    public void ChangeState(PlayerState newState)
-    {
-        _currentState?.OnStateExit();
-        _currentState = newState;
-        _currentState.OnStateEnter();
-    }
+    // Properties to track collected items
+    public bool HasTie { get; private set; }
+    public bool HasSocks { get; private set; }
+    public bool HasResume { get; private set; }
 
     public void SetAppearance(GameObject sprite, Animator animator)
     {
@@ -56,8 +54,44 @@ public class PlayerController : MonoBehaviour
         ChangeState(new PlayerDefaultState(this));
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Tie"))
+        {
+            HasTie = true;
+            InitStateChange();
+        }
+    }
+
     private void Update()
     {
         _currentState.OnStateUpdate();
+    }
+
+    private void InitStateChange()
+    {
+        if (HasTie && !HasSocks)
+        {
+            ChangeState(new PlayerTieState(this));
+        }
+        else if (HasSocks && !HasTie)
+        {
+            ChangeState(new PlayerSocksState(this));
+        }
+        else if (HasTie && HasSocks)
+        {
+            ChangeState(new PlayerTieAndSocksState(this));
+        }
+        else
+        {
+            ChangeState(new PlayerDefaultState(this));
+        }
+    }
+
+    private void ChangeState(PlayerState newState)
+    {
+        _currentState?.OnStateExit();
+        _currentState = newState;
+        _currentState.OnStateEnter();
     }
 }

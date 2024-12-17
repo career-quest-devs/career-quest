@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - ClothesPile
+  - Tie
   layers:
   - Default
   - TransparentFX
