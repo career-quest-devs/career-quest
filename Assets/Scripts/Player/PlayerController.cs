@@ -62,6 +62,22 @@ public class PlayerController : MonoBehaviour
         _playerInput.SwitchCurrentActionMap("UI");
     }
 
+    public void EnableSneezeAction()
+    {
+        if (_playerInput.currentActionMap.name == "Player")
+        {
+            _playerInput.actions["Sneeze"].Enable();
+        }
+    }
+
+    public void DisableSneezeAction()
+    {
+        if (_playerInput.currentActionMap.name == "Player")
+        {
+            _playerInput.actions["Sneeze"].Disable();
+        }
+    }
+
     private void Awake()
     {
         _playerInput = GetComponent<PlayerInput>();

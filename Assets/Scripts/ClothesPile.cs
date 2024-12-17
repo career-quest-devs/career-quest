@@ -11,7 +11,7 @@ public class ClothesPile : MonoBehaviour
     public void Declutter()
     {
         // Trigger the declutter animation
-        _clothesAnimator.SetBool("IsDecluttering", true);
+        _clothesAnimator.SetTrigger("Declutter");
 
         //Reveal hidden item if exist
         if (hiddenItem != null)

@@ -719,6 +719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f67a47de8e99757468d66640ccbc36e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isEnabled: 1
   _moveSpeed: 5
 --- !u!114 &8850614593325717080
 MonoBehaviour:
@@ -733,6 +734,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnabled: 0
+  _player: {fileID: 1077020468534594466}
+  _playerMovement: {fileID: 7573037557291600384}
 --- !u!114 &5968774838078200962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -745,4 +748,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 856283134d99d7c47978539fbead1246, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnabled: 0
+  OnPickUpInRange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Level1Manager, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDoorInRange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Level1Manager, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

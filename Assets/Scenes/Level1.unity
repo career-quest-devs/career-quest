@@ -492,11 +492,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dcb3a0e778bb5a468fa77751c7e6444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _doorClose: {fileID: 1157188694}
-  _doorOpen: {fileID: 1703598898}
   OnInteracted:
     m_PersistentCalls:
       m_Calls: []
+  _doorClose: {fileID: 1157188694}
+  _doorOpen: {fileID: 1703598898}
 --- !u!1 &165066612
 GameObject:
   m_ObjectHideFlags: 0
@@ -1287,7 +1287,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &463126176
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1772,7 +1772,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2720246334576746279, guid: 60c9dcf04e995ec4790d69904ebba875, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 26.98
+      value: 27.29
       objectReference: {fileID: 0}
     - target: {fileID: 2720246334576746279, guid: 60c9dcf04e995ec4790d69904ebba875, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2554,116 +2554,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 317328035}
     - target: {fileID: 5968774838078200962, guid: e977fbfee6827bb45a055b5af47338fb, type: 3}
-      propertyPath: InProximity.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5968774838078200962, guid: e977fbfee6827bb45a055b5af47338fb, type: 3}
-      propertyPath: InPickUpRange.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5968774838078200962, guid: e977fbfee6827bb45a055b5af47338fb, type: 3}
-      propertyPath: OnDoorInRange.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5968774838078200962, guid: e977fbfee6827bb45a055b5af47338fb, type: 3}
-      propertyPath: OnPickUpInRange.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5968774838078200962, guid: e977fbfee6827bb45a055b5af47338fb, type: 3}
-      propertyPath: InProximity.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5968774838078200962, guid: e977fbfee6827bb45a055b5af47338fb, type: 3}
-      propertyPath: InPickUpRange.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5968774838078200962, guid: e977fbfee6827bb45a055b5af47338fb, type: 3}
-      propertyPath: InProximity.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 317328035}
-    - target: {fileID: 5968774838078200962, guid: e977fbfee6827bb45a055b5af47338fb, type: 3}
-      propertyPath: OnDoorInRange.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5968774838078200962, guid: e977fbfee6827bb45a055b5af47338fb, type: 3}
-      propertyPath: InPickUpRange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 317328035}
-    - target: {fileID: 5968774838078200962, guid: e977fbfee6827bb45a055b5af47338fb, type: 3}
       propertyPath: OnDoorInRange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 317328035}
-    - target: {fileID: 5968774838078200962, guid: e977fbfee6827bb45a055b5af47338fb, type: 3}
-      propertyPath: OnPickUpInRange.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5968774838078200962, guid: e977fbfee6827bb45a055b5af47338fb, type: 3}
-      propertyPath: InProximity.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5968774838078200962, guid: e977fbfee6827bb45a055b5af47338fb, type: 3}
-      propertyPath: InProximity.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: EnablePickUpInteraction
-      objectReference: {fileID: 0}
     - target: {fileID: 5968774838078200962, guid: e977fbfee6827bb45a055b5af47338fb, type: 3}
       propertyPath: OnPickUpInRange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 317328035}
     - target: {fileID: 5968774838078200962, guid: e977fbfee6827bb45a055b5af47338fb, type: 3}
-      propertyPath: InPickUpRange.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5968774838078200962, guid: e977fbfee6827bb45a055b5af47338fb, type: 3}
-      propertyPath: OnDoorInRange.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5968774838078200962, guid: e977fbfee6827bb45a055b5af47338fb, type: 3}
-      propertyPath: InPickUpRange.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: EnablePickUpInteraction
-      objectReference: {fileID: 0}
-    - target: {fileID: 5968774838078200962, guid: e977fbfee6827bb45a055b5af47338fb, type: 3}
       propertyPath: OnDoorInRange.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: EnableOpenDoorInteraction
       objectReference: {fileID: 0}
     - target: {fileID: 5968774838078200962, guid: e977fbfee6827bb45a055b5af47338fb, type: 3}
-      propertyPath: OnPickUpInRange.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5968774838078200962, guid: e977fbfee6827bb45a055b5af47338fb, type: 3}
       propertyPath: OnPickUpInRange.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: EnablePickUpInteraction
-      objectReference: {fileID: 0}
-    - target: {fileID: 5968774838078200962, guid: e977fbfee6827bb45a055b5af47338fb, type: 3}
-      propertyPath: InProximity.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Level1Manager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5968774838078200962, guid: e977fbfee6827bb45a055b5af47338fb, type: 3}
-      propertyPath: InPickUpRange.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Level1Manager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5968774838078200962, guid: e977fbfee6827bb45a055b5af47338fb, type: 3}
-      propertyPath: OnDoorInRange.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Level1Manager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5968774838078200962, guid: e977fbfee6827bb45a055b5af47338fb, type: 3}
-      propertyPath: OnPickUpInRange.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Level1Manager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5968774838078200962, guid: e977fbfee6827bb45a055b5af47338fb, type: 3}
-      propertyPath: InProximity.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 5968774838078200962, guid: e977fbfee6827bb45a055b5af47338fb, type: 3}
-      propertyPath: InPickUpRange.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 5968774838078200962, guid: e977fbfee6827bb45a055b5af47338fb, type: 3}
-      propertyPath: OnDoorInRange.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 5968774838078200962, guid: e977fbfee6827bb45a055b5af47338fb, type: 3}
-      propertyPath: OnPickUpInRange.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 9150067235073022066, guid: e977fbfee6827bb45a055b5af47338fb, type: 3}
       propertyPath: m_Name
@@ -10856,7 +10760,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2039352567
 MonoBehaviour:
   m_ObjectHideFlags: 0
