@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _mobileControls;
     [SerializeField] private GameObject _sneezeButton;
     [SerializeField] private GameObject _pickUpButton;
+    [SerializeField] private GameObject _openButton;
 
     [Header("Player")]
     [SerializeField] private PlayerInteract _playerInteract;
@@ -64,6 +65,11 @@ public class UIManager : MonoBehaviour
         _pickUpButton.SetActive(isVisible);
     }
 
+    public void SetOpenButtonVisibility(bool isVisible)
+    {
+        _openButton.SetActive(isVisible);
+    }
+
     private void Awake()
     {
         _dialogQueue = new Queue<string>();
@@ -94,5 +100,6 @@ public class UIManager : MonoBehaviour
     {
         EndDialog();
         SetPickUpButtonVisibility(false);
+        SetOpenButtonVisibility(false);
     }
 }

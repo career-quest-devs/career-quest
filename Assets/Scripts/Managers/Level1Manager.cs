@@ -9,33 +9,33 @@ public class Level1Manager : MonoBehaviour
     [SerializeField] private UIManager _uIManager;
     [SerializeField] private PlayerController _player;
     [SerializeField] private PlayerSneeze _playerSneeze;
-    [SerializeField] private Computer _computer;
 
     private bool initiateSneeze = false;
     private bool initiateComputerTrigger = false;
 
     // Dialog collection
-    private string[] introDialog = new string[4]
+    private string[] _introDialog = new string[4]
     {
         "Alex: What a beautiful Sunday morning.",
         "Alex: I'm looking forward to a lazy, relaxing day before my big interview tomorrow.",
         "Alex: Wait, I just heard a reminder alert on my laptop.",
         "Alex: I better go check it out."
     };
-    private string[] sneezeTriggerDialog = new string[1]
+    private string[] _sneezeTriggerDialog = new string[1]
     {
         "Alex: This shelf is really dusty. Ah... ah... ah... choo!"
     };
-    private string[] sneezeTutorialDialog = new string[2]
+    private string[] _sneezeTutorialDialog = new string[2]
     {
         "New skill acquired: Super Sneeze",
         "You can use Super Sneeze by pressing spacebar."
     };
-    private string[] sneezeTutorialDialogMobile = new string[1]
+    private string[] _sneezeTutorialDialogMobile = new string[2]
     {
+        "New skill acquired: Super Sneeze",
         "New skill acquired: Super Sneeze"
     };
-    private string[] computerDialog = new string[5]
+    private string[] _computerDialog = new string[5]
     {
         "Computer: Appointment Alert - Interview at 10am today.",
         "Alex: What?!? Today is Monday!",
@@ -43,9 +43,13 @@ public class Level1Manager : MonoBehaviour
         "Alex: I need to quickly find my tie, lucky socks and résumé.",
         "Alex: They have to be around here somewhere."
     };
-    private string[] pickUpDialog = new string[1]
+    private string[] _pickUpDialog = new string[1]
     {
         "Press E to pick up item."
+    };
+    private string[] _openDoorDialog = new string[1]
+    {
+        "Press E to open the door."
     };
 
     public void DisplayNextDialogLine(InputAction.CallbackContext context)
@@ -74,7 +78,7 @@ public class Level1Manager : MonoBehaviour
     public void StartSneezeTriggerDialog()
     {
         _player.SwitchToUIActionMap();
-        _uIManager.StartDialog(sneezeTriggerDialog);
+        _uIManager.StartDialog(_sneezeTriggerDialog);
         _playerSneeze.isEnabled = true;
         initiateSneeze = true;
     }
@@ -82,7 +86,7 @@ public class Level1Manager : MonoBehaviour
     public void StartComputerDialog()
     {
         _player.SwitchToUIActionMap();
-        _uIManager.StartDialog(computerDialog);
+        _uIManager.StartDialog(_computerDialog);
     }
 
     public void EnablePickUpInteraction()
@@ -93,7 +97,19 @@ public class Level1Manager : MonoBehaviour
         }
         else
         {
-            _uIManager.StartDialog(pickUpDialog);
+            _uIManager.StartDialog(_pickUpDialog);
+        }
+    }
+
+    public void EnableOpenDoorInteraction()
+    {
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            _uIManager.SetOpenButtonVisibility(true);
+        }
+        else
+        {
+            _uIManager.StartDialog(_openDoorDialog);
         }
     }
 
@@ -104,6 +120,7 @@ public class Level1Manager : MonoBehaviour
             //Set visibility for mobile action buttons to false
             _uIManager.SetSneezeButtonVisibility(false);
             _uIManager.SetPickUpButtonVisibility(false);
+            _uIManager.SetOpenButtonVisibility(false);
         }
 
         StartIntroDialog();
@@ -112,7 +129,7 @@ public class Level1Manager : MonoBehaviour
     private void StartIntroDialog()
     {
         _player.SwitchToUIActionMap();
-        _uIManager.StartDialog(introDialog);
+        _uIManager.StartDialog(_introDialog);
     }
 
     private void StartSneezeTutorialDialog()
@@ -122,11 +139,11 @@ public class Level1Manager : MonoBehaviour
         if (Application.platform == RuntimePlatform.Android)
         {
             _uIManager.SetSneezeButtonVisibility(true);
-            _uIManager.StartDialog(sneezeTutorialDialogMobile);
+            _uIManager.StartDialog(_sneezeTutorialDialogMobile);
         }
         else
         {
-            _uIManager.StartDialog(sneezeTutorialDialog);
+            _uIManager.StartDialog(_sneezeTutorialDialog);
         }
 
         initiateComputerTrigger = true;

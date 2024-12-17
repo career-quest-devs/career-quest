@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 public class PlayerInteract : MonoBehaviour
 {
     public UnityEvent OnPickUpInRange;
+    public UnityEvent OnDoorInRange;
     public Action OnInteracted;
 
     private IInteractable _interactableObject;
@@ -29,12 +30,17 @@ public class PlayerInteract : MonoBehaviour
             _interactableObject = collision.gameObject.GetComponent<IInteractable>();
             OnPickUpInRange?.Invoke();
         }
+        else if (collision.CompareTag("Door"))
+        {
+            _interactableObject = collision.gameObject.GetComponent<IInteractable>();
+            OnDoorInRange?.Invoke();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         // Reset if the player leaves the interaction range
-        if (collision.CompareTag("HiddenItem"))
+        if (collision.CompareTag("HiddenItem") || collision.CompareTag("Door"))
         {
             _interactableObject = null;
             OnInteracted();
