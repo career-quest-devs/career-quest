@@ -38,8 +38,9 @@ public class SceneChange : MonoBehaviour
 
     [SerializeField] private int miniLevelIndex;
 
+    public int lastScene;
+
     DataTracker data;
-    int lastScene;
     List<int> loadNext = new List<int> { 0,1 };
 
     private void Start()
@@ -63,5 +64,11 @@ public class SceneChange : MonoBehaviour
             // Mini Level
             SceneManager.LoadScene(miniLevelIndex);
         }
+    }
+
+    public void MiniNextScene()
+    {
+        Debug.Log(lastScene++);
+        //SceneManager.LoadScene(lastScene++);
     }
 }
