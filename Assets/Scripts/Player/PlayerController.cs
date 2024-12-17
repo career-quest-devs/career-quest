@@ -61,6 +61,15 @@ public class PlayerController : MonoBehaviour
             HasTie = true;
             InitStateChange();
         }
+        else if (collision.CompareTag("Socks"))
+        {
+            HasSocks = true;
+            InitStateChange();
+        }
+        else if (collision.CompareTag("Resume"))
+        {
+            HasResume = true;
+        }
     }
 
     private void Update()

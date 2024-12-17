@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - ClothesPile
   - Tie
+  - Socks
+  - Resume
   layers:
   - Default
   - TransparentFX
