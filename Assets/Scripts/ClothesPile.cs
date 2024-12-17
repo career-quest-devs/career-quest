@@ -19,7 +19,7 @@ public class ClothesPile : MonoBehaviour
             StartCoroutine(RevealHiddenItem());
         }
 
-        // Optionally, disable interaction after decluttering
+        // Disable interaction after decluttering
         GetComponent<Collider2D>().enabled = false;
     }
 

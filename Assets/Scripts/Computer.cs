@@ -7,17 +7,11 @@ public class Computer : MonoBehaviour
 {
     public UnityEvent OnComputerLoggedIn;
 
-    private Collider2D _collider;
-
-    public void EnableCollider()
-    {
-        _collider.enabled = true;
-    }
+    private BoxCollider2D _collider;
 
     private void Start()
     {
-        _collider = GetComponent<Collider2D>();
-        _collider.enabled = false;
+        _collider = GetComponent<BoxCollider2D>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

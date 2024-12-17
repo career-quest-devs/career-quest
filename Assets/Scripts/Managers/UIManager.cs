@@ -7,7 +7,6 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     [Header("Dialog UI")]
-    public int dialogIndex;
     [SerializeField] private GameObject _dialogBox;
     [SerializeField] private TMP_Text _dialogText;
 
@@ -18,10 +17,14 @@ public class UIManager : MonoBehaviour
     [Header("Mobile Controls")]
     [SerializeField] private GameObject _mobileControls;
     [SerializeField] private GameObject _sneezeButton;
+    [SerializeField] private GameObject _pickUpButton;
+
+    [Header("Player")]
+    [SerializeField] private PlayerInteract _playerInteract;
 
     private Queue<string> _dialogQueue;
 
-    public void StartDialogue(string[] dialogLines)
+    public void StartDialog(string[] dialogLines)
     {
         _dialogQueue.Clear();
         foreach (string line in dialogLines)
@@ -56,6 +59,11 @@ public class UIManager : MonoBehaviour
         _sneezeButton.SetActive(isVisible);
     }
 
+    public void SetPickUpButtonVisibility(bool isVisible)
+    {
+        _pickUpButton.SetActive(isVisible);
+    }
+
     private void Awake()
     {
         _dialogQueue = new Queue<string>();
@@ -70,9 +78,21 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        //Add subscription
+        _playerInteract.OnInteracted += EndInteration;
+    }
+
     private void Update()
     {
         //Update timer text
         _timerText.text = _timer.GetTime();
+    }
+
+    private void EndInteration()
+    {
+        EndDialog();
+        SetPickUpButtonVisibility(false);
     }
 }

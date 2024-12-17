@@ -6,9 +6,7 @@ TagManager:
   tags:
   - Ground
   - ClothesPile
-  - Tie
-  - Socks
-  - Resume
+  - HiddenItem
   layers:
   - Default
   - TransparentFX

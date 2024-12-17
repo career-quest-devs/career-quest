@@ -5,9 +5,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerSneeze : MonoBehaviour
 {
+    [HideInInspector]
     public bool isEnabled = false;
 
-    private PlayerController _player;
     private GameObject _nearbyClothes; // Tracks the clothes pile in range
 
     public void Sneeze()
@@ -35,11 +35,6 @@ public class PlayerSneeze : MonoBehaviour
         {
             Sneeze();
         }
-    }
-
-    private void Start()
-    {
-        _player = GetComponent<PlayerController>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

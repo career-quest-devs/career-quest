@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     public Animator tieAnimator;
     public Animator socksAnimator;
     public Animator tieAndSocksAnimator;
+
+    [HideInInspector]
     public Animator currentAnimator;
 
     private PlayerState _currentState;
@@ -23,6 +25,23 @@ public class PlayerController : MonoBehaviour
     public bool HasTie { get; private set; }
     public bool HasSocks { get; private set; }
     public bool HasResume { get; private set; }
+
+    public void CollectTie()
+    {
+        HasTie = true;
+        InitStateChange();
+    }
+
+    public void CollectSocks()
+    {
+        HasSocks = true;
+        InitStateChange();
+    }
+
+    public void CollectResume()
+    {
+        HasResume = true;
+    }
 
     public void SetAppearance(GameObject sprite, Animator animator)
     {
@@ -52,24 +71,6 @@ public class PlayerController : MonoBehaviour
     {
         // Set initial PlayerState to default
         ChangeState(new PlayerDefaultState(this));
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Tie"))
-        {
-            HasTie = true;
-            InitStateChange();
-        }
-        else if (collision.CompareTag("Socks"))
-        {
-            HasSocks = true;
-            InitStateChange();
-        }
-        else if (collision.CompareTag("Resume"))
-        {
-            HasResume = true;
-        }
     }
 
     private void Update()
