@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 363f7131fa5737340858cca6b46253d5
+guid: 38af9b0b43eef564fbea2cbf40dc5ea9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,106 +97,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Asset_charWalking_Left_0
+      name: Asset_charDushing_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 11
-        width: 434
-        height: 1410
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6d83f442f24eb34438ecb2047b4e7a81
-      internalID: 886456977
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Asset_charWalking_Left_1
-      rect:
-        serializedVersion: 2
-        x: 463
-        y: 5
-        width: 569
-        height: 1384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d43ecb4be4d638f41a9b9aefb861e888
-      internalID: -2031369575
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Asset_charWalking_Left_2
-      rect:
-        serializedVersion: 2
-        x: 1031
-        y: 9
-        width: 469
-        height: 1412
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1365943697ba3624ca23b460a32facba
-      internalID: -2006639870
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Asset_charWalking_Left_3
-      rect:
-        serializedVersion: 2
-        x: 1501
+        x: 0
         y: 0
-        width: 448
-        height: 1461
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 1773.6666
+        height: 1711
+      alignment: 9
+      pivot: {x: 0.44633275, y: 0.49793944}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63a7c6a6314417b478dd89760371de0c
-      internalID: -935009210
+      spriteID: 2e1f5fa7720550e43a8d2dcc37f70ba0
+      internalID: -1411467615
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Asset_charWalking_Left_4
+      name: Asset_charDushing_1
       rect:
         serializedVersion: 2
-        x: 1960
-        y: 2
-        width: 447
-        height: 1419
+        x: 1773
+        y: 0
+        width: 1773.6666
+        height: 1711
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5009e376b47a410418740deeb5419b95
-      internalID: -1043952516
+      spriteID: ee5956acb846a40468f9254f40b0aff0
+      internalID: -1130513801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset_charDushing_2
+      rect:
+        serializedVersion: 2
+        x: 3546
+        y: 0
+        width: 1773.6666
+        height: 1711
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 977b5440290868240909e62305a23698
+      internalID: 150814927
       vertices: []
       indices: 
       edges: []
@@ -212,11 +170,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Asset_charWalking_Left_0: 886456977
-      Asset_charWalking_Left_1: -2031369575
-      Asset_charWalking_Left_2: -2006639870
-      Asset_charWalking_Left_3: -935009210
-      Asset_charWalking_Left_4: -1043952516
+      Asset_charDushing_0: -1411467615
+      Asset_charDushing_1: -1130513801
+      Asset_charDushing_2: 150814927
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
