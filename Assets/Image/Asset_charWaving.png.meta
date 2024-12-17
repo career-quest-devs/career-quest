@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f65b1b75cff120547901bf5f19972cf0
+guid: a3883d9fcb95ff44eb75bf72b534e3b2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,64 +97,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Asset_charSneezing_0
+      name: Asset_charWaving_0
       rect:
         serializedVersion: 2
-        x: 2
+        x: 0
         y: 0
-        width: 1035
-        height: 1388
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 322
+        height: 1532
+      alignment: 9
+      pivot: {x: 0.5158513, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3deff9f59dc24cb42a1eb767f7e84e79
-      internalID: 397452379
+      spriteID: 038be2059c58efc418adf4ca6836e7eb
+      internalID: 1845748114
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Asset_charSneezing_1
+      name: Asset_charWaving_1
       rect:
         serializedVersion: 2
-        x: 1355
-        y: 17
-        width: 1226
-        height: 1093
+        x: 689
+        y: 0
+        width: 545
+        height: 1532
       alignment: 9
-      pivot: {x: 0.53033656, y: 0.5939809}
+      pivot: {x: 0.3080106, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e85c28d2a27690469ff0bf317f31bf5
-      internalID: -1528718778
+      spriteID: 6a235393a49b44d4a9704e89cdf5d216
+      internalID: 823580970
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Asset_charSneezing_2
+      name: Asset_charWaving_2
       rect:
         serializedVersion: 2
-        x: 2906
-        y: 14
-        width: 1149
-        height: 1141
+        x: 1380
+        y: 0
+        width: 615
+        height: 1532
       alignment: 9
-      pivot: {x: 0.4953764, y: 0.54811805}
+      pivot: {x: 0.27591702, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8fa26d7a90c02a4186adc658b947573
-      internalID: 1252832616
+      spriteID: ced09b9a682cea844beaa03a313554f9
+      internalID: 666657245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset_charWaving_3
+      rect:
+        serializedVersion: 2
+        x: 2173
+        y: 0
+        width: 545
+        height: 1532
+      alignment: 9
+      pivot: {x: 0.30801094, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75e0801a2508ca44d8c6c114252ddda1
+      internalID: -1778352870
       vertices: []
       indices: 
       edges: []
@@ -170,9 +191,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Asset_charSneezing_0: 397452379
-      Asset_charSneezing_1: -1528718778
-      Asset_charSneezing_2: 1252832616
+      Asset_charWaving_0: 1845748114
+      Asset_charWaving_1: 823580970
+      Asset_charWaving_2: 666657245
+      Asset_charWaving_3: -1778352870
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
