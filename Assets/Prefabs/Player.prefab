@@ -439,6 +439,7 @@ GameObject:
   - component: {fileID: 1077020468534594466}
   - component: {fileID: 7573037557291600384}
   - component: {fileID: 8850614593325717080}
+  - component: {fileID: 5968774838078200962}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -497,8 +498,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.18377133, y: 0.0765706}
-  m_Size: {x: 3.205258, y: 14.098287}
+  m_Offset: {x: 0.016034905, y: -0.016617147}
+  m_Size: {x: 3.5407305, y: 14.284659}
   m_Direction: 0
 --- !u!50 &7519063111106274487
 Rigidbody2D:
@@ -648,6 +649,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 1a5348a0-e346-4790-a868-e93ce6088101
     m_ActionName: Player/Timer Reset[/Keyboard/p]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Level1Manager, Assembly-CSharp
+        m_MethodName: DisplayNextDialogLine
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 1dae356e-5074-460e-b9ba-d56fefe6ae09
+    m_ActionName: UI/TapAnywhere[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5968774838078200962}
+        m_TargetAssemblyTypeName: PlayerInteract, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b513e958-a918-4eac-895e-5b319a71eb4e
+    m_ActionName: Player/Interact[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -686,8 +719,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f67a47de8e99757468d66640ccbc36e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isEnabled: 1
   _moveSpeed: 5
-  _player: {fileID: 1077020468534594466}
 --- !u!114 &8850614593325717080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -700,4 +733,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeb5a2feeeb2647408824121c0aa070e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isEnabled: 0
   _player: {fileID: 1077020468534594466}
+  _playerMovement: {fileID: 7573037557291600384}
+--- !u!114 &5968774838078200962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9150067235073022066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 856283134d99d7c47978539fbead1246, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnPickUpInRange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Level1Manager, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDoorInRange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Level1Manager, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
