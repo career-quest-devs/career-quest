@@ -8,6 +8,7 @@ TagManager:
   - ClothesPile
   - HiddenItem
   - Door
+  - BlockedNeighbour
   layers:
   - Default
   - TransparentFX
