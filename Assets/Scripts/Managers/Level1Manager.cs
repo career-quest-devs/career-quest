@@ -79,7 +79,7 @@ public class Level1Manager : MonoBehaviour
     {
         _player.SwitchToUIActionMap();
         _uIManager.StartDialog(_sneezeTriggerDialog);
-        _playerSneeze.isEnabled = true;
+        _playerSneeze.ActivateSneeze();
         initiateSneeze = true;
     }
 
@@ -119,6 +119,8 @@ public class Level1Manager : MonoBehaviour
         {
             //Set visibility for mobile action buttons to false
             _uIManager.SetSneezeButtonVisibility(false);
+            _uIManager.SetWaveButtonVisibility(false);
+            _uIManager.SetDashButtonVisibility(false);
             _uIManager.SetPickUpButtonVisibility(false);
             _uIManager.SetOpenButtonVisibility(false);
         }

@@ -166,3 +166,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hiddenItem: {fileID: 0}
+  _revealItemDelay: 0.2

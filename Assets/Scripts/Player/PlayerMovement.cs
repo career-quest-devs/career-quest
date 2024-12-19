@@ -37,18 +37,21 @@ public class PlayerMovement : MonoBehaviour
         {
             _player.currentAnimator.SetBool("IsWalking", true);
             _player.currentAnimator.SetBool("IsGoingRight", true);
+            _player.EnableDashAction(); // Enable dash action when moving
             _player.DisableSneezeAction(); // Disable sneeze action when moving
         }
         else if (_moveInput.x < 0)
         {
             _player.currentAnimator.SetBool("IsWalking", true);
             _player.currentAnimator.SetBool("IsGoingRight", false);
+            _player.EnableDashAction(); // Enable dash action when moving
             _player.DisableSneezeAction(); // Disable sneeze action when moving
         }
         else
         {
             _player.currentAnimator.SetBool("IsWalking", false);
             _player.EnableSneezeAction(); // Enable sneeze action when not moving
+            _player.DisableDashAction(); // Disable dash action when not moving
         }
     }
 }

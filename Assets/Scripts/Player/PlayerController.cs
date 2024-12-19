@@ -78,6 +78,22 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void EnableDashAction()
+    {
+        if (_playerInput.currentActionMap.name == "Player")
+        {
+            _playerInput.actions["Dash"].Enable();
+        }
+    }
+
+    public void DisableDashAction()
+    {
+        if (_playerInput.currentActionMap.name == "Player")
+        {
+            _playerInput.actions["Dash"].Disable();
+        }
+    }
+
     private void Awake()
     {
         _playerInput = GetComponent<PlayerInput>();
