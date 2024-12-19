@@ -24,6 +24,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "b513e958-a918-4eac-895e-5b319a71eb4e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Dialog",
                     "type": "Button",
                     "id": "885e371b-2ad5-457b-a60e-22fde0d1a938",
@@ -245,6 +254,78 @@
                     "processors": "",
                     "groups": "",
                     "action": "Timer Reset",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f575b41d-b4bc-4b99-85e2-c4918a003926",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "26283074-2333-4a89-bf26-93005415980b",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "c9dabfd9-f838-46af-986a-f9a8c7c30f24",
+            "actions": [
+                {
+                    "name": "TapAnywhere",
+                    "type": "Button",
+                    "id": "1dae356e-5074-460e-b9ba-d56fefe6ae09",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "36e16cf8-4ce0-49e0-9c3f-f75445528a4e",
+                    "path": "<Keyboard>/anyKey",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TapAnywhere",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7329b3ff-f20b-4621-96bd-e4ff7652163b",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TapAnywhere",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "caef318d-8f9b-4cb3-80ac-c4cd8b20ced9",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TapAnywhere",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

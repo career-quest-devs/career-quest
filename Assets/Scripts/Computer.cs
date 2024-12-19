@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class DustyObject : MonoBehaviour
+public class Computer : MonoBehaviour
 {
-    public UnityEvent OnDustDisturbed;
-
-    [SerializeField] private ParticleSystem _dustParticles;
+    public UnityEvent OnComputerLoggedIn;
 
     private BoxCollider2D _collider;
 
@@ -18,11 +16,10 @@ public class DustyObject : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && !_dustParticles.isPlaying)
+        if (collision.CompareTag("Player"))
         {
-            _dustParticles.Play();
+            OnComputerLoggedIn?.Invoke();
             _collider.enabled = false;
-            OnDustDisturbed?.Invoke();
         }
     }
 }

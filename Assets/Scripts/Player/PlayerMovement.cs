@@ -37,16 +37,18 @@ public class PlayerMovement : MonoBehaviour
         {
             _player.currentAnimator.SetBool("IsWalking", true);
             _player.currentAnimator.SetBool("IsGoingRight", true);
+            _player.DisableSneezeAction(); // Disable sneeze action when moving
         }
         else if (_moveInput.x < 0)
         {
             _player.currentAnimator.SetBool("IsWalking", true);
             _player.currentAnimator.SetBool("IsGoingRight", false);
+            _player.DisableSneezeAction(); // Disable sneeze action when moving
         }
         else
         {
             _player.currentAnimator.SetBool("IsWalking", false);
+            _player.EnableSneezeAction(); // Enable sneeze action when not moving
         }
-
     }
 }
