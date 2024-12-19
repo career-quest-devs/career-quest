@@ -6,6 +6,8 @@ public class ClothesPile : MonoBehaviour
 {
     public GameObject hiddenItem;
 
+    [SerializeField] private float _revealItemDelay = 0.1f;
+
     private Animator _clothesAnimator;
 
     public void Declutter()
@@ -30,7 +32,7 @@ public class ClothesPile : MonoBehaviour
 
     private IEnumerator RevealHiddenItem()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(_revealItemDelay);
         hiddenItem.SetActive(true);
     }
 }

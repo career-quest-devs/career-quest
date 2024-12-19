@@ -8,6 +8,8 @@ public class PlayerSneeze : MonoBehaviour
     [HideInInspector]
     public bool isEnabled = false;
 
+    [SerializeField] private float _declutterDelay = 0.5f;
+
     private PlayerController _player;
     private GameObject _nearbyClothes; // Tracks the clothes pile in range
 
@@ -59,7 +61,7 @@ public class PlayerSneeze : MonoBehaviour
 
     private IEnumerator DeclutterClothes()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(_declutterDelay);
         ClothesPile clothesPile = _nearbyClothes.GetComponent<ClothesPile>();
         if (clothesPile != null)
         {
