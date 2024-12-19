@@ -4,42 +4,56 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    float currentTime = 0;
-    bool timerOn = false;
+    public int startTime = 1800; // Set countdown start time (in seconds)
+    public float timeRemaining;
+
+    private bool _timerOn = false;
 
     public void OnTimerPlay()
     {
-        timerOn = true;
+        _timerOn = true;
     }
 
     public void OnTimerPause()
     {
-        timerOn = false;
+        _timerOn = false;
     }
 
     public void OnTimerReset()
     {
-        currentTime = 0;
-        timerOn = false;
+        timeRemaining = startTime;
+        _timerOn = false;
+    }
+
+    private void Start()
+    {
+        timeRemaining = startTime;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (timerOn)
+        if (_timerOn)
         {
-            currentTime += Time.deltaTime;
+            // Decrease time remaining
+            timeRemaining -= Time.deltaTime;
+
+            if (timeRemaining <= 0.0f)
+            {
+                timeRemaining = 0.0f;
+                _timerOn = false;
+            }
         }
     }
 
     public string GetTime()
     {
-        //Formats current time into the form 0:00, the D2 specifies fill with zeroes, could add to first term.
-        return string.Format("{0}:{1:D2}", (int)currentTime/60, (int)currentTime%60);
-    }
+        // Convert time remaining to minutes and seconds
+        int minutes = Mathf.FloorToInt(timeRemaining / 60);
+        int seconds = Mathf.FloorToInt(timeRemaining % 60);
 
-    public void NextLevel() //Adds the level's time to the total (if we have the ability to go back to old levels, I'll rework this to take best time of each level)
-    {
-        PlayerPrefs.SetFloat("TotalTime", PlayerPrefs.GetFloat("TotalTime") + currentTime);
+        //Formats current time into the form 0:00, the D2 specifies fill with zeroes, could add to first term.
+        //return string.Format("{0}:{1:D2}", (int)_currentTime/60, (int)_currentTime%60);
+        return $"{minutes:00}:{seconds:00}";
     }
 }

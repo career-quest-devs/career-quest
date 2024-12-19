@@ -82,6 +82,12 @@ public class UIManager : MonoBehaviour
         _openButton.SetActive(isVisible);
     }
 
+    public void StartTimer()
+    {
+        _timerText.gameObject.SetActive(true);
+        _timer.OnTimerPlay();
+    }
+
     private void Awake()
     {
         _dialogQueue = new Queue<string>();
@@ -106,6 +112,11 @@ public class UIManager : MonoBehaviour
     {
         //Update timer text
         _timerText.text = _timer.GetTime();
+
+        if (_timer.timeRemaining <= 60.0f)
+        {
+            _timerText.color = Color.red;
+        }
     }
 
     private void EndInteration()

@@ -9,9 +9,10 @@ public class Level1Manager : MonoBehaviour
     [SerializeField] private UIManager _uIManager;
     [SerializeField] private PlayerController _player;
     [SerializeField] private PlayerSneeze _playerSneeze;
+    [SerializeField] private float _computerDialogDelay = 0.2f;
 
     private bool initiateSneeze = false;
-    private bool initiateComputerTrigger = false;
+    private bool initiateTimer = false;
 
     // Dialog collection
     private string[] _introDialog = new string[4]
@@ -37,8 +38,8 @@ public class Level1Manager : MonoBehaviour
     };
     private string[] _computerDialog = new string[5]
     {
-        "Computer: Appointment Alert - Interview at 10am today.",
-        "Alex: What?!? Today is Monday!",
+        "Computer: Appointment Alert - You have an interview in 30 minutes.",
+        "Alex: Wait, what?!? Today is Monday!",
         "Alex: I better hurry if I want to get to my interview on time.",
         "Alex: I need to quickly find my tie, lucky socks and résumé.",
         "Alex: They have to be around here somewhere."
@@ -67,9 +68,10 @@ public class Level1Manager : MonoBehaviour
                     initiateSneeze = false;
                     StartSneezeTutorialDialog();
                 }
-                else if (initiateComputerTrigger)
+                else if (initiateTimer)
                 {
-                    initiateComputerTrigger = false;
+                    _uIManager.StartTimer();
+                    initiateTimer = false;
                 }
             }
         }
@@ -83,10 +85,18 @@ public class Level1Manager : MonoBehaviour
         initiateSneeze = true;
     }
 
-    public void StartComputerDialog()
+    public void StartComputerSequence()
     {
         _player.SwitchToUIActionMap();
+        StartCoroutine(StartComputerDialog());
+    }
+
+    public IEnumerator StartComputerDialog()
+    {
+        yield return new WaitForSeconds(_computerDialogDelay);
+
         _uIManager.StartDialog(_computerDialog);
+        initiateTimer = true;
     }
 
     public void EnablePickUpInteraction()
@@ -148,6 +158,6 @@ public class Level1Manager : MonoBehaviour
             _uIManager.StartDialog(_sneezeTutorialDialog);
         }
 
-        initiateComputerTrigger = true;
+        initiateTimer = true;
     }
 }
