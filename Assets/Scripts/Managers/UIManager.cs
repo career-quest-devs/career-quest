@@ -17,6 +17,8 @@ public class UIManager : MonoBehaviour
     [Header("Mobile Controls")]
     [SerializeField] private GameObject _mobileControls;
     [SerializeField] private GameObject _sneezeButton;
+    [SerializeField] private GameObject _waveButton;
+    [SerializeField] private GameObject _dashButton;
     [SerializeField] private GameObject _pickUpButton;
     [SerializeField] private GameObject _openButton;
 
@@ -58,6 +60,16 @@ public class UIManager : MonoBehaviour
     public void SetSneezeButtonVisibility(bool isVisible)
     {
         _sneezeButton.SetActive(isVisible);
+    }
+
+    public void SetWaveButtonVisibility(bool isVisible)
+    {
+        _waveButton.SetActive(isVisible);
+    }
+
+    public void SetDashButtonVisibility(bool isVisible)
+    {
+        _dashButton.SetActive(isVisible);
     }
 
     public void SetPickUpButtonVisibility(bool isVisible)

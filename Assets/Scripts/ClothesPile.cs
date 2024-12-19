@@ -6,7 +6,7 @@ public class ClothesPile : MonoBehaviour
 {
     public GameObject hiddenItem;
 
-    [SerializeField] private float _revealItemDelay = 0.1f;
+    [SerializeField] private float _revealItemDelay = 0.2f;
 
     private Animator _clothesAnimator;
 
