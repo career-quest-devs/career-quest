@@ -440,6 +440,8 @@ GameObject:
   - component: {fileID: 7573037557291600384}
   - component: {fileID: 8850614593325717080}
   - component: {fileID: 5968774838078200962}
+  - component: {fileID: 1058962340141116693}
+  - component: {fileID: 1925254494537378045}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -681,6 +683,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: b513e958-a918-4eac-895e-5b319a71eb4e
     m_ActionName: Player/Interact[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1058962340141116693}
+        m_TargetAssemblyTypeName: PlayerWave, Assembly-CSharp
+        m_MethodName: OnWave
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 248fe9c5-d9a7-4f7a-b0b0-f68af068deb3
+    m_ActionName: Player/Wave[/Keyboard/w]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1925254494537378045}
+        m_TargetAssemblyTypeName: PlayerDash, Assembly-CSharp
+        m_MethodName: OnDash
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9a209130-83e4-48c4-a012-fec8bd679ab2
+    m_ActionName: Player/Dash[/Keyboard/shift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -719,7 +753,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f67a47de8e99757468d66640ccbc36e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnabled: 1
   _moveSpeed: 5
 --- !u!114 &8850614593325717080
 MonoBehaviour:
@@ -734,8 +767,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnabled: 0
-  _player: {fileID: 1077020468534594466}
-  _playerMovement: {fileID: 7573037557291600384}
+  _declutterDelay: 0.5
 --- !u!114 &5968774838078200962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -778,3 +810,29 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1058962340141116693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9150067235073022066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0991c12aa90e348468d1fedc3dff2bc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnabled: 1
+--- !u!114 &1925254494537378045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9150067235073022066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd9f4704b5a3e3e4f830d78a056cff2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnabled: 1
