@@ -21,7 +21,6 @@ public class MiniLevelScroll : MonoBehaviour
     void Start()
     {
         int level = SceneChange.GetInstance().lastScene;
-        Debug.Log(level);
         Debug.Log(levelToTransform[level]);
         lastLevel = miniLevels[levelToTransform[level]-1].position;
         nextLevel = miniLevels[levelToTransform[level]].position;
