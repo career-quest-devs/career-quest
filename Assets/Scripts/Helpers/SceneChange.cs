@@ -57,7 +57,7 @@ public class SceneChange : MonoBehaviour
         if (loadNext.Contains(current))
         {
             // Fade to black
-            SceneManager.LoadScene(current++);
+            SceneManager.LoadScene(current + 1);
         }
         else
         {
@@ -68,7 +68,6 @@ public class SceneChange : MonoBehaviour
 
     public void MiniNextScene()
     {
-        Debug.Log(lastScene++);
-        //SceneManager.LoadScene(lastScene++);
+        SceneManager.LoadScene(lastScene + 1);
     }
 }
