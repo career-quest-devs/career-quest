@@ -36,8 +36,6 @@ public class SceneChange : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
-    [SerializeField] private int miniLevelIndex;
-
     public int lastScene;
 
     DataTracker data;
@@ -62,7 +60,7 @@ public class SceneChange : MonoBehaviour
         else
         {
             // Mini Level
-            SceneManager.LoadScene(miniLevelIndex);
+            SceneManager.LoadScene("MiniLevels");
         }
     }
 
