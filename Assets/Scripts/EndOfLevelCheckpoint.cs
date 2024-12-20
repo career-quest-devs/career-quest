@@ -11,6 +11,7 @@ public class EndOfLevelCheckpoint : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            Debug.Log("Zone entered");
             OnLevelEnded?.Invoke();
         }
     }
