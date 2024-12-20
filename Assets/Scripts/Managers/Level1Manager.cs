@@ -9,7 +9,6 @@ public class Level1Manager : MonoBehaviour
     [SerializeField] private UIManager _uIManager;
     [SerializeField] private PlayerController _player;
     [SerializeField] private PlayerSneeze _playerSneeze;
-    [SerializeField] private float _computerDialogDelay = 0.2f;
 
     private bool initiateSneeze = false;
     private bool initiateTimer = false;
@@ -52,6 +51,13 @@ public class Level1Manager : MonoBehaviour
     {
         "Press E to open the door."
     };
+    private string[] _missingItemsDialog = new string[4]
+    {
+        "Does Alex have everything he needs for the interview?",
+        "You may continue without these items...",
+        "But there may be consequences.",
+        "Choose wisely."
+    };
 
     public void DisplayNextDialogLine(InputAction.CallbackContext context)
     {
@@ -85,16 +91,9 @@ public class Level1Manager : MonoBehaviour
         initiateSneeze = true;
     }
 
-    public void StartComputerSequence()
+    public void StartComputerDialog()
     {
         _player.SwitchToUIActionMap();
-        StartCoroutine(StartComputerDialog());
-    }
-
-    public IEnumerator StartComputerDialog()
-    {
-        yield return new WaitForSeconds(_computerDialogDelay);
-
         _uIManager.StartDialog(_computerDialog);
         initiateTimer = true;
     }
@@ -121,6 +120,17 @@ public class Level1Manager : MonoBehaviour
         {
             _uIManager.StartDialog(_openDoorDialog);
         }
+    }
+
+    public void CheckForMissingItems()
+    {
+        if (_player.HasTie && _player.HasSocks && _player.HasResume)
+        {
+            return;
+        }
+
+        _player.SwitchToUIActionMap();
+        _uIManager.StartDialog(_missingItemsDialog);
     }
 
     private void Start()
