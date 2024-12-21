@@ -69,7 +69,7 @@ public class Level2Manager : MonoBehaviour
                 if (initiateWave)
                 {
                     initiateWave = false;
-                    StartWaveTutorialDialog();
+                    //StartWaveTutorialDialog();
                 }
             }
         }
