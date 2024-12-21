@@ -1457,7 +1457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d54531977ecb194c95e2d3aa7a5d72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ControlPath: <Gamepad>/buttonEast
+  m_ControlPath: <Gamepad>/buttonSouth
 --- !u!114 &450341530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1793,9 +1793,9 @@ MonoBehaviour:
   OnLevelEnded:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2097114722}
-        m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
-        m_MethodName: NextScene
+      - m_Target: {fileID: 317328035}
+        m_TargetAssemblyTypeName: Level1Manager, Assembly-CSharp
+        m_MethodName: LoadNextScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2600,7 +2600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d54531977ecb194c95e2d3aa7a5d72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ControlPath: <Gamepad>/buttonSouth
+  m_ControlPath: <Gamepad>/buttonEast
 --- !u!1 &736325875
 GameObject:
   m_ObjectHideFlags: 0
@@ -11825,7 +11825,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42473255a2374114a8bf59b18fc7d220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  miniLevelIndex: 0
   lastScene: 0
 --- !u!1 &2116871792
 GameObject:
@@ -12005,8 +12004,8 @@ SceneRoots:
   - {fileID: 208076546}
   - {fileID: 1119093187}
   - {fileID: 1196031006}
-  - {fileID: 736325876}
   - {fileID: 937206829}
   - {fileID: 2039352570}
+  - {fileID: 736325876}
   - {fileID: 847281847}
   - {fileID: 644766984}

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Level1Manager : MonoBehaviour
 {
@@ -28,7 +29,7 @@ public class Level1Manager : MonoBehaviour
     private string[] _sneezeTutorialDialog = new string[2]
     {
         "New skill acquired: Super Sneeze",
-        "You can use Super Sneeze by pressing spacebar."
+        "You can use Super Sneeze by pressing S."
     };
     private string[] _sneezeTutorialDialogMobile = new string[2]
     {
@@ -131,6 +132,11 @@ public class Level1Manager : MonoBehaviour
 
         _player.SwitchToUIActionMap();
         _uIManager.StartDialog(_missingItemsDialog);
+    }
+
+    public void LoadNextScene()
+    {
+        SceneManager.LoadScene("LevelFinal");
     }
 
     private void Start()

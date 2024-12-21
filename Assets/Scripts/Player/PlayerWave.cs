@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerWave : MonoBehaviour
 {
     private PlayerController _player;
-    private bool _isActive;
+    private bool _isActive = false;
 
     public void ActivateWave()
     {
@@ -33,6 +33,5 @@ public class PlayerWave : MonoBehaviour
     private void Start()
     {
         _player = GetComponent<PlayerController>();
-        _isActive = false;
     }
 }
