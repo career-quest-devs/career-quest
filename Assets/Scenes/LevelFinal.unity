@@ -200,6 +200,40 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &223050053
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 223050054}
+  m_Layer: 0
+  m_Name: Windows
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &223050054
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223050053}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1164767630}
+  - {fileID: 2010169606}
+  - {fileID: 864523869}
+  m_Father: {fileID: 1835058691}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &246066037
 GameObject:
   m_ObjectHideFlags: 0
@@ -1291,7 +1325,7 @@ GameObject:
   - component: {fileID: 864523869}
   - component: {fileID: 864523870}
   m_Layer: 0
-  m_Name: Window (2)
+  m_Name: Window 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1310,7 +1344,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1835058691}
+  m_Father: {fileID: 223050054}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &864523870
 SpriteRenderer:
@@ -1982,7 +2016,7 @@ GameObject:
   - component: {fileID: 1164767630}
   - component: {fileID: 1164767631}
   m_Layer: 0
-  m_Name: Window
+  m_Name: Window 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2001,7 +2035,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1835058691}
+  m_Father: {fileID: 223050054}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1164767631
 SpriteRenderer:
@@ -3051,9 +3085,7 @@ Transform:
   - {fileID: 995897764}
   - {fileID: 571685277}
   - {fileID: 1616657010}
-  - {fileID: 1164767630}
-  - {fileID: 2010169606}
-  - {fileID: 864523869}
+  - {fileID: 223050054}
   - {fileID: 1379331413}
   - {fileID: 1914988852}
   - {fileID: 443697007}
@@ -3288,7 +3320,7 @@ GameObject:
   - component: {fileID: 2010169606}
   - component: {fileID: 2010169607}
   m_Layer: 0
-  m_Name: Window (1)
+  m_Name: Window 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3307,7 +3339,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1835058691}
+  m_Father: {fileID: 223050054}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2010169607
 SpriteRenderer:
