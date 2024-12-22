@@ -25,9 +25,5 @@ public class LevelFinalManager : MonoBehaviour
         _playerSneeze.ActivateSneeze();
         _playerWave.ActivateWave();
         _playerDash.ActivateDash();
-
-        // Start timer based on time remaining from previous level
-        _uIManager.SetTimeRemaining(DataTracker.GetInstance().GetTotalRemainingTime());
-        _uIManager.StartTimer();
     }
 }
