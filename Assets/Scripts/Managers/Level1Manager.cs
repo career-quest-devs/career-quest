@@ -137,7 +137,6 @@ public class Level1Manager : MonoBehaviour
     public void EndLevel()
     {
         DataTracker.GetInstance().SetTotalRemainingTime(_uIManager.StopTimerAndGetTimeRemaining());
-        SceneManager.LoadScene("LevelFinal");
     }
 
     private void Start()
