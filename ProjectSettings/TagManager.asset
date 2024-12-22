@@ -9,6 +9,7 @@ TagManager:
   - HiddenItem
   - Door
   - BlockedNeighbour
+  - Whiteboard
   layers:
   - Default
   - TransparentFX
