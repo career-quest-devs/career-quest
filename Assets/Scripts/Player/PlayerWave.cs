@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerWave : MonoBehaviour
 {
+    [SerializeField] private float _cleanDelay = 0.5f;
+
     private PlayerController _player;
     private Whiteboard _nearbyWhiteboard;
     private bool _isActive = false;
@@ -21,10 +23,7 @@ public class PlayerWave : MonoBehaviour
             // Trigger player wave animation
             _player.currentAnimator.SetTrigger("Wave");
 
-            if (_nearbyWhiteboard != null )
-            {
-                _nearbyWhiteboard.CleanWhiteboard();
-            }
+            StartCoroutine(CleanWhiteboard());
 
             // Update action/ability count in DataTracker
             DataTracker.GetInstance().IncrementAbility("Wave");
@@ -57,6 +56,16 @@ public class PlayerWave : MonoBehaviour
         if (collision.CompareTag("Whiteboard"))
         {
             _nearbyWhiteboard = null;
+        }
+    }
+
+    private IEnumerator CleanWhiteboard()
+    {
+        yield return new WaitForSeconds(_cleanDelay);
+
+        if (_nearbyWhiteboard != null)
+        {
+            _nearbyWhiteboard.CleanWhiteboard();
         }
     }
 }
