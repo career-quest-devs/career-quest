@@ -69,13 +69,10 @@ public class PlayerSneeze : MonoBehaviour
     {
         yield return new WaitForSeconds(_declutterDelay);
 
-        if (_nearbyClothes != null)
+        ClothesPile clothesPile = _nearbyClothes.GetComponent<ClothesPile>();
+        if (clothesPile != null)
         {
-            ClothesPile clothesPile = _nearbyClothes.GetComponent<ClothesPile>();
-            if (clothesPile != null)
-            {
-                clothesPile.Declutter();
-            }
+            clothesPile.Declutter();
         }
     }
 }

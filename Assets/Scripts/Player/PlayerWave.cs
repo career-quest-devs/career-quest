@@ -8,7 +8,7 @@ public class PlayerWave : MonoBehaviour
     [SerializeField] private float _cleanDelay = 0.5f;
 
     private PlayerController _player;
-    private Whiteboard _nearbyWhiteboard;
+    private GameObject _nearbyWhiteboard;
     private bool _isActive = false;
 
     public void ActivateWave()
@@ -23,7 +23,10 @@ public class PlayerWave : MonoBehaviour
             // Trigger player wave animation
             _player.currentAnimator.SetTrigger("Wave");
 
-            StartCoroutine(CleanWhiteboard());
+            if (_nearbyWhiteboard != null)
+            {
+                StartCoroutine(CleanWhiteboard());
+            }
 
             // Update action/ability count in DataTracker
             DataTracker.GetInstance().IncrementAbility("Wave");
@@ -47,7 +50,7 @@ public class PlayerWave : MonoBehaviour
     {
         if (collision.CompareTag("Whiteboard"))
         {
-            _nearbyWhiteboard = collision.gameObject.GetComponent<Whiteboard>();
+            _nearbyWhiteboard = collision.gameObject;
         }
     }
 
@@ -63,9 +66,10 @@ public class PlayerWave : MonoBehaviour
     {
         yield return new WaitForSeconds(_cleanDelay);
 
-        if (_nearbyWhiteboard != null)
+        Whiteboard whiteboard = _nearbyWhiteboard.GetComponent<Whiteboard>();
+        if (whiteboard != null)
         {
-            _nearbyWhiteboard.CleanWhiteboard();
+            whiteboard.CleanWhiteboard();
         }
     }
 }
