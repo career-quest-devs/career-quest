@@ -332,6 +332,17 @@
                 },
                 {
                     "name": "",
+                    "id": "4ae55e3f-4c88-4f50-9dab-fd0c5eb03d41",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "aaad905e-c0b8-4697-9196-81bac6664339",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
