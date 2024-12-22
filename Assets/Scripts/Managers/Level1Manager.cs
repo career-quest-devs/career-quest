@@ -134,8 +134,9 @@ public class Level1Manager : MonoBehaviour
         _uIManager.StartDialog(_missingItemsDialog);
     }
 
-    public void LoadNextScene()
+    public void EndLevel()
     {
+        DataTracker.GetInstance().SetTotalRemainingTime(_uIManager.StopTimerAndGetTimeRemaining());
         SceneManager.LoadScene("LevelFinal");
     }
 

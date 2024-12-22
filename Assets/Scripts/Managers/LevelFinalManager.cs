@@ -13,7 +13,7 @@ public class LevelFinalManager : MonoBehaviour
     {
         if (Application.platform == RuntimePlatform.Android)
         {
-            //Set visibility for mobile action buttons
+            // Set visibility for mobile action buttons
             _uIManager.SetSneezeButtonVisibility(true);
             _uIManager.SetWaveButtonVisibility(true);
             _uIManager.SetDashButtonVisibility(true);
@@ -21,9 +21,13 @@ public class LevelFinalManager : MonoBehaviour
             _uIManager.SetOpenButtonVisibility(false);
         }
 
-        //Activate special actions that are available in this level
+        // Activate special actions that are available in this level
         _playerSneeze.ActivateSneeze();
         _playerWave.ActivateWave();
         _playerDash.ActivateDash();
+
+        // Start timer based on time remaining from previous level
+        _uIManager.SetTimeRemaining(DataTracker.GetInstance().GetTotalRemainingTime());
+        _uIManager.StartTimer();
     }
 }

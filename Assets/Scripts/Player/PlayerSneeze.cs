@@ -28,6 +28,9 @@ public class PlayerSneeze : MonoBehaviour
             {
                 StartCoroutine(DeclutterClothes());
             }
+
+            // Update action/ability count in DataTracker
+            DataTracker.GetInstance().IncrementAbility("Sneeze");
         }
     }
 
