@@ -19,6 +19,9 @@ public class PlayerWave : MonoBehaviour
         {
             // Trigger player wave animation
             _player.currentAnimator.SetTrigger("Wave");
+
+            // Update action/ability count in DataTracker
+            DataTracker.GetInstance().IncrementAbility("Wave");
         }
     }
 

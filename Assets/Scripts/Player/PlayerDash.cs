@@ -54,6 +54,9 @@ public class PlayerDash : MonoBehaviour
             {
                 StartCoroutine(DashCooldown());
             }
+
+            // Update action/ability count in DataTracker
+            DataTracker.GetInstance().IncrementAbility("Dash");
         }
     }
 

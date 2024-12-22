@@ -82,10 +82,22 @@ public class UIManager : MonoBehaviour
         _openButton.SetActive(isVisible);
     }
 
+    public void SetTimeRemaining(int timeRemaining)
+    {
+        _timer.timeRemaining = timeRemaining;
+    }
+
     public void StartTimer()
     {
         _timerText.gameObject.SetActive(true);
         _timer.OnTimerPlay();
+    }
+
+    public int StopTimerAndGetTimeRemaining()
+    {
+        _timer.OnTimerPause();
+
+        return Mathf.FloorToInt(_timer.timeRemaining);
     }
 
     private void Awake()
