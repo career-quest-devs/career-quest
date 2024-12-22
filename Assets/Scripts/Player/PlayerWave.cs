@@ -9,7 +9,7 @@ public class PlayerWave : MonoBehaviour
 
     private PlayerController _player;
     private GameObject _nearbyNeighbour; // Tracks the clothes pile in range
-    private bool _isActive;
+    private bool _isActive = false;
 
     public void ActivateWave()
     {
@@ -42,7 +42,6 @@ public class PlayerWave : MonoBehaviour
     private void Start()
     {
         _player = GetComponent<PlayerController>();
-        _isActive = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
