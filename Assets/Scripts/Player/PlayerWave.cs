@@ -5,7 +5,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerWave : MonoBehaviour
 {
+    [SerializeField] private float _sayingHiDelay = 0.5f;
+
     private PlayerController _player;
+    private GameObject _nearbyNeighbour; // Tracks the clothes pile in range
     private bool _isActive;
 
     public void ActivateWave()
@@ -19,6 +22,12 @@ public class PlayerWave : MonoBehaviour
         {
             // Trigger player wave animation
             _player.currentAnimator.SetTrigger("Wave");
+
+            // Trigger declutter animation on clothes
+            if (_nearbyNeighbour != null)
+            {
+                StartCoroutine(SayHiToNeighbour());
+            }
         }
     }
 
@@ -34,5 +43,37 @@ public class PlayerWave : MonoBehaviour
     {
         _player = GetComponent<PlayerController>();
         _isActive = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Detect if a clothes pile is within range
+        if (collision.CompareTag("BlockedNeighbour"))
+        {
+            _nearbyNeighbour = collision.gameObject;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        // Reset if the player leaves the interaction range
+        if (collision.CompareTag("BlockedNeighbour"))
+        {
+            _nearbyNeighbour = null;
+        }
+    }
+
+    private IEnumerator SayHiToNeighbour()
+    {
+        yield return new WaitForSeconds(_sayingHiDelay);
+
+        if (_nearbyNeighbour != null)
+        {
+            BlockedNeighbour blockedNeighbour = _nearbyNeighbour.GetComponent<BlockedNeighbour>();
+            if (blockedNeighbour != null)
+            {
+                blockedNeighbour.ChatAndLeave();
+            }
+        }
     }
 }

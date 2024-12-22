@@ -23,20 +23,20 @@ public class BlockedNeighbour : MonoBehaviour
     public void ChatAndLeave()
     {
         // Trigger the declutter animation
-        _neighbourAnimator.SetTrigger("Declutter");
+        _neighbourAnimator.SetTrigger("ChatAndLeave");
 
         //Reveal hidden item if exist
         //if (hiddenItem != null)
         //{
-            StartCoroutine(HideNeighbour());
+            StartCoroutine(FadeNeighbour(false));
         //}
 
         // Disable interaction after decluttering
-        GetComponent<Collider2D>().enabled = false;
+        //GetComponent<Collider2D>().enabled = false;
 
     }
 
-    IEnumerator FadeImage(bool fadeAway)
+    IEnumerator FadeNeighbour(bool fadeAway)
     {
         // fade from opaque to transparent
         if (fadeAway)
@@ -46,6 +46,7 @@ public class BlockedNeighbour : MonoBehaviour
             {
                 // set color with i as alpha
                 img.color = new Color(1, 1, 1, i);
+                this.gameObject.SetActive(false);
                 yield return null;
             }
         }
@@ -57,6 +58,7 @@ public class BlockedNeighbour : MonoBehaviour
             {
                 // set color with i as alpha
                 img.color = new Color(1, 1, 1, i);
+                this.gameObject.SetActive(true);
                 yield return null;
             }
         }

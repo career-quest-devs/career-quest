@@ -43,7 +43,7 @@ public class Level2Manager : MonoBehaviour
             _uIManager.SetOpenButtonVisibility(false);
         }
 
-        //StartIntroDialog();
+        StartIntroDialog();
     }
     private void StartIntroDialog()
     {
