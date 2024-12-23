@@ -841,7 +841,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42473255a2374114a8bf59b18fc7d220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastScene: 0
+  lastScene: 1
 --- !u!4 &376853118
 Transform:
   m_ObjectHideFlags: 0
@@ -1008,7 +1008,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &397806078
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1293,7 +1293,8 @@ Transform:
   m_LocalPosition: {x: 91.88, y: -0.018, z: 0}
   m_LocalScale: {x: 0.61873776, y: 0.5179254, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1620488489}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &412756718
@@ -1349,7 +1350,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.9464719, y: 1.032733}
+  m_Offset: {x: -0.5752486, y: 1.032733}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1360,7 +1361,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 13.867462, y: 12.815466}
+  m_Size: {x: 8.82402, y: 12.815466}
   m_EdgeRadius: 0
 --- !u!114 &412756720
 MonoBehaviour:
@@ -4810,6 +4811,18 @@ MonoBehaviour:
   OnLevelEnded:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1059622918}
+        m_TargetAssemblyTypeName: Level2Manager, Assembly-CSharp
+        m_MethodName: EndLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 376853117}
         m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
         m_MethodName: NextScene
@@ -4876,11 +4889,11 @@ Transform:
   m_GameObject: {fileID: 1620488486}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 80.22, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -18.844812, y: 0.034754038, z: 0}
+  m_LocalScale: {x: 1.6161937, y: 1.93078, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 412756717}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1765435447
 GameObject:
@@ -6224,6 +6237,5 @@ SceneRoots:
   - {fileID: 403626529}
   - {fileID: 738489956}
   - {fileID: 1479748626}
-  - {fileID: 1620488489}
   - {fileID: 376853118}
   - {fileID: 1218700180}

@@ -55,7 +55,7 @@ public class Level2Manager : MonoBehaviour
         }
 
         // Start timer based on time remaining from previous level
-        //_uIManager.SetTimerRemainingTime(DataTracker.GetInstance().GetTotalRemainingTime());
+        _uIManager.SetTimeRemaining(DataTracker.GetInstance().GetTotalRemainingTime());
         _uIManager.StartTimer();
 
         StartIntroDialog();
@@ -119,5 +119,9 @@ public class Level2Manager : MonoBehaviour
         initiateWave = true;
     }
 
+    public void EndLevel()
+    {
+        DataTracker.GetInstance().SetTotalRemainingTime(_uIManager.StopTimerAndGetTimeRemaining());
+    }
 
 }

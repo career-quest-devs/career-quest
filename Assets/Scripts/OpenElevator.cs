@@ -26,7 +26,7 @@ public class OpenElevator : MonoBehaviour
 
     IEnumerator addExitTrigger()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
         _levelEndCheckPoint.SetActive(true);
     }
 }
