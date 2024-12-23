@@ -30,10 +30,15 @@ public class PlayerSneeze : MonoBehaviour
                 StartCoroutine(DeclutterClothes());
             }
 
+
             if (_nearbyNeighbour != null)
             {
                 StartCoroutine(BlowAwayNeighbour());
             }
+
+            // Update action/ability count in DataTracker
+            DataTracker.GetInstance().IncrementAbility("Sneeze");
+
         }
     }
 
@@ -82,13 +87,10 @@ public class PlayerSneeze : MonoBehaviour
     {
         yield return new WaitForSeconds(_declutterDelay);
 
-        if (_nearbyClothes != null)
+        ClothesPile clothesPile = _nearbyClothes.GetComponent<ClothesPile>();
+        if (clothesPile != null)
         {
-            ClothesPile clothesPile = _nearbyClothes.GetComponent<ClothesPile>();
-            if (clothesPile != null)
-            {
-                clothesPile.Declutter();
-            }
+            clothesPile.Declutter();
         }
     }
 

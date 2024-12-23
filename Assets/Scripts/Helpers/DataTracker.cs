@@ -35,13 +35,20 @@ public class DataTracker : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
+    int totalTimeRemaining; // Total time remaining in seconds
+
     Dictionary<int, float> totalTime = new Dictionary<int, float>(); // Intialized by each level.
 
     Dictionary<string, int> data = new Dictionary<string, int> // I've intialized them here, as there should only be a set amount
     {
-        {"sneeze", 0},
-        {"hello", 0}
+        {"Sneeze", 0},
+        {"Wave", 0},
+        {"Dash", 0}
     };
+
+    public bool HasTie { get; set; }
+    public bool HasSocks { get; set; }
+    public bool HasResume { get; set; }
 
     public void SetLevelTime(int levelIndex, float time)
     {
@@ -76,5 +83,15 @@ public class DataTracker : MonoBehaviour
     public int GetAbilityTotal(string abilityName)
     {
         return data[abilityName];
+    }
+
+    public void SetTotalRemainingTime(int remainingTime)
+    {
+        totalTimeRemaining = remainingTime;
+    }
+
+    public int GetTotalRemainingTime()
+    {
+        return totalTimeRemaining;
     }
 }

@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
 
     private PlayerState _currentState;
     private PlayerInput _playerInput;
+    private DataTracker _dataTracker;
 
     // Properties to track collected items
     public bool HasTie { get; private set; }
@@ -30,17 +31,26 @@ public class PlayerController : MonoBehaviour
     {
         HasTie = true;
         InitStateChange();
+
+        // Update DataTracker
+        _dataTracker.HasTie = true;
     }
 
     public void CollectSocks()
     {
         HasSocks = true;
         InitStateChange();
+
+        // Update DataTracker
+        _dataTracker.HasSocks = true;
     }
 
     public void CollectResume()
     {
         HasResume = true;
+
+        // Update DataTracker
+        _dataTracker.HasResume = true;
     }
 
     public void SetAppearance(GameObject sprite, Animator animator)
@@ -101,8 +111,18 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        _dataTracker = DataTracker.GetInstance();
+
         // Set initial PlayerState to default
         ChangeState(new PlayerDefaultState(this));
+
+        // Initialize player inventory
+        HasTie = _dataTracker.HasTie;
+        HasSocks = _dataTracker.HasSocks;
+        HasResume = _dataTracker.HasResume;
+
+        // Reset initial PlayerState
+        InitStateChange();
     }
 
     private void Update()

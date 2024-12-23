@@ -766,7 +766,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeb5a2feeeb2647408824121c0aa070e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnabled: 0
   _declutterDelay: 0.5
 --- !u!114 &5968774838078200962
 MonoBehaviour:
@@ -822,7 +821,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0991c12aa90e348468d1fedc3dff2bc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnabled: 1
 --- !u!114 &1925254494537378045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -835,4 +833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd9f4704b5a3e3e4f830d78a056cff2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnabled: 1
+  horizontalDashForce: 10
+  verticalDashForce: 6
+  coolDownTime: 2
+  doubleDashTimeLimit: 0.5

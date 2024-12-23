@@ -10,6 +10,9 @@ public class PlayerWave : MonoBehaviour
 
     private PlayerController _player;
     private GameObject _nearbyNeighbour;
+
+    [SerializeField] private float _cleanDelay = 0.5f;
+
     private bool _isActive = false;
 
     public void ActivateWave()
@@ -24,11 +27,21 @@ public class PlayerWave : MonoBehaviour
             // Trigger player wave animation
             _player.currentAnimator.SetTrigger("Wave");
 
+
             // Trigger declutter animation on clothes
             if (_nearbyNeighbour != null)
             {
                 StartCoroutine(SayHiToNeighbour());
             }
+
+            if (_nearbyWhiteboard != null)
+            {
+                StartCoroutine(CleanWhiteboard());
+            }
+
+            // Update action/ability count in DataTracker
+            DataTracker.GetInstance().IncrementAbility("Wave");
+
         }
     }
 
@@ -47,15 +60,22 @@ public class PlayerWave : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
         // Detect if a clothes pile is within range
         if (collision.CompareTag("BlockedNeighbour"))
         {
             _nearbyNeighbour = collision.gameObject;
+
+        if (collision.CompareTag("Whiteboard"))
+        {
+            _nearbyWhiteboard = collision.gameObject;
+
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+
         // Reset if the player leaves the interaction range
         if (collision.CompareTag("BlockedNeighbour"))
         {
@@ -90,6 +110,22 @@ public class PlayerWave : MonoBehaviour
             } catch (Exception e){ 
             }
             
+
+        if (collision.CompareTag("Whiteboard"))
+        {
+            _nearbyWhiteboard = null;
+        }
+    }
+
+    private IEnumerator CleanWhiteboard()
+    {
+        yield return new WaitForSeconds(_cleanDelay);
+
+        Whiteboard whiteboard = _nearbyWhiteboard.GetComponent<Whiteboard>();
+        if (whiteboard != null)
+        {
+            whiteboard.CleanWhiteboard();
+
         }
     }
 }

@@ -11,8 +11,8 @@ public class Level1Manager : MonoBehaviour
     [SerializeField] private PlayerController _player;
     [SerializeField] private PlayerSneeze _playerSneeze;
 
-    private bool initiateSneeze = false;
-    private bool initiateTimer = false;
+    private bool _initiateSneeze = false;
+    private bool _initiateTimer = false;
 
     // Dialog collection
     private string[] _introDialog = new string[4]
@@ -69,16 +69,16 @@ public class Level1Manager : MonoBehaviour
                 // End of dialog set
                 _player.SwitchToPlayerActionMap();
 
-                if (initiateSneeze)
+                if (_initiateSneeze)
                 {
                     _playerSneeze.Sneeze();
-                    initiateSneeze = false;
+                    _initiateSneeze = false;
                     StartSneezeTutorialDialog();
                 }
-                else if (initiateTimer)
+                else if (_initiateTimer)
                 {
                     _uIManager.StartTimer();
-                    initiateTimer = false;
+                    _initiateTimer = false;
                 }
             }
         }
@@ -89,14 +89,14 @@ public class Level1Manager : MonoBehaviour
         _player.SwitchToUIActionMap();
         _uIManager.StartDialog(_sneezeTriggerDialog);
         _playerSneeze.ActivateSneeze();
-        initiateSneeze = true;
+        _initiateSneeze = true;
     }
 
     public void StartComputerDialog()
     {
         _player.SwitchToUIActionMap();
         _uIManager.StartDialog(_computerDialog);
-        initiateTimer = true;
+        _initiateTimer = true;
     }
 
     public void EnablePickUpInteraction()
@@ -134,9 +134,9 @@ public class Level1Manager : MonoBehaviour
         _uIManager.StartDialog(_missingItemsDialog);
     }
 
-    public void LoadNextScene()
+    public void EndLevel()
     {
-        SceneManager.LoadScene("LevelFinal");
+        DataTracker.GetInstance().SetTotalRemainingTime(_uIManager.StopTimerAndGetTimeRemaining());
     }
 
     private void Start()
@@ -174,6 +174,6 @@ public class Level1Manager : MonoBehaviour
             _uIManager.StartDialog(_sneezeTutorialDialog);
         }
 
-        initiateTimer = true;
+        _initiateTimer = true;
     }
 }
