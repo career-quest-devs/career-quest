@@ -11,14 +11,28 @@ public class LevelFinalManager : MonoBehaviour
     [SerializeField] private PlayerWave _playerWave;
     [SerializeField] private PlayerDash _playerDash;
     [SerializeField] private HiringManager _hiringManager;
+    [SerializeField] private OfficeChairSpawner _chairSpawner;
 
     private bool _initiateManagerMove = false;
+    private bool _initiateChairSpawner = false;
 
     // Dialog collection
-    private string[] _introDialog = new string[2]
+    private string[] _introDialog = new string[3]
     {
         "Hiring Manager: Hi Alex! It's nice to meet you.",
-        "Blah, blah, blah"
+        "Alex: It is very nice to meet you too.",
+        "Hiring Manager: Follow me this way and we'll get started."
+    };
+    private string[] _interviewDialog = new string[8]
+    {
+        "Hiring Manager: Alex, today I'd like you put your skills into practice.",
+        "Hiring Manager: I'd like you to use any skills necessary to help me complete some tasks I've setup for you.",
+        "Hiring Manager: Firstly, I'd like you to clean all the whiteboards in this room.",
+        "Hiring Manager: Secondly, I need help finding an important document I seemed to have misplaced.",
+        "Hiring Manager: Please find it, and bring it to me.",
+        "Hiring Manager: I may throw in some obstacles along the way just to make things interesting.",
+        "Alex: Sounds good. I'm ready.",
+        "Hiring Manager: Great! Ready, set, go!"
     };
 
     public void DisplayNextDialogLine(InputAction.CallbackContext context)
@@ -33,9 +47,22 @@ public class LevelFinalManager : MonoBehaviour
                 if (_initiateManagerMove)
                 {
                     _hiringManager.MoveToPosition2();
+                    _initiateManagerMove = false;
+                }
+                else if (_initiateChairSpawner)
+                {
+                    _chairSpawner.StartSpawning();
+                    _initiateChairSpawner = false;
                 }
             }
         }
+    }
+
+    public void StartInterviewDialog()
+    {
+        _player.SwitchToUIActionMap();
+        _uIManager.StartDialog(_interviewDialog);
+        _initiateChairSpawner = true;
     }
 
     private void Start()
