@@ -812,6 +812,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 319978572}
   m_CullTransparentMesh: 1
+--- !u!1 &376853116
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 376853118}
+  - component: {fileID: 376853117}
+  m_Layer: 0
+  m_Name: SceneChange
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &376853117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376853116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42473255a2374114a8bf59b18fc7d220, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastScene: 1
+--- !u!4 &376853118
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376853116}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &378987447
 GameObject:
   m_ObjectHideFlags: 0
@@ -963,7 +1008,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &397806078
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1174,9 +1219,12 @@ GameObject:
   - component: {fileID: 412756717}
   - component: {fileID: 412756716}
   - component: {fileID: 412756718}
+  - component: {fileID: 412756719}
+  - component: {fileID: 412756720}
+  - component: {fileID: 412756721}
   m_Layer: 0
   m_Name: ExitLevel
-  m_TagString: Untagged
+  m_TagString: BlockedNeighbour
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1245,7 +1293,8 @@ Transform:
   m_LocalPosition: {x: 91.88, y: -0.018, z: 0}
   m_LocalScale: {x: 0.61873776, y: 0.5179254, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1620488489}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &412756718
@@ -1269,6 +1318,91 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!61 &412756719
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412756715}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.5752486, y: 1.032733}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 11.76, y: 10.75}
+    newSize: {x: 11.76, y: 10.75}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 8.82402, y: 12.815466}
+  m_EdgeRadius: 0
+--- !u!114 &412756720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412756715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e5271e34df973440862e63867b0663c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LearningSayingHi:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1059622918}
+        m_TargetAssemblyTypeName: Level2Manager, Assembly-CSharp
+        m_MethodName: StartElevatorDialog
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &412756721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412756715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e18ec3dac2018604cb5245f737d4b428, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _levelEndCheckPoint: {fileID: 1620488486}
 --- !u!1 &449993673
 GameObject:
   m_ObjectHideFlags: 0
@@ -2115,6 +2249,7 @@ GameObject:
   - component: {fileID: 661901284}
   - component: {fileID: 661901283}
   - component: {fileID: 661901285}
+  - component: {fileID: 661901286}
   m_Layer: 0
   m_Name: Neighbour2
   m_TagString: BlockedNeighbour
@@ -2154,8 +2289,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.5535264, y: 6.697184}
-  m_Size: {x: 6.2188563, y: 15.515234}
+  m_Offset: {x: 0.37956238, y: 0.4045022}
+  m_Size: {x: 9.351188, y: 16.343204}
   m_Direction: 0
 --- !u!4 &661901282
 Transform:
@@ -2166,7 +2301,7 @@ Transform:
   m_GameObject: {fileID: 661901280}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 34.84, y: -3.59, z: 0}
+  m_LocalPosition: {x: 28.5, y: -1.32, z: 0}
   m_LocalScale: {x: 0.38, y: 0.38, z: 0.38}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -2277,10 +2412,10 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.0382214, y: 7.1021996}
+  m_Offset: {x: -0.21062279, y: 0.975111}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.11149413, y: 0.07}
+    pivot: {x: 0.47677398, y: 0.49645334}
     oldSize: {x: 6.000896, y: 15.209999}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
@@ -2288,8 +2423,41 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 15.773037, y: 16.333794}
+  m_Size: {x: 20.270725, y: 17.658573}
   m_EdgeRadius: 0
+--- !u!114 &661901286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661901280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 004c4838dc42c944b982c66716895bbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartDialog:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1059622918}
+        m_TargetAssemblyTypeName: Level2Manager, Assembly-CSharp
+        m_MethodName: StartDialog
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _smallTalk:
+  - 'Carol: Oh morning Alex!!'
+  - 'Carol: You should join me in morining work out!'
+  - 'Carol: You are busy right now?'
+  - 'Carol: Then next time!'
+  chatAndLeave: 1
 --- !u!4 &725208634 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1043613255821580355, guid: bfc2fab99f1f0674a8891eb87b090c3f, type: 3}
@@ -2869,7 +3037,7 @@ Transform:
   m_GameObject: {fileID: 850244060}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5069132, y: 0.22772999, z: -10}
+  m_LocalPosition: {x: -0.5068984, y: 0.22771, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3717,6 +3885,50 @@ RectTransform:
   m_AnchoredPosition: {x: 35.76, y: 0.3}
   m_SizeDelta: {x: 500, y: 249}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1218700178
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1218700180}
+  - component: {fileID: 1218700179}
+  m_Layer: 0
+  m_Name: DataTracker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1218700179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218700178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c076bc852c8b3ba4d8ca526dbdc1270e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1218700180
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218700178}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1219115237
 GameObject:
   m_ObjectHideFlags: 0
@@ -4492,6 +4704,22 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -3.4
       objectReference: {fileID: 0}
+    - target: {fileID: 5332678178882279891, guid: e977fbfee6827bb45a055b5af47338fb, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1059622918}
+    - target: {fileID: 5332678178882279891, guid: e977fbfee6827bb45a055b5af47338fb, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DisplayNextDialogLine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5332678178882279891, guid: e977fbfee6827bb45a055b5af47338fb, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Level2Manager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5968774838078200962, guid: e977fbfee6827bb45a055b5af47338fb, type: 3}
+      propertyPath: OnDoorInRange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 412756715}
     - target: {fileID: 9150067235073022066, guid: e977fbfee6827bb45a055b5af47338fb, type: 3}
       propertyPath: m_Name
       value: Player
@@ -4550,6 +4778,123 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 856283134d99d7c47978539fbead1246, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1620488486
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1620488489}
+  - component: {fileID: 1620488488}
+  - component: {fileID: 1620488487}
+  m_Layer: 0
+  m_Name: EndOfLevelCheckpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1620488487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620488486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fd12b3adbcc64f4eb30e273999802e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnLevelEnded:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1059622918}
+        m_TargetAssemblyTypeName: Level2Manager, Assembly-CSharp
+        m_MethodName: EndLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 376853117}
+        m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
+        m_MethodName: NextScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!61 &1620488488
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620488486}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 10.9937935, y: 0.1904211}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.880165, y: 8.384756}
+  m_EdgeRadius: 0
+--- !u!4 &1620488489
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620488486}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -18.844812, y: 0.034754038, z: 0}
+  m_LocalScale: {x: 1.6161937, y: 1.93078, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 412756717}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1765435447
 GameObject:
   m_ObjectHideFlags: 0
@@ -4827,6 +5172,7 @@ GameObject:
   - component: {fileID: 1865328110}
   - component: {fileID: 1865328111}
   - component: {fileID: 1865328112}
+  - component: {fileID: 1865328113}
   m_Layer: 0
   m_Name: Neighbour3
   m_TagString: BlockedNeighbour
@@ -4866,8 +5212,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.8500099, y: 6.2163916}
-  m_Size: {x: 6.8543787, y: 15.433128}
+  m_Offset: {x: 0.8500099, y: 1.703874}
+  m_Size: {x: 6.8543787, y: 17.006285}
   m_Direction: 0
 --- !u!4 &1865328109
 Transform:
@@ -4878,7 +5224,7 @@ Transform:
   m_GameObject: {fileID: 1865328107}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 54.59, y: -3.43, z: 0}
+  m_LocalPosition: {x: 54.59, y: -1.32, z: 0}
   m_LocalScale: {x: 0.38, y: 0.38, z: 0.38}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -4989,10 +5335,10 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.4049542, y: 6.1280003}
+  m_Offset: {x: 0.65691185, y: 2.484867}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.37058827, y: 0.1}
+    pivot: {x: 0.27318156, y: 0.5156255}
     oldSize: {x: 9.17, y: 15.32}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
@@ -5000,8 +5346,42 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 14.544676, y: 15.32}
+  m_Size: {x: 19.14626, y: 19.12873}
   m_EdgeRadius: 0
+--- !u!114 &1865328113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865328107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 004c4838dc42c944b982c66716895bbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartDialog:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1059622918}
+        m_TargetAssemblyTypeName: Level2Manager, Assembly-CSharp
+        m_MethodName: StartDialog
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _smallTalk:
+  - 'Alex: Morning Daniel!!'
+  - 'Daniel: ...'
+  - 'Alex: GOOD MORNING!!!'
+  - Daniel:...
+  - (Does he ignore me again...)
+  chatAndLeave: 0
 --- !u!1 &1934366675
 GameObject:
   m_ObjectHideFlags: 0
@@ -5447,7 +5827,7 @@ Transform:
   m_GameObject: {fileID: 995232706057718445}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 71.6, y: -0.13, z: 0}
+  m_LocalPosition: {x: 76.44, y: -0.13, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -5637,6 +6017,7 @@ GameObject:
   - component: {fileID: 8470320558092141404}
   - component: {fileID: 8470320558092141406}
   - component: {fileID: 8470320558092141405}
+  - component: {fileID: 8470320558092141408}
   - component: {fileID: 8470320558092141407}
   m_Layer: 0
   m_Name: Neighbour1
@@ -5775,6 +6156,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 004c4838dc42c944b982c66716895bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StartDialog:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1059622918}
+        m_TargetAssemblyTypeName: Level2Manager, Assembly-CSharp
+        m_MethodName: StartDialog
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _smallTalk:
+  - 'Ben: Oh Alex, morining!'
+  - 'Ben: You are going to an interview?'
+  - 'Ben: Don''t worry, just do your best.'
+  - 'Ben: If you do your best and still can not get it.'
+  - 'Ben: Then even if you can get it you can not survive it.'
+  chatAndLeave: 1
+--- !u!114 &8470320558092141408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8470320558092141403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e5271e34df973440862e63867b0663c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LearningSayingHi:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1059622918}
+        m_TargetAssemblyTypeName: Level2Manager, Assembly-CSharp
+        m_MethodName: StartWaveTutorialDialog
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1510486695}
+        m_TargetAssemblyTypeName: PlayerWave, Assembly-CSharp
+        m_MethodName: ActivateWave
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -5795,3 +6237,5 @@ SceneRoots:
   - {fileID: 403626529}
   - {fileID: 738489956}
   - {fileID: 1479748626}
+  - {fileID: 376853118}
+  - {fileID: 1218700180}

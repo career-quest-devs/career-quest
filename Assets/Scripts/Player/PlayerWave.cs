@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,10 +6,14 @@ using UnityEngine.InputSystem;
 
 public class PlayerWave : MonoBehaviour
 {
-    [SerializeField] private float _cleanDelay = 0.5f;
+    [SerializeField] private float _sayingHiDelay = 0.5f;
 
     private PlayerController _player;
+    private GameObject _nearbyNeighbour;
     private GameObject _nearbyWhiteboard;
+
+    [SerializeField] private float _cleanDelay = 0.5f;
+
     private bool _isActive = false;
 
     public void ActivateWave()
@@ -23,6 +28,13 @@ public class PlayerWave : MonoBehaviour
             // Trigger player wave animation
             _player.currentAnimator.SetTrigger("Wave");
 
+
+            // Trigger declutter animation on clothes
+            if (_nearbyNeighbour != null)
+            {
+                StartCoroutine(SayHiToNeighbour());
+            }
+
             if (_nearbyWhiteboard != null)
             {
                 StartCoroutine(CleanWhiteboard());
@@ -30,6 +42,7 @@ public class PlayerWave : MonoBehaviour
 
             // Update action/ability count in DataTracker
             DataTracker.GetInstance().IncrementAbility("Wave");
+
         }
     }
 
@@ -48,17 +61,65 @@ public class PlayerWave : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Whiteboard"))
+
+        // Detect if a clothes pile is within range
+        if (collision.CompareTag("BlockedNeighbour"))
         {
-            _nearbyWhiteboard = collision.gameObject;
-        }
+            _nearbyNeighbour = collision.gameObject;
+
+            if (collision.CompareTag("Whiteboard"))
+            {
+                _nearbyWhiteboard = collision.gameObject;
+
+            }
+        } 
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Whiteboard"))
+
+        // Reset if the player leaves the interaction range
+        if (collision.CompareTag("BlockedNeighbour"))
         {
-            _nearbyWhiteboard = null;
+            _nearbyNeighbour = null;
+
+            if (collision.CompareTag("Whiteboard"))
+            {
+                _nearbyWhiteboard = null;
+
+            }
+        }
+    }
+
+    private IEnumerator SayHiToNeighbour()
+    {
+        yield return new WaitForSeconds(_sayingHiDelay);
+
+        if (_nearbyNeighbour != null)
+        {
+            try
+            {
+                BlockedNeighbour blockedNeighbour = _nearbyNeighbour.GetComponent<BlockedNeighbour>();
+                if (blockedNeighbour != null)
+                {
+                    blockedNeighbour.Chat();
+                }
+            }
+            catch (Exception e)
+            {
+            }
+
+            try
+            {
+                OpenElevator openElevator = _nearbyNeighbour.GetComponent<OpenElevator>();
+                if (openElevator != null)
+                {
+                    openElevator.Open();
+                }
+            }
+            catch (Exception e)
+            {
+            }
         }
     }
 
@@ -70,6 +131,7 @@ public class PlayerWave : MonoBehaviour
         if (whiteboard != null)
         {
             whiteboard.CleanWhiteboard();
+
         }
     }
 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 51a98eb2bca2c014db7145e45906b0b3
+guid: c1fd29c4af737554ea10bbf621f75e9c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -95,49 +95,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Asset_charSweeping_orange_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 917
-        height: 1532
-      alignment: 9
-      pivot: {x: 0.27318156, y: 0.5156255}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 27c00d2da172b4c45881bb7477178454
-      internalID: 155960550
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Asset_charSweeping_orange_1
-      rect:
-        serializedVersion: 2
-        x: 916
-        y: 0
-        width: 627
-        height: 1532
-      alignment: 9
-      pivot: {x: 0.23339805, y: 0.50979507}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 326f9dc8d4f03b549a3e841b386beb74
-      internalID: -496730836
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -148,9 +106,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Asset_charSweeping_orange_0: 155960550
-      Asset_charSweeping_orange_1: -496730836
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
