@@ -18,7 +18,6 @@ public class FirstNeighbour : MonoBehaviour
     {
         hadtutorial = false;
         _ConversationCollider = GetComponent<BoxCollider2D>();
-        //_BlockCollider = GetComponent<CapsuleCollider2D>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

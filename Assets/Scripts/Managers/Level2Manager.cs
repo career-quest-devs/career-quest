@@ -18,20 +18,31 @@ public class Level2Manager : MonoBehaviour
         "Alex: I got to be hurry!",
         "Alex: I remember the evalator is on the right."
     };
-    private string[] _waveTutorialDialogMobile = new string[2]
+    private string[] _elevatorDialog = new string[3] { 
+        "Oh crap!",
+        "The elevator is not working again...",
+        "I will be late, can I do something to fix it?"
+    };
+    private string[] _waveTutorialDialogMobile = new string[4]
     {
+        "Oh! This is my neighbour Ben, he is a classical old guy.",
+        "I'd better say hi to him.",
         "New skill acquired: Wave to say hi",
         "New skill acquired: Wave to say hi"
     };
-    private string[] _waveTutorialDialog = new string[2]
+    private string[] _waveTutorialDialog = new string[4]
     {
+        "Oh! This is my neighbour Ben, he is a classical old guy.",
+        "I'd better say hi to him.",
         "New skill acquired: Wave to say hi",
-        "You can use Wave to say hi by pressing spacebar."
+        "You can use Wave to say hi by pressing key W."
     };
-
+ 
     // Start is called before the first frame update
     void Start()
     {
+        _playerSneeze.ActivateSneeze();
+
         if (Application.platform == RuntimePlatform.Android)
         {
             //Set visibility for mobile action buttons to false
@@ -49,6 +60,18 @@ public class Level2Manager : MonoBehaviour
     {
         _player.SwitchToUIActionMap();
         _uIManager.StartDialog(_introDialog);
+    }
+
+    public void StartElevatorDialog()
+    {
+        _player.SwitchToUIActionMap();
+        _uIManager.StartDialog(_elevatorDialog);
+    }
+
+    public void StartDialog(string[] theTalk)
+    {
+        _player.SwitchToUIActionMap();
+        _uIManager.StartDialog(theTalk);
     }
 
     // Update is called once per frame
@@ -91,5 +114,6 @@ public class Level2Manager : MonoBehaviour
 
         initiateWave = true;
     }
+
 
 }

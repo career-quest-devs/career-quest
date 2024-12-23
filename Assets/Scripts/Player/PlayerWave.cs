@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,7 @@ public class PlayerWave : MonoBehaviour
     [SerializeField] private float _sayingHiDelay = 0.5f;
 
     private PlayerController _player;
-    private GameObject _nearbyNeighbour; // Tracks the clothes pile in range
+    private GameObject _nearbyNeighbour;
     private bool _isActive = false;
 
     public void ActivateWave()
@@ -68,11 +69,27 @@ public class PlayerWave : MonoBehaviour
 
         if (_nearbyNeighbour != null)
         {
-            BlockedNeighbour blockedNeighbour = _nearbyNeighbour.GetComponent<BlockedNeighbour>();
-            if (blockedNeighbour != null)
+            try
             {
-                blockedNeighbour.ChatAndLeave();
+                BlockedNeighbour blockedNeighbour = _nearbyNeighbour.GetComponent<BlockedNeighbour>();
+                if (blockedNeighbour != null)
+                {
+                    blockedNeighbour.Chat();
+                }
             }
+            catch (Exception e)
+            {
+            }
+
+            try {
+                OpenElevator openElevator = _nearbyNeighbour.GetComponent<OpenElevator>();
+                if (openElevator != null)
+                {
+                    openElevator.Open();
+                }
+            } catch (Exception e){ 
+            }
+            
         }
     }
 }

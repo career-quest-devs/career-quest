@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BlockedNeighbour : MonoBehaviour
 {
     private Animator _neighbourAnimator;
     private SpriteRenderer img;
+
+    public UnityEvent<string[]> StartDialog;
+    [SerializeField] string[] _smallTalk;
+    [SerializeField] bool chatAndLeave;
 
     // Start is called before the first frame update
     void Start()
@@ -20,24 +25,29 @@ public class BlockedNeighbour : MonoBehaviour
         
     }
 
-    public void ChatAndLeave()
+    public void Chat()
     {
-        // Trigger the declutter animation
         _neighbourAnimator.SetTrigger("ChatAndLeave");
 
-        //Reveal hidden item if exist
-        //if (hiddenItem != null)
-        //{
-            StartCoroutine(FadeNeighbour(false));
-        //}
+        StartDialog?.Invoke(_smallTalk);
+        
 
-        // Disable interaction after decluttering
-        //GetComponent<Collider2D>().enabled = false;
-
+        if (chatAndLeave) {
+            // Disable interaction after decluttering
+            GetComponent<BoxCollider2D>().enabled = false;
+            GetComponent<CapsuleCollider2D>().enabled = false;
+        }
     }
+
+    public void BlowedAway() {
+        _neighbourAnimator.SetTrigger("BlowAway");
+        StartCoroutine(FadeNeighbour(true));
+    }
+
 
     IEnumerator FadeNeighbour(bool fadeAway)
     {
+        yield return new WaitForSeconds(0.75f);
         // fade from opaque to transparent
         if (fadeAway)
         {
@@ -46,8 +56,9 @@ public class BlockedNeighbour : MonoBehaviour
             {
                 // set color with i as alpha
                 img.color = new Color(1, 1, 1, i);
-                this.gameObject.SetActive(false);
+
                 yield return null;
+                this.gameObject.SetActive(false);
             }
         }
         // fade from transparent to opaque
@@ -58,15 +69,11 @@ public class BlockedNeighbour : MonoBehaviour
             {
                 // set color with i as alpha
                 img.color = new Color(1, 1, 1, i);
-                this.gameObject.SetActive(true);
+
                 yield return null;
+                this.gameObject.SetActive(true);
             }
         }
     }
 
-private IEnumerator HideNeighbour()
-    {
-        yield return new WaitForSeconds(0.5f);
-        this.gameObject.SetActive(false);
-    }
 }

@@ -9,6 +9,7 @@ public class PlayerSneeze : MonoBehaviour
 
     private PlayerController _player;
     private GameObject _nearbyClothes; // Tracks the clothes pile in range
+    private GameObject _nearbyNeighbour;
     private bool _isActive = false;
 
     public void ActivateSneeze()
@@ -27,6 +28,11 @@ public class PlayerSneeze : MonoBehaviour
             if (_nearbyClothes != null)
             {
                 StartCoroutine(DeclutterClothes());
+            }
+
+            if (_nearbyNeighbour != null)
+            {
+                StartCoroutine(BlowAwayNeighbour());
             }
         }
     }
@@ -51,6 +57,11 @@ public class PlayerSneeze : MonoBehaviour
         {
             _nearbyClothes = collision.gameObject;
         }
+
+        if (collision.CompareTag("BlockedNeighbour"))
+        {
+            _nearbyNeighbour = collision.gameObject;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -59,6 +70,11 @@ public class PlayerSneeze : MonoBehaviour
         if (collision.CompareTag("ClothesPile"))
         {
             _nearbyClothes = null;
+        }
+
+        if (collision.CompareTag("BlockedNeighbour"))
+        {
+            _nearbyNeighbour = null;
         }
     }
 
@@ -72,6 +88,18 @@ public class PlayerSneeze : MonoBehaviour
             if (clothesPile != null)
             {
                 clothesPile.Declutter();
+            }
+        }
+    }
+
+    private IEnumerator BlowAwayNeighbour() {
+        yield return new WaitForSeconds(_declutterDelay);// use the same delay?
+
+        if (_nearbyNeighbour != null)
+        {
+            BlockedNeighbour nearbyNeighbour = _nearbyNeighbour.GetComponent<BlockedNeighbour>();
+            if (nearbyNeighbour != null) {
+                nearbyNeighbour.BlowedAway();
             }
         }
     }
