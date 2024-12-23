@@ -54,6 +54,10 @@ public class Level2Manager : MonoBehaviour
             _uIManager.SetOpenButtonVisibility(false);
         }
 
+        // Start timer based on time remaining from previous level
+        //_uIManager.SetTimerRemainingTime(DataTracker.GetInstance().GetTotalRemainingTime());
+        _uIManager.StartTimer();
+
         StartIntroDialog();
     }
     private void StartIntroDialog()

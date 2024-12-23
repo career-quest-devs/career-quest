@@ -10,6 +10,7 @@ public class PlayerWave : MonoBehaviour
 
     private PlayerController _player;
     private GameObject _nearbyNeighbour;
+    private GameObject _nearbyWhiteboard;
 
     [SerializeField] private float _cleanDelay = 0.5f;
 
@@ -66,11 +67,12 @@ public class PlayerWave : MonoBehaviour
         {
             _nearbyNeighbour = collision.gameObject;
 
-        if (collision.CompareTag("Whiteboard"))
-        {
-            _nearbyWhiteboard = collision.gameObject;
+            if (collision.CompareTag("Whiteboard"))
+            {
+                _nearbyWhiteboard = collision.gameObject;
 
-        }
+            }
+        } 
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -80,6 +82,12 @@ public class PlayerWave : MonoBehaviour
         if (collision.CompareTag("BlockedNeighbour"))
         {
             _nearbyNeighbour = null;
+
+            if (collision.CompareTag("Whiteboard"))
+            {
+                _nearbyWhiteboard = null;
+
+            }
         }
     }
 
@@ -101,19 +109,17 @@ public class PlayerWave : MonoBehaviour
             {
             }
 
-            try {
+            try
+            {
                 OpenElevator openElevator = _nearbyNeighbour.GetComponent<OpenElevator>();
                 if (openElevator != null)
                 {
                     openElevator.Open();
                 }
-            } catch (Exception e){ 
             }
-            
-
-        if (collision.CompareTag("Whiteboard"))
-        {
-            _nearbyWhiteboard = null;
+            catch (Exception e)
+            {
+            }
         }
     }
 
