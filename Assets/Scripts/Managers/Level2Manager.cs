@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Level2Manager : MonoBehaviour
 {
@@ -121,7 +122,14 @@ public class Level2Manager : MonoBehaviour
 
     public void EndLevel()
     {
-        DataTracker.GetInstance().SetTotalRemainingTime(_uIManager.StopTimerAndGetTimeRemaining());
+        DataTracker dataTracker = DataTracker.GetInstance();
+
+        // Save game data to DataTracker
+        dataTracker.lastSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        dataTracker.SetTotalRemainingTime(_uIManager.StopTimerAndGetTimeRemaining());
+
+        // Go to next scene
+        SceneManager.LoadScene("MiniLevels");
     }
 
 }

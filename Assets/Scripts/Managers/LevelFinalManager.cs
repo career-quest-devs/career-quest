@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class LevelFinalManager : MonoBehaviour
 {
@@ -53,7 +54,9 @@ public class LevelFinalManager : MonoBehaviour
             {
                 if (_initiateInterviewEnding)
                 {
-                    SceneChange.GetInstance().NextScene();
+                    int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+
+                    SceneManager.LoadScene(nextSceneIndex);
                 }
 
                 // End of dialog set

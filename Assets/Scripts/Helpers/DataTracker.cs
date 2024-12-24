@@ -35,6 +35,8 @@ public class DataTracker : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
+    public int lastSceneIndex;
+
     int totalTimeRemaining; // Total time remaining in seconds
 
     Dictionary<int, float> totalTime = new Dictionary<int, float>(); // Intialized by each level.

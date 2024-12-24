@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MiniLevelScroll : MonoBehaviour
 {
@@ -13,14 +14,14 @@ public class MiniLevelScroll : MonoBehaviour
 
     Dictionary<int, int> levelToTransform = new Dictionary<int, int> // Change indexes
     {
-        { 2, 1 }, {3, 2 }
+        { 2, 1 }, { 3, 2 }, { 4, 3 }
     };
 
     bool notArrived = true;
 
     void Start()
     {
-        int level = SceneChange.GetInstance().lastScene;
+        int level = DataTracker.GetInstance().lastSceneIndex;
         Debug.Log(levelToTransform[level]);
         lastLevel = miniLevels[levelToTransform[level]-1].position;
         nextLevel = miniLevels[levelToTransform[level]].position;
@@ -43,6 +44,9 @@ public class MiniLevelScroll : MonoBehaviour
     IEnumerator StartNextLevel()
     {
         yield return new WaitForSeconds(3);
-        SceneChange.GetInstance().MiniNextScene();
+
+        int nextSceneIndex = DataTracker.GetInstance().lastSceneIndex + 1;
+
+        SceneManager.LoadScene(nextSceneIndex);
     }
 }
