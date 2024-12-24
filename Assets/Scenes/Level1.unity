@@ -270,11 +270,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1 &24695086 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3163943017036512254, guid: e43502f72ff2607429ecac3dda63493f, type: 3}
-  m_PrefabInstance: {fileID: 2634613963067496902}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &82135342
 GameObject:
   m_ObjectHideFlags: 0
@@ -1186,11 +1181,6 @@ Transform:
   - {fileID: 793110542}
   m_Father: {fileID: 736325876}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &450341527 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5732699170527921354, guid: e43502f72ff2607429ecac3dda63493f, type: 3}
-  m_PrefabInstance: {fileID: 2634613963067496902}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &463126175
 GameObject:
   m_ObjectHideFlags: 0
@@ -2129,11 +2119,6 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
---- !u!1 &716814663 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6694768735788469723, guid: e43502f72ff2607429ecac3dda63493f, type: 3}
-  m_PrefabInstance: {fileID: 2634613963067496902}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &736325875
 GameObject:
   m_ObjectHideFlags: 0
@@ -2933,11 +2918,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2720246334576746279, guid: 60c9dcf04e995ec4790d69904ebba875, type: 3}
   m_PrefabInstance: {fileID: 977330011}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &979605480 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8072871995452959514, guid: e43502f72ff2607429ecac3dda63493f, type: 3}
-  m_PrefabInstance: {fileID: 2634613963067496902}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1066394626
 GameObject:
@@ -9743,11 +9723,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1813888257 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7907221128463609840, guid: e43502f72ff2607429ecac3dda63493f, type: 3}
-  m_PrefabInstance: {fileID: 2634613963067496902}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1975937677
 GameObject:
   m_ObjectHideFlags: 0
@@ -10424,6 +10399,31 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e43502f72ff2607429ecac3dda63493f, type: 3}
+--- !u!1 &2634613963067496903 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4248139081107344862, guid: e43502f72ff2607429ecac3dda63493f, type: 3}
+  m_PrefabInstance: {fileID: 2634613963067496902}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2634613963067496904 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 557673550692422742, guid: e43502f72ff2607429ecac3dda63493f, type: 3}
+  m_PrefabInstance: {fileID: 2634613963067496902}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2634613963067496905 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8365430085235951500, guid: e43502f72ff2607429ecac3dda63493f, type: 3}
+  m_PrefabInstance: {fileID: 2634613963067496902}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2634613963067496906 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5747069386948733999, guid: e43502f72ff2607429ecac3dda63493f, type: 3}
+  m_PrefabInstance: {fileID: 2634613963067496902}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2634613963067496907 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1786518294994557570, guid: e43502f72ff2607429ecac3dda63493f, type: 3}
+  m_PrefabInstance: {fileID: 2634613963067496902}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2684376546950805245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10441,11 +10441,11 @@ MonoBehaviour:
   _timerText: {fileID: 751596463}
   _timer: {fileID: 8919185883850199724}
   _mobileControls: {fileID: 2039352566}
-  _sneezeButton: {fileID: 716814663}
-  _waveButton: {fileID: 24695086}
-  _dashButton: {fileID: 450341527}
-  _pickUpButton: {fileID: 1813888257}
-  _openButton: {fileID: 979605480}
+  _sneezeButton: {fileID: 2634613963067496907}
+  _waveButton: {fileID: 2634613963067496906}
+  _dashButton: {fileID: 2634613963067496905}
+  _pickUpButton: {fileID: 2634613963067496904}
+  _openButton: {fileID: 2634613963067496903}
   _playerInteract: {fileID: 2016282619}
 --- !u!114 &8919185883850199724
 MonoBehaviour:
