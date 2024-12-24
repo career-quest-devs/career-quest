@@ -136,7 +136,15 @@ public class Level1Manager : MonoBehaviour
 
     public void EndLevel()
     {
-        DataTracker.GetInstance().SetTotalRemainingTime(_uIManager.StopTimerAndGetTimeRemaining());
+        DataTracker dataTracker = DataTracker.GetInstance();
+        int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
+
+        // Save game data to DataTracker
+        dataTracker.lastSceneIndex = currentLevelIndex;
+        dataTracker.SetTotalRemainingTime(_uIManager.StopTimerAndGetTimeRemaining());
+
+        // Go to next scene
+        SceneManager.LoadScene(currentLevelIndex + 1);
     }
 
     private void Start()
