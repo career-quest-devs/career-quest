@@ -6,39 +6,38 @@ using UnityEngine.InputSystem;
 public class PlayerDash : MonoBehaviour
 {
     public float horizontalDashForce = 10.0f;
-    public float verticalDashForce = 8.0f;
+    public float verticalDashForce = 10.0f;
     public float coolDownTime = 2.0f;
     public float doubleDashTimeLimit = 0.5f;
+
+    [Header("Ground Check")]
+    [SerializeField] private Transform _groundCheck;
+    [SerializeField] private LayerMask _groundMask;
+    [SerializeField] private float _groundCheckDistance = 0.15f;
 
     private Rigidbody2D _rb;
     private PlayerController _player;
     private bool _isActive = false;
     private bool _isFacingRight = true;
     private bool _canDash = true;
-    private int _dashCount = 0;
-    private float _lastDashTime = 0.0f;
+    private bool _isGrounded = true;
 
     public void ActivateDash()
     {
         _isActive = true;
     }
 
+    public void DeactivateDash()
+    {
+        _isActive = false;
+    }
+
     public void Dash()
     {
         if (_isActive && _canDash)
         {
-            // Check if the time between dashes exceeds the limit
-            if (Time.time - _lastDashTime > doubleDashTimeLimit)
-            {
-                _dashCount = 0; // Reset dash count if too much time passed
-            }
-
-            // Increment dash count
-            _dashCount++;
-            _lastDashTime = Time.time;
-
             // Trigger player dash animation
-            _player.currentAnimator.SetTrigger("Dash");
+            _player.currentAnimator.SetBool("IsDashing", true);
 
             // Determine the dash direction
             float horizontalDash = _isFacingRight ? horizontalDashForce : -horizontalDashForce;
@@ -49,11 +48,8 @@ public class PlayerDash : MonoBehaviour
             // Apply the force
             _rb.AddForce(dashVector, ForceMode2D.Impulse);
 
-            // If the second dash is performed, start the cooldown
-            if (_dashCount >= 2)
-            {
-                StartCoroutine(DashCooldown());
-            }
+            // Start cooldown
+            StartCoroutine(DashCooldown());
 
             // Update action/ability count in DataTracker
             DataTracker.GetInstance().IncrementAbility("Dash");
@@ -85,13 +81,27 @@ public class PlayerDash : MonoBehaviour
         {
             _isFacingRight = false;
         }
+
+        //GroundCheck();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("OfficeChair"))
+        {
+            _player.currentAnimator.SetBool("IsDashing", false);
+        }
     }
 
     private IEnumerator DashCooldown()
     {
         _canDash = false;   // Prevent further dashing
-        _dashCount = 0;     // Reset dash count
         yield return new WaitForSeconds(coolDownTime);
         _canDash = true;    // Re-enable dashing
+    }
+
+    private void GroundCheck()
+    {
+        _isGrounded = Physics2D.OverlapCircle(_groundCheck.position, _groundCheckDistance, _groundMask);
     }
 }

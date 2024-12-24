@@ -11,14 +11,25 @@ public class HiringManager : MonoBehaviour
 
     private Transform _target;
     private Animator _animator;
+    private float _stoppingDistance;
     private bool _isMoving = false;
 
     public void MoveToPosition2()
     {
         _isMoving = true;
         _target = position2;
+        _stoppingDistance = 0.1f;
         _animator.SetBool("IsWalking", true);
         _animator.SetBool("IsGoingRight", true);
+    }
+
+    public void MoveCloseToPlayer(Transform playerTransform)
+    {
+        _isMoving = true;
+        _target = playerTransform;
+        _stoppingDistance = 5.0f;
+        _animator.SetBool("IsWalking", true);
+        _animator.SetBool("IsGoingRight", false);
     }
 
     private void Start()
@@ -35,7 +46,7 @@ public class HiringManager : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, _target.position, speed * Time.deltaTime);
 
             // If the Hiring Manager reaches the target, turn off walking animation
-            if (Vector3.Distance(transform.position, _target.position) < 0.1f)
+            if (Vector3.Distance(transform.position, _target.position) < _stoppingDistance)
             {
                 _animator.SetBool("IsWalking", false);
                 _isMoving = false;

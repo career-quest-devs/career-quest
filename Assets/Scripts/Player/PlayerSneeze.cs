@@ -17,6 +17,11 @@ public class PlayerSneeze : MonoBehaviour
         _isActive = true;
     }
 
+    public void DeactivateSneeze()
+    {
+        _isActive = false;
+    }
+
     public void Sneeze()
     {
         if (_isActive)
@@ -38,7 +43,6 @@ public class PlayerSneeze : MonoBehaviour
 
             // Update action/ability count in DataTracker
             DataTracker.GetInstance().IncrementAbility("Sneeze");
-
         }
     }
 

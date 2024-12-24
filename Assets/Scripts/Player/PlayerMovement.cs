@@ -10,10 +10,16 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _moveInput;
     private Rigidbody2D _rb;
     private PlayerController _player;
+    private PlayerInput _playerInput;
 
     public void OnMove(InputAction.CallbackContext context)
     {
         _moveInput = context.ReadValue<Vector2>();
+    }
+
+    private void Awake()
+    {
+        _playerInput = GetComponent<PlayerInput>();
     }
 
     // Start is called before the first frame update
@@ -37,21 +43,72 @@ public class PlayerMovement : MonoBehaviour
         {
             _player.currentAnimator.SetBool("IsWalking", true);
             _player.currentAnimator.SetBool("IsGoingRight", true);
-            _player.EnableDashAction(); // Enable dash action when moving
-            _player.DisableSneezeAction(); // Disable sneeze action when moving
+            EnableDashActionWhenMoving();
+            DisableSneezeActionWhenMoving();
+            DisableWaveActionWhenMoving();
         }
         else if (_moveInput.x < 0)
         {
             _player.currentAnimator.SetBool("IsWalking", true);
             _player.currentAnimator.SetBool("IsGoingRight", false);
-            _player.EnableDashAction(); // Enable dash action when moving
-            _player.DisableSneezeAction(); // Disable sneeze action when moving
+            EnableDashActionWhenMoving();
+            DisableSneezeActionWhenMoving();
+            DisableWaveActionWhenMoving();
         }
         else
         {
             _player.currentAnimator.SetBool("IsWalking", false);
-            _player.EnableSneezeAction(); // Enable sneeze action when not moving
-            _player.DisableDashAction(); // Disable dash action when not moving
+            EnableSneezeActionWhenStopped();
+            EnableWaveActionWhenStopped();
+            DisableDashActionWhenStopped();
+        }
+    }
+
+    private void EnableSneezeActionWhenStopped()
+    {
+        if (_playerInput.currentActionMap.name == "Player")
+        {
+            _playerInput.actions["Sneeze"].Enable();
+        }
+    }
+
+    private void DisableSneezeActionWhenMoving()
+    {
+        if (_playerInput.currentActionMap.name == "Player")
+        {
+            _playerInput.actions["Sneeze"].Disable();
+        }
+    }
+
+    private void EnableWaveActionWhenStopped()
+    {
+        if (_playerInput.currentActionMap.name == "Player")
+        {
+            _playerInput.actions["Wave"].Enable();
+        }
+    }
+
+    private void DisableWaveActionWhenMoving()
+    {
+        if (_playerInput.currentActionMap.name == "Player")
+        {
+            _playerInput.actions["Wave"].Disable();
+        }
+    }
+
+    private void EnableDashActionWhenMoving()
+    {
+        if (_playerInput.currentActionMap.name == "Player")
+        {
+            _playerInput.actions["Dash"].Enable();
+        }
+    }
+
+    private void DisableDashActionWhenStopped()
+    {
+        if (_playerInput.currentActionMap.name == "Player")
+        {
+            _playerInput.actions["Dash"].Disable();
         }
     }
 }

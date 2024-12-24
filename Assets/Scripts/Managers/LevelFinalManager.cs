@@ -14,7 +14,11 @@ public class LevelFinalManager : MonoBehaviour
     [SerializeField] private OfficeChairSpawner _chairSpawner;
 
     private bool _initiateManagerMove = false;
-    private bool _initiateChairSpawner = false;
+    private bool _initiateInterviewStart = false;
+    private bool _initiateInterviewEnding = false;
+    private bool _startChairSpawning = false;
+    private bool _hitByChairIntroCompleted = false;
+    private int _numberOfWhiteboardsCleaned = 0;
 
     // Dialog collection
     private string[] _introDialog = new string[3]
@@ -23,16 +27,22 @@ public class LevelFinalManager : MonoBehaviour
         "Alex: It is very nice to meet you too.",
         "Hiring Manager: Follow me this way and we'll get started."
     };
-    private string[] _interviewDialog = new string[8]
+    private string[] _interviewDialog = new string[5]
     {
         "Hiring Manager: Alex, today I'd like you put your skills into practice.",
-        "Hiring Manager: I'd like you to use any skills necessary to help me complete some tasks I've setup for you.",
-        "Hiring Manager: Firstly, I'd like you to clean all the whiteboards in this room.",
-        "Hiring Manager: Secondly, I need help finding an important document I seemed to have misplaced.",
-        "Hiring Manager: Please find it, and bring it to me.",
+        "Hiring Manager: I'd like you to use any skills necessary to help me clean the whiteboards in this room.",
         "Hiring Manager: I may throw in some obstacles along the way just to make things interesting.",
         "Alex: Sounds good. I'm ready.",
         "Hiring Manager: Great! Ready, set, go!"
+    };
+    private string[] _hitByChairIntroDialog = new string[1]
+    {
+        "When you are hit with an office chair, you will lose the ability to use any special skills for 2 seconds."
+    };
+    private string[] _interviewClosingDialog = new string[2]
+    {
+        "Hiring Manager: Congratulations, Alex! You have completed the interview.",
+        "Hiring Manager: Thank you for coming in today! We will be in touch with you shortly."
     };
 
     public void DisplayNextDialogLine(InputAction.CallbackContext context)
@@ -41,6 +51,11 @@ public class LevelFinalManager : MonoBehaviour
         {
             if (!_uIManager.DisplayNextLine())
             {
+                if (_initiateInterviewEnding)
+                {
+                    SceneChange.GetInstance().NextScene();
+                }
+
                 // End of dialog set
                 _player.SwitchToPlayerActionMap();
 
@@ -49,10 +64,20 @@ public class LevelFinalManager : MonoBehaviour
                     _hiringManager.MoveToPosition2();
                     _initiateManagerMove = false;
                 }
-                else if (_initiateChairSpawner)
+                else if (_initiateInterviewStart)
+                {
+                    // Activate special actions that are available in this level
+                    _playerSneeze.ActivateSneeze();
+                    _playerWave.ActivateWave();
+                    _playerDash.ActivateDash();
+
+                    _chairSpawner.StartSpawning();
+                    _initiateInterviewStart = false;
+                }
+                else if (_startChairSpawning)
                 {
                     _chairSpawner.StartSpawning();
-                    _initiateChairSpawner = false;
+                    _startChairSpawning = false;
                 }
             }
         }
@@ -62,7 +87,29 @@ public class LevelFinalManager : MonoBehaviour
     {
         _player.SwitchToUIActionMap();
         _uIManager.StartDialog(_interviewDialog);
-        _initiateChairSpawner = true;
+        _initiateInterviewStart = true;
+    }
+
+    public void StartHitByChairIntroDialog()
+    {
+        if (!_hitByChairIntroCompleted)
+        {
+            _chairSpawner.StopSpawning();
+            _player.SwitchToUIActionMap();
+            _uIManager.StartDialog(_hitByChairIntroDialog);
+            _startChairSpawning = true;
+            _hitByChairIntroCompleted = true;
+        }
+    }
+
+    public void UpdateWhiteboardTask()
+    {
+        _numberOfWhiteboardsCleaned++;
+
+        if (_numberOfWhiteboardsCleaned == 3)
+        {
+            StartInterviewClosingSequence();
+        }
     }
 
     private void Start()
@@ -77,11 +124,6 @@ public class LevelFinalManager : MonoBehaviour
             _uIManager.SetOpenButtonVisibility(false);
         }
 
-        // Activate special actions that are available in this level
-        _playerSneeze.ActivateSneeze();
-        _playerWave.ActivateWave();
-        _playerDash.ActivateDash();
-
         StartIntroDialog();
     }
 
@@ -90,5 +132,15 @@ public class LevelFinalManager : MonoBehaviour
         _player.SwitchToUIActionMap();
         _uIManager.StartDialog(_introDialog);
         _initiateManagerMove = true;
+    }
+
+    private void StartInterviewClosingSequence()
+    {
+        _chairSpawner.StopSpawning();
+        _player.SwitchToUIActionMap();
+        _hiringManager.MoveCloseToPlayer(_player.transform);
+        _initiateInterviewEnding = true;
+
+        _uIManager.StartDialog(_interviewClosingDialog);
     }
 }

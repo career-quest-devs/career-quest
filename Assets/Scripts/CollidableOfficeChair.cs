@@ -5,6 +5,7 @@ using UnityEngine;
 public class CollidableOfficeChair : MonoBehaviour
 {
     public float pushForce = 20.0f; // Force to push the chair
+
     private Rigidbody2D rb;
 
     void Start()

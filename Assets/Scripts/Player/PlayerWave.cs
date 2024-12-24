@@ -6,22 +6,29 @@ using UnityEngine.InputSystem;
 
 public class PlayerWave : MonoBehaviour
 {
-    [SerializeField] private float _cleanDelay = 0.5f;
-    [SerializeField] private float _sayingHiDelay = 0.5f;
+    public float cleanDelay = 0.5f;
+    public float waveDelay = 0.5f;
+    public float coolDownTime = 1.0f;
 
     private PlayerController _player;
     private GameObject _nearbyNeighbour;
     private GameObject _nearbyWhiteboard;
     private bool _isActive = false;
+    private bool _canWave = true;
 
     public void ActivateWave()
     {
         _isActive = true;
     }
 
+    public void DeactivateWave()
+    {
+        _isActive = false;
+    }
+
     public void Wave()
     {
-        if (_isActive)
+        if (_isActive && _canWave)
         {
             // Trigger player wave animation
             _player.currentAnimator.SetTrigger("Wave");
@@ -36,9 +43,10 @@ public class PlayerWave : MonoBehaviour
                 StartCoroutine(CleanWhiteboard());
             }
 
+            StartCoroutine(WaveCooldown());
+
             // Update action/ability count in DataTracker
             DataTracker.GetInstance().IncrementAbility("Wave");
-
         }
     }
 
@@ -87,7 +95,7 @@ public class PlayerWave : MonoBehaviour
 
     private IEnumerator SayHiToNeighbour()
     {
-        yield return new WaitForSeconds(_sayingHiDelay);
+        yield return new WaitForSeconds(waveDelay);
 
         if (_nearbyNeighbour != null)
         {
@@ -119,13 +127,19 @@ public class PlayerWave : MonoBehaviour
 
     private IEnumerator CleanWhiteboard()
     {
-        yield return new WaitForSeconds(_cleanDelay);
+        yield return new WaitForSeconds(cleanDelay);
 
         Whiteboard whiteboard = _nearbyWhiteboard.GetComponent<Whiteboard>();
         if (whiteboard != null)
         {
             whiteboard.CleanWhiteboard();
-
         }
+    }
+
+    private IEnumerator WaveCooldown()
+    {
+        _canWave = false;
+        yield return new WaitForSeconds(coolDownTime);
+        _canWave = true;
     }
 }
