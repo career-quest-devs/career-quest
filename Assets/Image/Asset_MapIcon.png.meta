@@ -100,19 +100,19 @@ TextureImporter:
       name: Asset_MapIcon_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 333
+        x: 22
+        y: 466
         width: 290
         height: 294
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 858f7e77cd070b5499d51986850bbafe
-      internalID: -20822863
+      spriteID: c8f5205ffba52c54db12bc872b06aaa0
+      internalID: -1337574272
       vertices: []
       indices: 
       edges: []
@@ -121,19 +121,19 @@ TextureImporter:
       name: Asset_MapIcon_1
       rect:
         serializedVersion: 2
-        x: 424
-        y: 391
-        width: 242
-        height: 330
+        x: 335
+        y: 270
+        width: 288
+        height: 318
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e56e28b736455e4a9624791e903b9bb
-      internalID: -273146160
+      spriteID: 124976ac66a2d9f4a897e6410cf84fb7
+      internalID: -1869333951
       vertices: []
       indices: 
       edges: []
@@ -142,19 +142,19 @@ TextureImporter:
       name: Asset_MapIcon_2
       rect:
         serializedVersion: 2
-        x: 261
-        y: 0
-        width: 262
-        height: 241
+        x: 630
+        y: 436
+        width: 263
+        height: 345
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40254d73a19c4aa43a49f7d14c5a6952
-      internalID: 1003140661
+      spriteID: 881e9469ac54a194bb559f823848c395
+      internalID: -113042418
       vertices: []
       indices: 
       edges: []
@@ -163,19 +163,40 @@ TextureImporter:
       name: Asset_MapIcon_3
       rect:
         serializedVersion: 2
-        x: 525
-        y: 61
-        width: 130
-        height: 195
+        x: 371
+        y: 0
+        width: 262
+        height: 241
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5168d2857ee28954e8e05f078511b3f3
-      internalID: -172567320
+      spriteID: 6e798f326151902478d013fb76630fce
+      internalID: 183494068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset_MapIcon_4
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 61
+        width: 130
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1522371f12ad4dd4ead0a76c9f9155df
+      internalID: -650708925
       vertices: []
       indices: 
       edges: []
@@ -191,10 +212,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Asset_MapIcon_0: -20822863
-      Asset_MapIcon_1: -273146160
-      Asset_MapIcon_2: 1003140661
-      Asset_MapIcon_3: -172567320
+      Asset_MapIcon_0: -1337574272
+      Asset_MapIcon_1: -1869333951
+      Asset_MapIcon_2: -113042418
+      Asset_MapIcon_3: 183494068
+      Asset_MapIcon_4: -650708925
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
