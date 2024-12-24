@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelFinal.unity
     guid: 400aa02005ab272459908cd9b2fbd340
   - enabled: 1
+    path: Assets/Scenes/FinalCutscene.unity
+    guid: 08055c3ebb3993d49ba3de9ea963a89c
+  - enabled: 1
     path: Assets/Scenes/MiniLevels.unity
     guid: 3c4a62f057b196c4a873cc092af494e4
   - enabled: 0
