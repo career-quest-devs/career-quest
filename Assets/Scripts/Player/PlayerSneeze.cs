@@ -17,6 +17,11 @@ public class PlayerSneeze : MonoBehaviour
         _isActive = true;
     }
 
+    public void DeactivateSneeze()
+    {
+        _isActive = false;
+    }
+
     public void Sneeze()
     {
         if (_isActive)
@@ -24,13 +29,13 @@ public class PlayerSneeze : MonoBehaviour
             // Trigger player sneeze animation
             _player.currentAnimator.SetTrigger("Sneeze");
 
-            // Trigger declutter animation on clothes
+            // Trigger declutter animation on clothes if nearby
             if (_nearbyClothes != null)
             {
                 StartCoroutine(DeclutterClothes());
             }
 
-
+            // Trigger blow away neighbour animation if nearby
             if (_nearbyNeighbour != null)
             {
                 StartCoroutine(BlowAwayNeighbour());
@@ -38,7 +43,6 @@ public class PlayerSneeze : MonoBehaviour
 
             // Update action/ability count in DataTracker
             DataTracker.GetInstance().IncrementAbility("Sneeze");
-
         }
     }
 
@@ -94,7 +98,8 @@ public class PlayerSneeze : MonoBehaviour
         }
     }
 
-    private IEnumerator BlowAwayNeighbour() {
+    private IEnumerator BlowAwayNeighbour()
+    {
         yield return new WaitForSeconds(_declutterDelay);// use the same delay?
 
         if (_nearbyNeighbour != null)

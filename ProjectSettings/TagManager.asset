@@ -10,6 +10,7 @@ TagManager:
   - Door
   - BlockedNeighbour
   - Whiteboard
+  - OfficeChair
   layers:
   - Default
   - TransparentFX

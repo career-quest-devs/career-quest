@@ -39,7 +39,7 @@ public class SceneChange : MonoBehaviour
     public int lastScene;
 
     DataTracker data;
-    List<int> loadNext = new List<int> { 0,1 };
+    List<int> loadNext = new List<int> { 0,1,4 };
 
     private void Start()
     {

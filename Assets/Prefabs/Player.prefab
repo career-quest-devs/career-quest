@@ -318,6 +318,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &3398240327906802926
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5101290811342171680}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5101290811342171680
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3398240327906802926}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -6.73, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2190006479040462163}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5718558148722524591
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,6 +497,7 @@ Transform:
   - {fileID: 3658428297671592076}
   - {fileID: 9040234167183946667}
   - {fileID: 116237590666917472}
+  - {fileID: 5101290811342171680}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &8029365619827460582
@@ -732,6 +764,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcdb783f1167e2a489759b5804893a8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnHitByChair:
+    m_PersistentCalls:
+      m_Calls: []
   defaultSprite: {fileID: 1190618594693531712}
   tieSprite: {fileID: 1683467995606855235}
   socksSprite: {fileID: 2707929433350047666}
@@ -741,6 +776,8 @@ MonoBehaviour:
   socksAnimator: {fileID: 8012802990699414523}
   tieAndSocksAnimator: {fileID: 7026425209313740390}
   currentAnimator: {fileID: 0}
+  skillReactivationTime: 2
+  collisionImpactThreshold: 10
 --- !u!114 &7573037557291600384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -821,6 +858,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0991c12aa90e348468d1fedc3dff2bc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cleanDelay: 0.5
+  waveDelay: 0.5
+  coolDownTime: 1
 --- !u!114 &1925254494537378045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -834,6 +874,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horizontalDashForce: 10
-  verticalDashForce: 6
+  verticalDashForce: 10
   coolDownTime: 2
   doubleDashTimeLimit: 0.5
+  _groundCheck: {fileID: 0}
+  _groundMask:
+    serializedVersion: 2
+    m_Bits: 0
+  _groundCheckDistance: 0.15

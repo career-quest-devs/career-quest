@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public UnityEvent OnHitByChair;
+
     public GameObject defaultSprite;
     public GameObject tieSprite;
     public GameObject socksSprite;
@@ -18,9 +21,16 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public Animator currentAnimator;
 
+    public float skillReactivationTime = 2.0f;
+    public float collisionImpactThreshold = 10.0f;
+
+    private SpriteRenderer _currentSR;
+    private DataTracker _dataTracker;
     private PlayerState _currentState;
     private PlayerInput _playerInput;
-    private DataTracker _dataTracker;
+    private PlayerSneeze _playerSneeze;
+    private PlayerWave _playerWave;
+    private PlayerDash _playerDash;
 
     // Properties to track collected items
     public bool HasTie { get; private set; }
@@ -58,6 +68,9 @@ public class PlayerController : MonoBehaviour
         // Activate the desired sprite
         sprite.SetActive(true);
 
+        //Set the current, active SpriteRenderer
+        _currentSR = sprite.GetComponent<SpriteRenderer>();
+
         //Set the current, active Animator
         currentAnimator = animator;
     }
@@ -72,41 +85,12 @@ public class PlayerController : MonoBehaviour
         _playerInput.SwitchCurrentActionMap("UI");
     }
 
-    public void EnableSneezeAction()
-    {
-        if (_playerInput.currentActionMap.name == "Player")
-        {
-            _playerInput.actions["Sneeze"].Enable();
-        }
-    }
-
-    public void DisableSneezeAction()
-    {
-        if (_playerInput.currentActionMap.name == "Player")
-        {
-            _playerInput.actions["Sneeze"].Disable();
-        }
-    }
-
-    public void EnableDashAction()
-    {
-        if (_playerInput.currentActionMap.name == "Player")
-        {
-            _playerInput.actions["Dash"].Enable();
-        }
-    }
-
-    public void DisableDashAction()
-    {
-        if (_playerInput.currentActionMap.name == "Player")
-        {
-            _playerInput.actions["Dash"].Disable();
-        }
-    }
-
     private void Awake()
     {
         _playerInput = GetComponent<PlayerInput>();
+        _playerSneeze = GetComponent<PlayerSneeze>();
+        _playerWave = GetComponent<PlayerWave>();
+        _playerDash = GetComponent<PlayerDash>();
     }
 
     private void Start()
@@ -128,6 +112,27 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         _currentState.OnStateUpdate();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("OfficeChair"))
+        {
+            // Get the relative velocity magnitude
+            float impactForce = collision.relativeVelocity.magnitude;
+
+            // Check if the impact force exceeds the threshold
+            if (impactForce >= collisionImpactThreshold)
+            {
+                //Change color of player sprite
+                _currentSR.color = Color.red;
+
+                OnHitByChair?.Invoke();
+
+                // Temporarily disable special skills
+                StartCoroutine(TemporarilyDisableSpecialSkills(skillReactivationTime));
+            }
+        }
     }
 
     private void InitStateChange()
@@ -155,5 +160,23 @@ public class PlayerController : MonoBehaviour
         _currentState?.OnStateExit();
         _currentState = newState;
         _currentState.OnStateEnter();
+    }
+
+    private IEnumerator TemporarilyDisableSpecialSkills(float timeToDisable)
+    {
+        // Deactivate special actions that are available in this level
+        _playerSneeze.DeactivateSneeze();
+        _playerWave.DeactivateWave();
+        _playerDash.DeactivateDash();
+
+        yield return new WaitForSeconds(timeToDisable);
+
+        // Activate special actions that are available in this level
+        _playerSneeze.ActivateSneeze();
+        _playerWave.ActivateWave();
+        _playerDash.ActivateDash();
+
+        //Change player sprite color back to the original
+        _currentSR.color = Color.white;
     }
 }
