@@ -30,15 +30,21 @@ public class LevelFinalManager : MonoBehaviour
     };
     private string[] _interviewDialog = new string[5]
     {
-        "Hiring Manager: Alex, today I'd like you put your skills into practice.",
-        "Hiring Manager: I'd like you to use any skills necessary to help me clean the whiteboards in this room.",
+        "Hiring Manager: Alex, today I would like you to showcase your creativity and skills.",
+        "Hiring Manager: I would like you to clean all the whiteboards in this room using any skills necessary.",
         "Hiring Manager: I may throw in some obstacles along the way just to make things interesting.",
         "Alex: Sounds good. I'm ready.",
-        "Hiring Manager: Great! Ready, set, go!"
+        "Hiring Manager: Great! You may begin."
     };
-    private string[] _hitByChairIntroDialog = new string[1]
+    private string[] _hitByChairIntroDialog = new string[2]
     {
-        "When you are hit with an office chair, you will lose the ability to use any special skills for 2 seconds."
+        "When you are hit with an office chair, you will lose the ability to use any special skills for 2 seconds.",
+        "To avoid the chairs, try using the dash skill by pressing SPACE while moving left or right."
+    };
+    private string[] _hitByChairIntroDialogMobile = new string[2]
+    {
+        "When you are hit with an office chair, you will lose the ability to use any special skills for 2 seconds.",
+        "To avoid the chairs, try using the dash skill by pressing the new button on the right while moving left or right."
     };
     private string[] _interviewClosingDialog = new string[2]
     {
