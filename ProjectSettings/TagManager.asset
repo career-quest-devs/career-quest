@@ -11,6 +11,8 @@ TagManager:
   - BlockedNeighbour
   - Whiteboard
   - OfficeChair
+  - Elevator
+  - Neighbour
   layers:
   - Default
   - TransparentFX

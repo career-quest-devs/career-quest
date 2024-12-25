@@ -5,35 +5,19 @@ using UnityEngine.Events;
 
 public class FirstNeighbour : MonoBehaviour
 {
-    public UnityEvent LearningSayingHi;
+    public UnityEvent OnWaveTutorialStarted;
 
-    private bool hadtutorial;
-
-    //[SerializeField] private ParticleSystem _dustParticles;
-
-    private BoxCollider2D _ConversationCollider;
-    private CapsuleCollider2D _BlockCollider;
-
-    private void Start()
-    {
-        hadtutorial = false;
-        _ConversationCollider = GetComponent<BoxCollider2D>();
-    }
+    private bool waveTutorialCompleted = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            if (!hadtutorial)
+            if (!waveTutorialCompleted)
             {
-                LearningSayingHi?.Invoke();
-                hadtutorial = true;
+                OnWaveTutorialStarted?.Invoke();
+                waveTutorialCompleted = true;
             }
-            else {
-                //_ConversationCollider.enabled = false;
-            }
-            
-            
         }
     }
 }

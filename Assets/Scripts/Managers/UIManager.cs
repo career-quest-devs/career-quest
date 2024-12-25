@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
@@ -117,7 +116,7 @@ public class UIManager : MonoBehaviour
     private void OnEnable()
     {
         //Add subscription
-        _playerInteract.OnInteracted += EndInteration;
+        _playerInteract.OnInteracted += EndInteraction;
     }
 
     private void Update()
@@ -131,7 +130,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private void EndInteration()
+    private void EndInteraction()
     {
         EndDialog();
         SetPickUpButtonVisibility(false);

@@ -952,11 +952,10 @@ GameObject:
   - component: {fileID: 412756716}
   - component: {fileID: 412756718}
   - component: {fileID: 412756719}
-  - component: {fileID: 412756720}
   - component: {fileID: 412756721}
   m_Layer: 0
   m_Name: ExitLevel
-  m_TagString: BlockedNeighbour
+  m_TagString: Elevator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1095,7 +1094,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8.82402, y: 12.815466}
   m_EdgeRadius: 0
---- !u!114 &412756720
+--- !u!114 &412756721
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1104,10 +1103,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 412756715}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e5271e34df973440862e63867b0663c, type: 3}
+  m_Script: {fileID: 11500000, guid: e18ec3dac2018604cb5245f737d4b428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LearningSayingHi:
+  OnElevatorReached:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1059622918}
@@ -1122,18 +1121,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &412756721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 412756715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e18ec3dac2018604cb5245f737d4b428, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   _levelEndCheckPoint: {fileID: 1620488486}
 --- !u!1 &449993673
 GameObject:
@@ -1715,7 +1702,7 @@ GameObject:
   - component: {fileID: 661901286}
   m_Layer: 0
   m_Name: Neighbour2
-  m_TagString: BlockedNeighbour
+  m_TagString: Neighbour
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1900,13 +1887,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 004c4838dc42c944b982c66716895bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartDialog:
+  OnConversationIntiated:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1059622918}
         m_TargetAssemblyTypeName: Level2Manager, Assembly-CSharp
-        m_MethodName: StartDialog
-        m_Mode: 0
+        m_MethodName: StartNeighbour2Dialog
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2277,7 +2264,7 @@ Transform:
   m_GameObject: {fileID: 850244060}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5064783, y: 0.22773999, z: -10}
+  m_LocalPosition: {x: -0.5030036, y: 0.22769, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3124,6 +3111,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mobile Controls
       objectReference: {fileID: 0}
+    - target: {fileID: 95340867398554072, guid: e43502f72ff2607429ecac3dda63493f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2436849358178574913, guid: e43502f72ff2607429ecac3dda63493f, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3535,18 +3526,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1059622918}
         m_TargetAssemblyTypeName: Level2Manager, Assembly-CSharp
         m_MethodName: EndLevel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
-        m_MethodName: NextScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4081,13 +4060,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 004c4838dc42c944b982c66716895bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartDialog:
+  OnConversationIntiated:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1059622918}
         m_TargetAssemblyTypeName: Level2Manager, Assembly-CSharp
-        m_MethodName: StartDialog
-        m_Mode: 0
+        m_MethodName: StartNeighbour3Dialog
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4473,7 +4452,7 @@ GameObject:
   - component: {fileID: 8470320558092141407}
   m_Layer: 0
   m_Name: Neighbour1
-  m_TagString: BlockedNeighbour
+  m_TagString: Neighbour
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4608,13 +4587,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 004c4838dc42c944b982c66716895bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartDialog:
+  OnConversationIntiated:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1059622918}
         m_TargetAssemblyTypeName: Level2Manager, Assembly-CSharp
-        m_MethodName: StartDialog
-        m_Mode: 0
+        m_MethodName: StartNeighbour1Dialog
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4642,24 +4621,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e5271e34df973440862e63867b0663c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LearningSayingHi:
+  OnWaveTutorialStarted:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1059622918}
         m_TargetAssemblyTypeName: Level2Manager, Assembly-CSharp
         m_MethodName: StartWaveTutorialDialog
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1510486695}
-        m_TargetAssemblyTypeName: PlayerWave, Assembly-CSharp
-        m_MethodName: ActivateWave
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

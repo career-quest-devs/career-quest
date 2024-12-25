@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private bool isPlaying;
-
     /// <summary>
     /// Singleton -------------------
     /// </summary>
@@ -38,21 +36,8 @@ public class GameManager : MonoBehaviour
     /// End of the Singleton -------------------
     /// </summary>
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     public void StartGame()
     {
-        isPlaying = true;
-
         SceneManager.LoadScene("Level1");
     }
 

@@ -12,6 +12,7 @@ public class PlayerWave : MonoBehaviour
 
     private PlayerController _player;
     private GameObject _nearbyNeighbour;
+    private GameObject _nearbyElevator;
     private GameObject _nearbyWhiteboard;
     private bool _isActive = false;
     private bool _canWave = true;
@@ -35,7 +36,12 @@ public class PlayerWave : MonoBehaviour
 
             if (_nearbyNeighbour != null)
             {
-                StartCoroutine(SayHiToNeighbour());
+                WaveToNeighbour();
+            }
+
+            if (_nearbyElevator != null)
+            {
+                FixElevator();
             }
 
             if (_nearbyWhiteboard != null)
@@ -66,9 +72,14 @@ public class PlayerWave : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Detect if neighbour is within range
-        if (collision.CompareTag("BlockedNeighbour"))
+        if (collision.CompareTag("Neighbour") || collision.CompareTag("BlockedNeighbour"))
         {
             _nearbyNeighbour = collision.gameObject;
+        }
+
+        if (collision.CompareTag("Elevator"))
+        {
+            _nearbyElevator = collision.gameObject;
         }
 
         // Detect if whiteboard is within range
@@ -82,9 +93,14 @@ public class PlayerWave : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         // Reset if the player leaves the interaction range
-        if (collision.CompareTag("BlockedNeighbour"))
+        if (collision.CompareTag("Neighbour") || collision.CompareTag("BlockedNeighbour"))
         {
             _nearbyNeighbour = null;
+        }
+
+        if (collision.CompareTag("Elevator"))
+        {
+            _nearbyElevator = null;
         }
 
         if (collision.CompareTag("Whiteboard"))
@@ -93,10 +109,8 @@ public class PlayerWave : MonoBehaviour
         }
     }
 
-    private IEnumerator SayHiToNeighbour()
+    private void WaveToNeighbour()
     {
-        yield return new WaitForSeconds(waveDelay);
-
         if (_nearbyNeighbour != null)
         {
             try
@@ -109,11 +123,18 @@ public class PlayerWave : MonoBehaviour
             }
             catch (Exception e)
             {
+                Debug.LogException(e);
             }
+        }
+    }
 
+    private void FixElevator()
+    {
+        if (_nearbyElevator != null)
+        {
             try
             {
-                OpenElevator openElevator = _nearbyNeighbour.GetComponent<OpenElevator>();
+                OpenElevator openElevator = _nearbyElevator.GetComponent<OpenElevator>();
                 if (openElevator != null)
                 {
                     openElevator.Open();
@@ -121,6 +142,7 @@ public class PlayerWave : MonoBehaviour
             }
             catch (Exception e)
             {
+                Debug.LogException(e);
             }
         }
     }
