@@ -11,60 +11,94 @@ public class Level2Manager : MonoBehaviour
     [SerializeField] private PlayerSneeze _playerSneeze;
     [SerializeField] private PlayerWave _playerWave;
 
-    private bool initiateWave = false;
+    private bool _activateWave = false;
 
     // Dialog collection
-    private string[] _introDialog = new string[2]
+    private string[] _introDialog = new string[1]
     {
-        "Alex: I got to be hurry!",
-        "Alex: I remember the evalator is on the right."
+        "Alex: I have to get to the elevator down the hall as quickly as I can.",
     };
-    private string[] _elevatorDialog = new string[3] { 
-        "Oh crap!",
-        "The elevator is not working again...",
-        "I will be late, can I do something to fix it?"
-    };
-    private string[] _waveTutorialDialogMobile = new string[4]
+    private string[] _waveTutorialDialog = new string[5]
     {
-        "Oh! This is my neighbour Ben, he is a classical old guy.",
-        "I'd better say hi to him.",
-        "New skill acquired: Wave to say hi",
-        "New skill acquired: Wave to say hi"
+        "Alex: This is my neighbour Ben.",
+        "Alex: I should say a quick hello to him.",
+        "Alex: Otherwise, I'll never hear the end of it.",
+        "New skill acquired: Dynamic Wave",
+        "You can use Dynamic Wave by pressing key W."
     };
-    private string[] _waveTutorialDialog = new string[4]
+    private string[] _waveTutorialDialogMobile = new string[5]
     {
-        "Oh! This is my neighbour Ben, he is a classical old guy.",
-        "I'd better say hi to him.",
-        "New skill acquired: Wave to say hi",
-        "You can use Wave to say hi by pressing key W."
+        "Alex: This is my neighbour Ben.",
+        "Alex: I should say a quick hello to him.",
+        "Alex: Otherwise, I'll never hear the end of it.",
+        "New skill acquired: Dynamic Wave",
+        "You can use Dynamic Wave by pressing the new button on the right."
     };
- 
-    // Start is called before the first frame update
-    void Start()
+    private string[] _neighbour1Dialog = new string[5]
     {
-        _playerSneeze.ActivateSneeze();
+        "Alex: Good morning, Ben!",
+        "Ben: Oh, good morning, Alex!",
+        "Ben: Where are you off to today?",
+        "Alex: I'm actually running late for my job interview.",
+        "Ben: Well then, you better be on your way. Best of luck!"
+    };
+    private string[] _neighbour2Dialog = new string[6]
+    {
+        "Alex: Good morning, Carol!",
+        "Alex: Working out in the hallway again?",
+        "Carol: You know it. I'm hoping more people like you are going to join me.",
+        "Carol: Come on, Alex. What do you say?",
+        "Alex: I'll think about it. I really have to run right now as I'm late for my interview.",
+        "Carol: Good luck. Until next time."
+    };
+    private string[] _neighbour3Dialog = new string[6]
+    {
+        "Alex: Good morning, Daniel!",
+        "Daniel: ...",
+        "Alex: GOOD MORNING, DANIEL!",
+        "Daniel: ...",
+        "Alex: He doesn't seem to hear me... or he is ignoring me.",
+        "Alex: Hmmm..."
+    };
+    private string[] _elevatorDialog = new string[2] {
+        "Alex: Oh crap! The elevator is not working again.",
+        "Alex: I wonder if there is something I can do to fix it."
+    };
 
-        if (Application.platform == RuntimePlatform.Android)
+    public void DisplayNextDialogLine(InputAction.CallbackContext context)
+    {
+        if (context.performed)
         {
-            //Set visibility for mobile action buttons to false
+            if (!_uIManager.DisplayNextLine())
+            {
+                // End of dialog set
+                _player.SwitchToPlayerActionMap();
 
-            //_uIManager.SetSneezeButtonVisibility(false);
-            _uIManager.SetWaveButtonVisibility(false);
-            _uIManager.SetDashButtonVisibility(false);
-            _uIManager.SetPickUpButtonVisibility(false);
-            _uIManager.SetOpenButtonVisibility(false);
+                if (_activateWave)
+                {
+                    _playerWave.ActivateWave();
+                    _activateWave = false;
+                }
+            }
         }
-
-        // Start timer based on time remaining from previous level
-        _uIManager.SetTimeRemaining(DataTracker.GetInstance().GetTotalRemainingTime());
-        _uIManager.StartTimer();
-
-        StartIntroDialog();
     }
-    private void StartIntroDialog()
+
+    public void StartNeighbour1Dialog()
     {
         _player.SwitchToUIActionMap();
-        _uIManager.StartDialog(_introDialog);
+        _uIManager.StartDialog(_neighbour1Dialog);
+    }
+
+    public void StartNeighbour2Dialog()
+    {
+        _player.SwitchToUIActionMap();
+        _uIManager.StartDialog(_neighbour2Dialog);
+    }
+
+    public void StartNeighbour3Dialog()
+    {
+        _player.SwitchToUIActionMap();
+        _uIManager.StartDialog(_neighbour3Dialog);
     }
 
     public void StartElevatorDialog()
@@ -77,30 +111,6 @@ public class Level2Manager : MonoBehaviour
     {
         _player.SwitchToUIActionMap();
         _uIManager.StartDialog(theTalk);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void DisplayNextDialogLine(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            if (!_uIManager.DisplayNextLine())
-            {
-                // End of dialog set
-                _player.SwitchToPlayerActionMap();
-
-                if (initiateWave)
-                {
-                    initiateWave = false;
-                    //StartWaveTutorialDialog();
-                }
-            }
-        }
     }
 
     public void StartWaveTutorialDialog()
@@ -117,7 +127,7 @@ public class Level2Manager : MonoBehaviour
             _uIManager.StartDialog(_waveTutorialDialog);
         }
 
-        initiateWave = true;
+        _activateWave = true;
     }
 
     public void EndLevel()
@@ -132,4 +142,31 @@ public class Level2Manager : MonoBehaviour
         SceneManager.LoadScene("MiniLevels");
     }
 
+    private void Start()
+    {
+        // Activate skills learned in previous level
+        _playerSneeze.ActivateSneeze();
+
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            // Set visibility for mobile action buttons
+            _uIManager.SetSneezeButtonVisibility(true);
+            _uIManager.SetWaveButtonVisibility(false);
+            _uIManager.SetDashButtonVisibility(false);
+            _uIManager.SetPickUpButtonVisibility(false);
+            _uIManager.SetOpenButtonVisibility(false);
+        }
+
+        // Start timer based on time remaining from previous level
+        _uIManager.SetTimeRemaining(DataTracker.GetInstance().GetTotalRemainingTime());
+        _uIManager.StartTimer();
+
+        StartIntroDialog();
+    }
+
+    private void StartIntroDialog()
+    {
+        _player.SwitchToUIActionMap();
+        _uIManager.StartDialog(_introDialog);
+    }
 }

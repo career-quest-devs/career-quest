@@ -5,18 +5,19 @@ using UnityEngine.Events;
 
 public class BlockedNeighbour : MonoBehaviour
 {
-    private Animator _neighbourAnimator;
-    private SpriteRenderer img;
+    public UnityEvent OnConversationIntiated;
 
-    public UnityEvent<string[]> StartDialog;
     [SerializeField] string[] _smallTalk;
     [SerializeField] bool chatAndLeave;
+
+    private Animator _neighbourAnimator;
+    private SpriteRenderer _sr;
 
     // Start is called before the first frame update
     void Start()
     {
         _neighbourAnimator = GetComponent<Animator>();
-        img = GetComponent<SpriteRenderer>();
+        _sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -29,11 +30,10 @@ public class BlockedNeighbour : MonoBehaviour
     {
         _neighbourAnimator.SetTrigger("ChatAndLeave");
 
-        StartDialog?.Invoke(_smallTalk);
+        OnConversationIntiated?.Invoke();
         
 
         if (chatAndLeave) {
-            // Disable interaction after decluttering
             GetComponent<BoxCollider2D>().enabled = false;
             GetComponent<CapsuleCollider2D>().enabled = false;
         }
@@ -55,7 +55,7 @@ public class BlockedNeighbour : MonoBehaviour
             for (float i = 1; i >= 0; i -= Time.deltaTime)
             {
                 // set color with i as alpha
-                img.color = new Color(1, 1, 1, i);
+                _sr.color = new Color(1, 1, 1, i);
 
                 yield return null;
                 this.gameObject.SetActive(false);
@@ -68,7 +68,7 @@ public class BlockedNeighbour : MonoBehaviour
             for (float i = 0; i <= 1; i += Time.deltaTime)
             {
                 // set color with i as alpha
-                img.color = new Color(1, 1, 1, i);
+                _sr.color = new Color(1, 1, 1, i);
 
                 yield return null;
                 this.gameObject.SetActive(true);

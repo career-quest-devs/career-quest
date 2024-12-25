@@ -1,32 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class OpenElevator : MonoBehaviour
 {
-    private Animator _elevatorAnimator;
+    public UnityEvent OnElevatorReached;
+
     [SerializeField] private GameObject _levelEndCheckPoint;
-    // Start is called before the first frame update
-    void Start()
-    {
-        _elevatorAnimator = GetComponent<Animator>();
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    private Animator _elevatorAnimator;
+    
     public void Open()
     {
         _elevatorAnimator.SetTrigger("Open");
         StartCoroutine(addExitTrigger());
     }
 
-    IEnumerator addExitTrigger()
+    private void Start()
     {
-        yield return new WaitForSeconds(5f);
+        _elevatorAnimator = GetComponent<Animator>();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            OnElevatorReached?.Invoke();
+        }
+    }
+
+    private IEnumerator addExitTrigger()
+    {
+        yield return new WaitForSeconds(4.0f);
+
         _levelEndCheckPoint.SetActive(true);
     }
 }

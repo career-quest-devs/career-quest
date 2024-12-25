@@ -31,10 +31,11 @@ public class Level1Manager : MonoBehaviour
         "New skill acquired: Super Sneeze",
         "You can use Super Sneeze by pressing S."
     };
-    private string[] _sneezeTutorialDialogMobile = new string[2]
+    private string[] _sneezeTutorialDialogMobile = new string[3]
     {
         "New skill acquired: Super Sneeze",
-        "New skill acquired: Super Sneeze"
+        "New skill acquired: Super Sneeze",
+        "You can use Super Sneeze by pressing the new button on the right."
     };
     private string[] _computerDialog = new string[5]
     {
