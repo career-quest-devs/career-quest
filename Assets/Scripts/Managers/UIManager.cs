@@ -99,6 +99,11 @@ public class UIManager : MonoBehaviour
         return Mathf.FloorToInt(_timer.timeRemaining);
     }
 
+    public int GetLevelTimeTaken()
+    {
+        return _timer.GetTimeTaken();
+    }
+
     private void Awake()
     {
         _dialogQueue = new Queue<string>();

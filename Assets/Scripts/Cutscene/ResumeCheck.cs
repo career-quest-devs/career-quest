@@ -24,7 +24,7 @@ public class ResumeCheck : MonoBehaviour
         DataTracker data = DataTracker.GetInstance();
 
         data.SetLevelTime(1, 100);
-        data.HasResume = true;
+        //data.HasResume = true;
         data.IncrementAbility("Sneeze");
         data.IncrementAbility("Sneeze");
         data.IncrementAbility("Sneeze");

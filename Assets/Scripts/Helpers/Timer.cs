@@ -5,6 +5,7 @@ using UnityEngine;
 public class Timer : MonoBehaviour
 {
     public int startTime = 1800; // Set countdown start time (in seconds)
+    private int initialTime;
     public float timeRemaining;
 
     private bool _timerOn = false;
@@ -21,12 +22,14 @@ public class Timer : MonoBehaviour
 
     public void OnTimerReset()
     {
+        initialTime = startTime;
         timeRemaining = startTime;
         _timerOn = false;
     }
 
     private void Start()
     {
+        initialTime = startTime;
         timeRemaining = startTime;
     }
 
@@ -55,5 +58,10 @@ public class Timer : MonoBehaviour
         //Formats current time into the form 0:00, the D2 specifies fill with zeroes, could add to first term.
         //return string.Format("{0}:{1:D2}", (int)_currentTime/60, (int)_currentTime%60);
         return $"{minutes:00}:{seconds:00}";
+    }
+
+    public int GetTimeTaken()
+    {
+        return initialTime - Mathf.FloorToInt(timeRemaining);
     }
 }
