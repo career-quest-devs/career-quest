@@ -113,7 +113,16 @@ public class LevelFinalManager : MonoBehaviour
         {
             _chairSpawner.StopSpawning();
             _player.SwitchToUIActionMap();
-            _uIManager.StartDialog(_hitByChairIntroDialog);
+
+            if (Application.platform == RuntimePlatform.Android)
+            {
+                _uIManager.StartDialog(_hitByChairIntroDialogMobile);
+            }
+            else
+            {
+                _uIManager.StartDialog(_hitByChairIntroDialog);
+            }
+            
             _startChairSpawning = true;
             _hitByChairIntroCompleted = true;
         }

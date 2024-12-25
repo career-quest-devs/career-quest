@@ -42,6 +42,15 @@ public class Level2Manager : MonoBehaviour
         "Alex: I'm actually running late for my job interview.",
         "Ben: Well then, you better be on your way. Best of luck!"
     };
+    private string[] _neighbour1DialogMobile = new string[6]
+    {
+        "Alex: Good morning, Ben!",
+        "Alex: Good morning, Ben!",
+        "Ben: Oh, good morning, Alex!",
+        "Ben: Where are you off to today?",
+        "Alex: I'm actually running late for my job interview.",
+        "Ben: Well then, you better be on your way. Best of luck!"
+    };
     private string[] _neighbour2Dialog = new string[6]
     {
         "Alex: Good morning, Carol!",
@@ -51,8 +60,28 @@ public class Level2Manager : MonoBehaviour
         "Alex: I'll think about it. I really have to run right now as I'm late for my interview.",
         "Carol: Good luck. Until next time."
     };
+    private string[] _neighbour2DialogMobile = new string[7]
+    {
+        "Alex: Good morning, Carol!",
+        "Alex: Good morning, Carol!",
+        "Alex: Working out in the hallway again?",
+        "Carol: You know it. I'm hoping more people like you are going to join me.",
+        "Carol: Come on, Alex. What do you say?",
+        "Alex: I'll think about it. I really have to run right now as I'm late for my interview.",
+        "Carol: Good luck. Until next time."
+    };
     private string[] _neighbour3Dialog = new string[6]
     {
+        "Alex: Good morning, Daniel!",
+        "Daniel: ...",
+        "Alex: GOOD MORNING, DANIEL!",
+        "Daniel: ...",
+        "Alex: He doesn't seem to hear me... or he is ignoring me.",
+        "Alex: Hmmm..."
+    };
+    private string[] _neighbour3DialogMobile = new string[7]
+    {
+        "Alex: Good morning, Daniel!",
         "Alex: Good morning, Daniel!",
         "Daniel: ...",
         "Alex: GOOD MORNING, DANIEL!",
@@ -86,19 +115,44 @@ public class Level2Manager : MonoBehaviour
     public void StartNeighbour1Dialog()
     {
         _player.SwitchToUIActionMap();
-        _uIManager.StartDialog(_neighbour1Dialog);
+
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            _uIManager.StartDialog(_neighbour1DialogMobile);
+        }
+        else
+        {
+            _uIManager.StartDialog(_neighbour1Dialog);
+        }
+            
     }
 
     public void StartNeighbour2Dialog()
     {
         _player.SwitchToUIActionMap();
-        _uIManager.StartDialog(_neighbour2Dialog);
+
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            _uIManager.StartDialog(_neighbour2DialogMobile);
+        }
+        else
+        {
+            _uIManager.StartDialog(_neighbour2Dialog);
+        }
     }
 
     public void StartNeighbour3Dialog()
     {
         _player.SwitchToUIActionMap();
-        _uIManager.StartDialog(_neighbour3Dialog);
+
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            _uIManager.StartDialog(_neighbour3DialogMobile);
+        }
+        else
+        {
+            _uIManager.StartDialog(_neighbour3Dialog);
+        }
     }
 
     public void StartElevatorDialog()
