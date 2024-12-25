@@ -8,19 +8,13 @@ public class PlayerDash : MonoBehaviour
     public float horizontalDashForce = 10.0f;
     public float verticalDashForce = 10.0f;
     public float coolDownTime = 2.0f;
-    public float doubleDashTimeLimit = 0.5f;
-
-    [Header("Ground Check")]
-    [SerializeField] private Transform _groundCheck;
-    [SerializeField] private LayerMask _groundMask;
-    [SerializeField] private float _groundCheckDistance = 0.15f;
 
     private Rigidbody2D _rb;
     private PlayerController _player;
     private bool _isActive = false;
     private bool _isFacingRight = true;
     private bool _canDash = true;
-    private bool _isGrounded = true;
+    private bool _isDashing = false;
 
     public void ActivateDash()
     {
@@ -32,10 +26,17 @@ public class PlayerDash : MonoBehaviour
         _isActive = false;
     }
 
+    public bool IsDashing()
+    {
+        return _isDashing;
+    }
+
     public void Dash()
     {
         if (_isActive && _canDash)
         {
+            _isDashing = true;
+
             // Trigger player dash animation
             _player.currentAnimator.SetBool("IsDashing", true);
 
@@ -81,8 +82,6 @@ public class PlayerDash : MonoBehaviour
         {
             _isFacingRight = false;
         }
-
-        //GroundCheck();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -90,6 +89,7 @@ public class PlayerDash : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("OfficeChair"))
         {
             _player.currentAnimator.SetBool("IsDashing", false);
+            _isDashing = false;
         }
     }
 
@@ -98,10 +98,5 @@ public class PlayerDash : MonoBehaviour
         _canDash = false;   // Prevent further dashing
         yield return new WaitForSeconds(coolDownTime);
         _canDash = true;    // Re-enable dashing
-    }
-
-    private void GroundCheck()
-    {
-        _isGrounded = Physics2D.OverlapCircle(_groundCheck.position, _groundCheckDistance, _groundMask);
     }
 }

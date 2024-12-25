@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D _rb;
     private PlayerController _player;
     private PlayerInput _playerInput;
+    private PlayerDash _playerDash;
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _player = GetComponent<PlayerController>();
+        _playerDash = GetComponent<PlayerDash>();
     }
 
     // Update is called once per frame
@@ -37,30 +39,33 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-        _rb.velocity = new Vector2(_moveInput.x * _moveSpeed, _rb.velocity.y);
+        if (!_playerDash.IsDashing())
+        {
+            _rb.velocity = new Vector2(_moveInput.x * _moveSpeed, _rb.velocity.y);
 
-        if (_moveInput.x > 0)
-        {
-            _player.currentAnimator.SetBool("IsWalking", true);
-            _player.currentAnimator.SetBool("IsGoingRight", true);
-            EnableDashActionWhenMoving();
-            DisableSneezeActionWhenMoving();
-            DisableWaveActionWhenMoving();
-        }
-        else if (_moveInput.x < 0)
-        {
-            _player.currentAnimator.SetBool("IsWalking", true);
-            _player.currentAnimator.SetBool("IsGoingRight", false);
-            EnableDashActionWhenMoving();
-            DisableSneezeActionWhenMoving();
-            DisableWaveActionWhenMoving();
-        }
-        else
-        {
-            _player.currentAnimator.SetBool("IsWalking", false);
-            EnableSneezeActionWhenStopped();
-            EnableWaveActionWhenStopped();
-            DisableDashActionWhenStopped();
+            if (_moveInput.x > 0)
+            {
+                _player.currentAnimator.SetBool("IsWalking", true);
+                _player.currentAnimator.SetBool("IsGoingRight", true);
+                EnableDashActionWhenMoving();
+                DisableSneezeActionWhenMoving();
+                DisableWaveActionWhenMoving();
+            }
+            else if (_moveInput.x < 0)
+            {
+                _player.currentAnimator.SetBool("IsWalking", true);
+                _player.currentAnimator.SetBool("IsGoingRight", false);
+                EnableDashActionWhenMoving();
+                DisableSneezeActionWhenMoving();
+                DisableWaveActionWhenMoving();
+            }
+            else
+            {
+                _player.currentAnimator.SetBool("IsWalking", false);
+                EnableSneezeActionWhenStopped();
+                EnableWaveActionWhenStopped();
+                DisableDashActionWhenStopped();
+            }
         }
     }
 
