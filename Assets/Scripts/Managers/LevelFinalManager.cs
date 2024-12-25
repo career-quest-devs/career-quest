@@ -74,6 +74,14 @@ public class LevelFinalManager : MonoBehaviour
                     _playerWave.ActivateWave();
                     _playerDash.ActivateDash();
 
+                    if (Application.platform == RuntimePlatform.Android)
+                    {
+                        // Set visibility for mobile action buttons
+                        _uIManager.SetSneezeButtonVisibility(true);
+                        _uIManager.SetWaveButtonVisibility(true);
+                        _uIManager.SetDashButtonVisibility(true);
+                    }
+
                     _chairSpawner.StartSpawning();
                     _initiateInterviewStart = false;
                 }
@@ -120,9 +128,9 @@ public class LevelFinalManager : MonoBehaviour
         if (Application.platform == RuntimePlatform.Android)
         {
             // Set visibility for mobile action buttons
-            _uIManager.SetSneezeButtonVisibility(true);
-            _uIManager.SetWaveButtonVisibility(true);
-            _uIManager.SetDashButtonVisibility(true);
+            _uIManager.SetSneezeButtonVisibility(false);
+            _uIManager.SetWaveButtonVisibility(false);
+            _uIManager.SetDashButtonVisibility(false);
             _uIManager.SetPickUpButtonVisibility(false);
             _uIManager.SetOpenButtonVisibility(false);
         }
