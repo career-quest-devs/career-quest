@@ -43,9 +43,9 @@ public class ResumeCheck : MonoBehaviour
             int seconds = Mathf.FloorToInt(data.GetTotalTime() % 60);
             _timeText.text = "Time taken: " + $"{minutes:00}:{seconds:00}";
 
-            _sneezeText.text = "Sneezes Made: " + data.GetAbilityTotal("Sneeze");
-            _helloText.text = "Said Hello: " + data.GetAbilityTotal("Wave");
-            _dashText.text = "Times Dashed: " + data.GetAbilityTotal("Dash");
+            _sneezeText.text = "Super Sneeze: " + data.GetAbilityTotal("Sneeze");
+            _helloText.text = "Dynamic Wave: " + data.GetAbilityTotal("Wave");
+            _dashText.text = "Power Dash: " + data.GetAbilityTotal("Dash");
         }
         else
         {
