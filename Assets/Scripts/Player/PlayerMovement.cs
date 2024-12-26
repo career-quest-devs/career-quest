@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     private PlayerController _player;
     private PlayerInput _playerInput;
     private PlayerDash _playerDash;
+    private PlayerSneeze _playerSneeze;
+    private PlayerWave _playerWave;
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -29,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _player = GetComponent<PlayerController>();
         _playerDash = GetComponent<PlayerDash>();
+        _playerSneeze = GetComponent<PlayerSneeze>();
+        _playerWave = GetComponent<PlayerWave>();
     }
 
     // Update is called once per frame
@@ -39,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-        if (!_playerDash.IsDashing())
+        if (!_playerDash.IsDashing() && !_playerSneeze.IsSneezing() && !_playerWave.IsWaving())
         {
             _rb.velocity = new Vector2(_moveInput.x * _moveSpeed, _rb.velocity.y);
 
