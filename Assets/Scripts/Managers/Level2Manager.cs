@@ -116,7 +116,7 @@ public class Level2Manager : MonoBehaviour
     {
         _player.SwitchToUIActionMap();
 
-        if (Application.platform == RuntimePlatform.Android)
+        if (_uIManager.IsRunningOnMobile())
         {
             _uIManager.StartDialog(_neighbour1DialogMobile);
         }
@@ -131,7 +131,7 @@ public class Level2Manager : MonoBehaviour
     {
         _player.SwitchToUIActionMap();
 
-        if (Application.platform == RuntimePlatform.Android)
+        if (_uIManager.IsRunningOnMobile())
         {
             _uIManager.StartDialog(_neighbour2DialogMobile);
         }
@@ -145,7 +145,7 @@ public class Level2Manager : MonoBehaviour
     {
         _player.SwitchToUIActionMap();
 
-        if (Application.platform == RuntimePlatform.Android)
+        if (_uIManager.IsRunningOnMobile())
         {
             _uIManager.StartDialog(_neighbour3DialogMobile);
         }
@@ -171,7 +171,7 @@ public class Level2Manager : MonoBehaviour
     {
         _player.SwitchToUIActionMap();
 
-        if (Application.platform == RuntimePlatform.Android)
+        if (_uIManager.IsRunningOnMobile())
         {
             _uIManager.SetWaveButtonVisibility(true);
             _uIManager.StartDialog(_waveTutorialDialogMobile);
@@ -202,7 +202,7 @@ public class Level2Manager : MonoBehaviour
         // Activate skills learned in previous level
         _playerSneeze.ActivateSneeze();
 
-        if (Application.platform == RuntimePlatform.Android)
+        if (_uIManager.IsRunningOnMobile())
         {
             // Set visibility for mobile action buttons
             _uIManager.SetSneezeButtonVisibility(true);
