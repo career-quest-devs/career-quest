@@ -7,6 +7,7 @@ public class ResumeCheck : MonoBehaviour
 {
     [SerializeField] private GameObject _resume;
     [SerializeField] private GameObject _fly;
+    [SerializeField] private GameObject _gameOptions;
  
     [SerializeField] private GameObject _normal;
     [SerializeField] private GameObject _tie;
@@ -21,16 +22,17 @@ public class ResumeCheck : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _gameOptions.SetActive(false);
+
         DataTracker data = DataTracker.GetInstance();
 
-        data.SetLevelTime(1, 100);
+        //data.SetLevelTime(1, 100);
         //data.HasResume = true;
-        data.IncrementAbility("Sneeze");
-        data.IncrementAbility("Sneeze");
-        data.IncrementAbility("Sneeze");
-        data.IncrementAbility("Wave");
-        data.IncrementAbility("Dash");
-
+        //data.IncrementAbility("Sneeze");
+        //data.IncrementAbility("Sneeze");
+        //data.IncrementAbility("Sneeze");
+        //data.IncrementAbility("Wave");
+        //data.IncrementAbility("Dash");
 
         if (data.HasResume)
         {
@@ -41,14 +43,22 @@ public class ResumeCheck : MonoBehaviour
             int seconds = Mathf.FloorToInt(data.GetTotalTime() % 60);
             _timeText.text = "Time taken: " + $"{minutes:00}:{seconds:00}";
 
-            _sneezeText.text = "Sneezes Made: " + data.GetAbilityTotal("Sneeze");
-            _helloText.text = "Said Hello: " + data.GetAbilityTotal("Wave");
-            _dashText.text = "Times Dashed: " + data.GetAbilityTotal("Dash");
+            _sneezeText.text = "Super Sneeze: " + data.GetAbilityTotal("Sneeze");
+            _helloText.text = "Dynamic Wave: " + data.GetAbilityTotal("Wave");
+            _dashText.text = "Power Dash: " + data.GetAbilityTotal("Dash");
         }
         else
         {
             _resume.SetActive(false);
             _fly.SetActive(true);
         }
+
+        StartCoroutine(DisplayGameOptions());
+    }
+
+    private IEnumerator DisplayGameOptions()
+    {
+        yield return new WaitForSeconds(8.0f);
+        _gameOptions.SetActive(true);
     }
 }
