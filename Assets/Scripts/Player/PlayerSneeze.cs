@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,12 +6,15 @@ using UnityEngine.InputSystem;
 
 public class PlayerSneeze : MonoBehaviour
 {
-    [SerializeField] private float _declutterDelay = 0.5f;
+    public float _declutterDelay = 0.5f;
+    public float coolDownTime = 1.0f;
 
     private PlayerController _player;
     private GameObject _nearbyClothes; // Tracks the clothes pile in range
     private GameObject _nearbyNeighbour;
     private bool _isActive = false;
+    private bool _canSneeze = true;
+    private bool _isSneezing = false;
 
     public void ActivateSneeze()
     {
@@ -22,10 +26,17 @@ public class PlayerSneeze : MonoBehaviour
         _isActive = false;
     }
 
+    public bool IsSneezing()
+    {
+        return _isSneezing;
+    }
+
     public void Sneeze()
     {
-        if (_isActive)
+        if (_isActive && _canSneeze)
         {
+            _isSneezing = true;
+
             // Trigger player sneeze animation
             _player.currentAnimator.SetTrigger("Sneeze");
 
@@ -40,6 +51,8 @@ public class PlayerSneeze : MonoBehaviour
             {
                 StartCoroutine(BlowAwayNeighbour());
             }
+
+            StartCoroutine(SneezeCooldown());
 
             // Update action/ability count in DataTracker
             DataTracker.GetInstance().IncrementAbility("Sneeze");
@@ -91,10 +104,17 @@ public class PlayerSneeze : MonoBehaviour
     {
         yield return new WaitForSeconds(_declutterDelay);
 
-        ClothesPile clothesPile = _nearbyClothes.GetComponent<ClothesPile>();
-        if (clothesPile != null)
+        try
         {
-            clothesPile.Declutter();
+            ClothesPile clothesPile = _nearbyClothes.GetComponent<ClothesPile>();
+            if (clothesPile != null)
+            {
+                clothesPile.Declutter();
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogException(e);
         }
     }
 
@@ -102,12 +122,25 @@ public class PlayerSneeze : MonoBehaviour
     {
         yield return new WaitForSeconds(_declutterDelay);// use the same delay?
 
-        if (_nearbyNeighbour != null)
+        try
         {
             BlockedNeighbour nearbyNeighbour = _nearbyNeighbour.GetComponent<BlockedNeighbour>();
-            if (nearbyNeighbour != null) {
+            if (nearbyNeighbour != null)
+            {
                 nearbyNeighbour.BlowedAway();
             }
         }
+        catch (Exception e)
+        {
+            Debug.LogException(e);
+        }
+    }
+
+    private IEnumerator SneezeCooldown()
+    {
+        _canSneeze = false;
+        yield return new WaitForSeconds(coolDownTime);
+        _canSneeze = true;
+        _isSneezing = false;
     }
 }

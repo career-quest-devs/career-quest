@@ -16,6 +16,7 @@ public class PlayerWave : MonoBehaviour
     private GameObject _nearbyWhiteboard;
     private bool _isActive = false;
     private bool _canWave = true;
+    private bool _isWaving = false;
 
     public void ActivateWave()
     {
@@ -27,10 +28,17 @@ public class PlayerWave : MonoBehaviour
         _isActive = false;
     }
 
+    public bool IsWaving()
+    {
+        return _isWaving;
+    }
+
     public void Wave()
     {
         if (_isActive && _canWave)
         {
+            _isWaving = true;
+
             // Trigger player wave animation
             _player.currentAnimator.SetTrigger("Wave");
 
@@ -111,39 +119,33 @@ public class PlayerWave : MonoBehaviour
 
     private void WaveToNeighbour()
     {
-        if (_nearbyNeighbour != null)
+        try
         {
-            try
+            BlockedNeighbour blockedNeighbour = _nearbyNeighbour.GetComponent<BlockedNeighbour>();
+            if (blockedNeighbour != null)
             {
-                BlockedNeighbour blockedNeighbour = _nearbyNeighbour.GetComponent<BlockedNeighbour>();
-                if (blockedNeighbour != null)
-                {
-                    blockedNeighbour.Chat();
-                }
+                blockedNeighbour.Chat();
             }
-            catch (Exception e)
-            {
-                Debug.LogException(e);
-            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogException(e);
         }
     }
 
     private void FixElevator()
     {
-        if (_nearbyElevator != null)
+        try
         {
-            try
+            OpenElevator openElevator = _nearbyElevator.GetComponent<OpenElevator>();
+            if (openElevator != null)
             {
-                OpenElevator openElevator = _nearbyElevator.GetComponent<OpenElevator>();
-                if (openElevator != null)
-                {
-                    openElevator.Open();
-                }
+                openElevator.Open();
             }
-            catch (Exception e)
-            {
-                Debug.LogException(e);
-            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogException(e);
         }
     }
 
@@ -151,10 +153,17 @@ public class PlayerWave : MonoBehaviour
     {
         yield return new WaitForSeconds(cleanDelay);
 
-        Whiteboard whiteboard = _nearbyWhiteboard.GetComponent<Whiteboard>();
-        if (whiteboard != null)
+        try
         {
-            whiteboard.CleanWhiteboard();
+            Whiteboard whiteboard = _nearbyWhiteboard.GetComponent<Whiteboard>();
+            if (whiteboard != null)
+            {
+                whiteboard.CleanWhiteboard();
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogException(e);
         }
     }
 
@@ -163,5 +172,6 @@ public class PlayerWave : MonoBehaviour
         _canWave = false;
         yield return new WaitForSeconds(coolDownTime);
         _canWave = true;
+        _isWaving = false;
     }
 }
