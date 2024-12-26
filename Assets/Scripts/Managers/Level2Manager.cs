@@ -191,6 +191,7 @@ public class Level2Manager : MonoBehaviour
         // Save game data to DataTracker
         dataTracker.lastSceneIndex = SceneManager.GetActiveScene().buildIndex;
         dataTracker.SetTotalRemainingTime(_uIManager.StopTimerAndGetTimeRemaining());
+        dataTracker.SetLevelTime(2, _uIManager.GetLevelTimeTaken());
 
         // Go to next scene
         SceneManager.LoadScene("MiniLevels");

@@ -39,12 +39,12 @@ public class LevelFinalManager : MonoBehaviour
     private string[] _hitByChairIntroDialog = new string[2]
     {
         "When you are hit with an office chair, you will lose the ability to use any special skills for 2 seconds.",
-        "To avoid the chairs, try using the dash skill by pressing SPACE while moving left or right."
+        "To avoid the chairs, try using Power Dash by pressing SPACE while moving left or right."
     };
     private string[] _hitByChairIntroDialogMobile = new string[2]
     {
         "When you are hit with an office chair, you will lose the ability to use any special skills for 2 seconds.",
-        "To avoid the chairs, try using the dash skill by pressing the new button on the right while moving left or right."
+        "To avoid the chairs, try using Power Dash by pressing the new button on the right while moving left or right."
     };
     private string[] _interviewClosingDialog = new string[2]
     {
@@ -60,6 +60,9 @@ public class LevelFinalManager : MonoBehaviour
             {
                 if (_initiateInterviewEnding)
                 {
+                    // Save time taken to complete level
+                    DataTracker.GetInstance().SetLevelTime(7, _uIManager.GetLevelTimeTaken());
+
                     int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
 
                     SceneManager.LoadScene(nextSceneIndex);
