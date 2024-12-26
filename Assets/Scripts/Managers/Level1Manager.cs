@@ -15,7 +15,15 @@ public class Level1Manager : MonoBehaviour
     private bool _initiateTimer = false;
 
     // Dialog collection
-    private string[] _introDialog = new string[4]
+    private string[] _introDialog = new string[5]
+    {
+        "Alex: What a beautiful Sunday morning.",
+        "Alex: I'm looking forward to a lazy, relaxing day before my big interview tomorrow.",
+        "Alex: Wait, I just heard a reminder alert on my laptop.",
+        "Alex: I better go check it out.",
+        "Use A/D or Left/Right arrow keys to move Alex."
+    };
+    private string[] _introDialogMobile = new string[4]
     {
         "Alex: What a beautiful Sunday morning.",
         "Alex: I'm looking forward to a lazy, relaxing day before my big interview tomorrow.",
@@ -167,7 +175,16 @@ public class Level1Manager : MonoBehaviour
     private void StartIntroDialog()
     {
         _player.SwitchToUIActionMap();
-        _uIManager.StartDialog(_introDialog);
+
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            _uIManager.StartDialog(_introDialogMobile);
+        }
+        else
+        {
+            _uIManager.StartDialog(_introDialog);
+        }
+            
     }
 
     private void StartSneezeTutorialDialog()
