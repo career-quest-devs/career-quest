@@ -96,4 +96,12 @@ public class DataTracker : MonoBehaviour
     {
         return totalTimeRemaining;
     }
+
+    public void ResetStats()
+    {
+        totalTime = new Dictionary<int, float>();
+        data["Sneeze"] = 0;
+        data["Wave"] = 0;
+        data["Dash"] = 0;
+    }
 }

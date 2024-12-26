@@ -159,6 +159,8 @@ public class Level1Manager : MonoBehaviour
 
     private void Start()
     {
+        DataTracker.GetInstance().ResetStats();
+
         if (Application.platform == RuntimePlatform.Android)
         {
             //Set visibility for mobile action buttons to false
