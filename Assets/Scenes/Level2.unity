@@ -898,6 +898,7 @@ MonoBehaviour:
   _dashButton: {fileID: 1292296451}
   _pickUpButton: {fileID: 1292296450}
   _openButton: {fileID: 1292296449}
+  _mobileDetector: {fileID: 710868157}
   _playerInteract: {fileID: 1510486697}
 --- !u!114 &403626527
 MonoBehaviour:
@@ -1908,6 +1909,50 @@ MonoBehaviour:
   - 'Carol: You are busy right now?'
   - 'Carol: Then next time!'
   chatAndLeave: 1
+--- !u!1 &710868156
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 710868158}
+  - component: {fileID: 710868157}
+  m_Layer: 0
+  m_Name: Mobile Detector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &710868157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710868156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86578746d7278a249b64392b791d4a2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &710868158
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710868156}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &725208634 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1043613255821580355, guid: bfc2fab99f1f0674a8891eb87b090c3f, type: 3}
@@ -2264,7 +2309,7 @@ Transform:
   m_GameObject: {fileID: 850244060}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5030036, y: 0.22769, z: -10}
+  m_LocalPosition: {x: -0.5094929, y: 0.22773999, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4656,4 +4701,5 @@ SceneRoots:
   - {fileID: 403626529}
   - {fileID: 738489956}
   - {fileID: 1292296447}
+  - {fileID: 710868158}
   - {fileID: 1218700180}

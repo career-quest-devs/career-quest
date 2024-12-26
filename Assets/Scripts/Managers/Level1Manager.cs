@@ -110,7 +110,7 @@ public class Level1Manager : MonoBehaviour
 
     public void EnablePickUpInteraction()
     {
-        if (Application.platform == RuntimePlatform.Android)
+        if (_uIManager.IsRunningOnMobile())
         {
             _uIManager.SetPickUpButtonVisibility(true);
         }
@@ -122,7 +122,7 @@ public class Level1Manager : MonoBehaviour
 
     public void EnableOpenDoorInteraction()
     {
-        if (Application.platform == RuntimePlatform.Android)
+        if (_uIManager.IsRunningOnMobile())
         {
             _uIManager.SetOpenButtonVisibility(true);
         }
@@ -161,7 +161,7 @@ public class Level1Manager : MonoBehaviour
     {
         DataTracker.GetInstance().ResetStats();
 
-        if (Application.platform == RuntimePlatform.Android)
+        if (_uIManager.IsRunningOnMobile())
         {
             //Set visibility for mobile action buttons to false
             _uIManager.SetSneezeButtonVisibility(false);
@@ -178,7 +178,7 @@ public class Level1Manager : MonoBehaviour
     {
         _player.SwitchToUIActionMap();
 
-        if (Application.platform == RuntimePlatform.Android)
+        if (_uIManager.IsRunningOnMobile())
         {
             _uIManager.StartDialog(_introDialogMobile);
         }
@@ -193,7 +193,7 @@ public class Level1Manager : MonoBehaviour
     {
         _player.SwitchToUIActionMap();
 
-        if (Application.platform == RuntimePlatform.Android)
+        if (_uIManager.IsRunningOnMobile())
         {
             _uIManager.SetSneezeButtonVisibility(true);
             _uIManager.StartDialog(_sneezeTutorialDialogMobile);

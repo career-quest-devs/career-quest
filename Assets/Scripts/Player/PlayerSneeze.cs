@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerSneeze : MonoBehaviour
 {
-    public float _declutterDelay = 0.5f;
+    public float declutterDelay = 0.5f;
     public float coolDownTime = 1.0f;
 
     private PlayerController _player;
@@ -102,7 +102,7 @@ public class PlayerSneeze : MonoBehaviour
 
     private IEnumerator DeclutterClothes()
     {
-        yield return new WaitForSeconds(_declutterDelay);
+        yield return new WaitForSeconds(declutterDelay);
 
         try
         {
@@ -120,7 +120,7 @@ public class PlayerSneeze : MonoBehaviour
 
     private IEnumerator BlowAwayNeighbour()
     {
-        yield return new WaitForSeconds(_declutterDelay);// use the same delay?
+        yield return new WaitForSeconds(declutterDelay);// use the same delay?
 
         try
         {

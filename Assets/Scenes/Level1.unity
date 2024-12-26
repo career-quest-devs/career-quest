@@ -799,7 +799,7 @@ Transform:
   m_GameObject: {fileID: 208076543}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.9122691, y: 0.22395, z: -10}
+  m_LocalPosition: {x: -0.91532516, y: 0.22408, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1107,6 +1107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 317328034}
   - component: {fileID: 317328035}
+  - component: {fileID: 317328036}
   m_Layer: 0
   m_Name: Level Manager
   m_TagString: Untagged
@@ -1144,6 +1145,18 @@ MonoBehaviour:
   _uIManager: {fileID: 2684376546950805245}
   _player: {fileID: 2016282613}
   _playerSneeze: {fileID: 2016282614}
+--- !u!114 &317328036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 317328033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86578746d7278a249b64392b791d4a2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &440680756
 GameObject:
   m_ObjectHideFlags: 0
@@ -9425,6 +9438,50 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &1690078692
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1690078694}
+  - component: {fileID: 1690078693}
+  m_Layer: 0
+  m_Name: Mobile Detector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1690078693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690078692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86578746d7278a249b64392b791d4a2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1690078694
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690078692}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1703598898
 GameObject:
   m_ObjectHideFlags: 0
@@ -10446,6 +10503,7 @@ MonoBehaviour:
   _dashButton: {fileID: 2634613963067496905}
   _pickUpButton: {fileID: 2634613963067496904}
   _openButton: {fileID: 2634613963067496903}
+  _mobileDetector: {fileID: 1690078693}
   _playerInteract: {fileID: 2016282619}
 --- !u!114 &8919185883850199724
 MonoBehaviour:
@@ -10467,6 +10525,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 317328034}
   - {fileID: 1541839414181736991}
+  - {fileID: 1690078694}
   - {fileID: 2012148278}
   - {fileID: 208076546}
   - {fileID: 1119093187}

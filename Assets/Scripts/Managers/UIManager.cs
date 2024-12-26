@@ -20,11 +20,17 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _dashButton;
     [SerializeField] private GameObject _pickUpButton;
     [SerializeField] private GameObject _openButton;
+    [SerializeField] private MobileDetector _mobileDetector;
 
     [Header("Player")]
     [SerializeField] private PlayerInteract _playerInteract;
 
     private Queue<string> _dialogQueue;
+
+    public bool IsRunningOnMobile()
+    {
+        return _mobileDetector.IsRunningOnMobile();
+    }
 
     public void StartDialog(string[] dialogLines)
     {
@@ -108,7 +114,7 @@ public class UIManager : MonoBehaviour
     {
         _dialogQueue = new Queue<string>();
 
-        if (Application.platform == RuntimePlatform.Android)
+        if (_mobileDetector.IsRunningOnMobile())
         {
             _mobileControls.SetActive(true);
         }
