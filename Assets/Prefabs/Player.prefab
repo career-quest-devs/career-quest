@@ -686,7 +686,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Level1Manager, Assembly-CSharp
+        m_TargetAssemblyTypeName: LevelFinalManager, Assembly-CSharp
         m_MethodName: DisplayNextDialogLine
         m_Mode: 0
         m_Arguments:
@@ -766,7 +766,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnHitByChair:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: LevelFinalManager, Assembly-CSharp
+        m_MethodName: StartHitByChairIntroDialog
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   defaultSprite: {fileID: 1190618594693531712}
   tieSprite: {fileID: 1683467995606855235}
   socksSprite: {fileID: 2707929433350047666}
@@ -790,7 +802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f67a47de8e99757468d66640ccbc36e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 5
+  _moveSpeed: 6
 --- !u!114 &8850614593325717080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -876,7 +888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd9f4704b5a3e3e4f830d78a056cff2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalDashForce: 10
+  horizontalDashForce: 1
   verticalDashForce: 10
   coolDownTime: 2
   dashClip: {fileID: 8300000, guid: ba8b38e13459a3a44b945e785c1ab7e4, type: 3}
