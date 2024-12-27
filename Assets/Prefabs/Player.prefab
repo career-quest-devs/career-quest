@@ -817,7 +817,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   declutterDelay: 0.5
   coolDownTime: 1
-  sneezeClip: {fileID: 8300000, guid: 94f0563502520f44ab96d6f59a69999e, type: 3}
+  _sneezeClip: {fileID: 8300000, guid: 94f0563502520f44ab96d6f59a69999e, type: 3}
 --- !u!114 &5968774838078200962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -875,7 +875,7 @@ MonoBehaviour:
   cleanDelay: 0.5
   waveDelay: 0.5
   coolDownTime: 1
-  waveClip: {fileID: 8300000, guid: 46e0c9682e1863248a370260d723e8ed, type: 3}
+  _waveClip: {fileID: 8300000, guid: 46e0c9682e1863248a370260d723e8ed, type: 3}
 --- !u!114 &1925254494537378045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -891,4 +891,4 @@ MonoBehaviour:
   horizontalDashForce: 1
   verticalDashForce: 10
   coolDownTime: 2
-  dashClip: {fileID: 8300000, guid: ba8b38e13459a3a44b945e785c1ab7e4, type: 3}
+  _dashClip: {fileID: 8300000, guid: ba8b38e13459a3a44b945e785c1ab7e4, type: 3}

@@ -10,6 +10,8 @@ public class PlayerWave : MonoBehaviour
     public float waveDelay = 0.5f;
     public float coolDownTime = 1.0f;
 
+    [SerializeField] private AudioClip _waveClip;
+
     private PlayerController _player;
     private GameObject _nearbyNeighbour;
     private GameObject _nearbyElevator;
@@ -17,8 +19,6 @@ public class PlayerWave : MonoBehaviour
     private bool _isActive = false;
     private bool _canWave = true;
     private bool _isWaving = false;
-
-    [SerializeField] private AudioClip waveClip;
 
     public void ActivateWave()
     {
@@ -42,7 +42,7 @@ public class PlayerWave : MonoBehaviour
             _isWaving = true;
 
             // Trigger player wave animation
-            SoundFXManager.Instance.PlaySoundFXClip(waveClip, transform, 1f);
+            SoundFXManager.Instance.PlaySoundFXClip(_waveClip, transform, 1f);
             _player.currentAnimator.SetTrigger("Wave");
 
             if (_nearbyNeighbour != null)

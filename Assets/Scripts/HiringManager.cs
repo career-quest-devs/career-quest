@@ -6,7 +6,7 @@ public class HiringManager : MonoBehaviour
 {
     public Transform position1;
     public Transform position2;
-    public float speed = 5.5f;
+    public float speed = 6.5f;
 
     private Transform _target;
     private Animator _animator;
