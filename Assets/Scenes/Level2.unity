@@ -1124,6 +1124,7 @@ MonoBehaviour:
         m_CallState: 2
   _levelEndCheckPoint: {fileID: 1620488486}
   audioClip: {fileID: 8300000, guid: 5a97610593666604d988407435e19fa7, type: 3}
+  _elevatorClip: {fileID: 8300000, guid: 5a97610593666604d988407435e19fa7, type: 3}
 --- !u!1 &449993673
 GameObject:
   m_ObjectHideFlags: 0
@@ -2355,7 +2356,7 @@ Transform:
   m_GameObject: {fileID: 850244060}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.50689936, y: 0.2277, z: -10}
+  m_LocalPosition: {x: -0.5094929, y: 0.22773999, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

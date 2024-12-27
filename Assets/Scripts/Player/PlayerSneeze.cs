@@ -9,14 +9,14 @@ public class PlayerSneeze : MonoBehaviour
     public float declutterDelay = 0.5f;
     public float coolDownTime = 1.0f;
 
+    [SerializeField] private AudioClip _sneezeClip;
+
     private PlayerController _player;
     private GameObject _nearbyClothes; // Tracks the clothes pile in range
     private GameObject _nearbyNeighbour;
     private bool _isActive = false;
     private bool _canSneeze = true;
     private bool _isSneezing = false;
-
-    [SerializeField] private AudioClip sneezeClip;
 
     public void ActivateSneeze()
     {
@@ -40,7 +40,7 @@ public class PlayerSneeze : MonoBehaviour
             _isSneezing = true;
 
             // Trigger player sneeze animation
-            SoundFXManager.Instance.PlaySoundFXClip(sneezeClip, transform, 1f);
+            SoundFXManager.Instance.PlaySoundFXClip(_sneezeClip, transform, 1f);
             _player.currentAnimator.SetTrigger("Sneeze");
 
             // Trigger declutter animation on clothes if nearby
