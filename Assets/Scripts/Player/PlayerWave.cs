@@ -18,6 +18,8 @@ public class PlayerWave : MonoBehaviour
     private bool _canWave = true;
     private bool _isWaving = false;
 
+    [SerializeField] private AudioClip waveClip;
+
     public void ActivateWave()
     {
         _isActive = true;
@@ -40,6 +42,7 @@ public class PlayerWave : MonoBehaviour
             _isWaving = true;
 
             // Trigger player wave animation
+            SoundFXManager.Instance.PlaySoundFXClip(waveClip, transform, 1f);
             _player.currentAnimator.SetTrigger("Wave");
 
             if (_nearbyNeighbour != null)

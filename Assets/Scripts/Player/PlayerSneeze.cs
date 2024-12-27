@@ -16,6 +16,8 @@ public class PlayerSneeze : MonoBehaviour
     private bool _canSneeze = true;
     private bool _isSneezing = false;
 
+    [SerializeField] private AudioClip sneezeClip;
+
     public void ActivateSneeze()
     {
         _isActive = true;
@@ -38,6 +40,7 @@ public class PlayerSneeze : MonoBehaviour
             _isSneezing = true;
 
             // Trigger player sneeze animation
+            SoundFXManager.Instance.PlaySoundFXClip(sneezeClip, transform, 1f);
             _player.currentAnimator.SetTrigger("Sneeze");
 
             // Trigger declutter animation on clothes if nearby

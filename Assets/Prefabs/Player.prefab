@@ -803,7 +803,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeb5a2feeeb2647408824121c0aa070e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _declutterDelay: 0.5
+  declutterDelay: 0.5
+  coolDownTime: 1
+  sneezeClip: {fileID: 8300000, guid: 94f0563502520f44ab96d6f59a69999e, type: 3}
 --- !u!114 &5968774838078200962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -821,7 +823,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Level1Manager, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: EnablePickUpInteraction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -836,7 +838,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Level1Manager, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: EnableOpenDoorInteraction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -861,6 +863,7 @@ MonoBehaviour:
   cleanDelay: 0.5
   waveDelay: 0.5
   coolDownTime: 1
+  waveClip: {fileID: 8300000, guid: 46e0c9682e1863248a370260d723e8ed, type: 3}
 --- !u!114 &1925254494537378045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -876,9 +879,4 @@ MonoBehaviour:
   horizontalDashForce: 10
   verticalDashForce: 10
   coolDownTime: 2
-  doubleDashTimeLimit: 0.5
-  _groundCheck: {fileID: 0}
-  _groundMask:
-    serializedVersion: 2
-    m_Bits: 0
-  _groundCheckDistance: 0.15
+  dashClip: {fileID: 8300000, guid: ba8b38e13459a3a44b945e785c1ab7e4, type: 3}

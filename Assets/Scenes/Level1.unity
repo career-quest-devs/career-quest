@@ -627,6 +627,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &199794279
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 199794280}
+  - component: {fileID: 199794281}
+  m_Layer: 0
+  m_Name: SoundFXManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &199794280
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199794279}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &199794281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199794279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36b474f82bbd52c4f9238b40040e287f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundFXObject: {fileID: 7202848015442450911, guid: 4509a1d5c2c723d48a3b991bf622aad1, type: 3}
 --- !u!1 &207682223
 GameObject:
   m_ObjectHideFlags: 0
@@ -2161,7 +2206,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e610377debc427e4e96dc6863f876449, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.154
+  m_Volume: 0.093
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2702,14 +2747,6 @@ PrefabInstance:
       propertyPath: OnPickUpInRange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 317328035}
-    - target: {fileID: 5968774838078200962, guid: e977fbfee6827bb45a055b5af47338fb, type: 3}
-      propertyPath: OnDoorInRange.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: EnableOpenDoorInteraction
-      objectReference: {fileID: 0}
-    - target: {fileID: 5968774838078200962, guid: e977fbfee6827bb45a055b5af47338fb, type: 3}
-      propertyPath: OnPickUpInRange.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: EnablePickUpInteraction
-      objectReference: {fileID: 0}
     - target: {fileID: 9150067235073022066, guid: e977fbfee6827bb45a055b5af47338fb, type: 3}
       propertyPath: m_Name
       value: Player
@@ -10664,3 +10701,4 @@ SceneRoots:
   - {fileID: 847281847}
   - {fileID: 644766984}
   - {fileID: 698719135}
+  - {fileID: 199794280}

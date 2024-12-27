@@ -16,6 +16,7 @@ public class PlayerDash : MonoBehaviour
     private bool _canDash = true;
     private bool _isDashing = false;
 
+    [SerializeField] private AudioClip dashClip;
     public void ActivateDash()
     {
         _isActive = true;
@@ -38,6 +39,7 @@ public class PlayerDash : MonoBehaviour
             _isDashing = true;
 
             // Trigger player dash animation
+            SoundFXManager.Instance.PlaySoundFXClip(dashClip, transform, 1f);
             _player.currentAnimator.SetBool("IsDashing", true);
 
             // Determine the dash direction

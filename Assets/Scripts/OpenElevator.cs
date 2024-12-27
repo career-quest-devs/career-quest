@@ -8,11 +8,13 @@ public class OpenElevator : MonoBehaviour
     public UnityEvent OnElevatorReached;
 
     [SerializeField] private GameObject _levelEndCheckPoint;
+    [SerializeField] private AudioClip audioClip;
 
     private Animator _elevatorAnimator;
     
     public void Open()
     {
+        
         _elevatorAnimator.SetTrigger("Open");
         StartCoroutine(addExitTrigger());
     }
@@ -33,7 +35,7 @@ public class OpenElevator : MonoBehaviour
     private IEnumerator addExitTrigger()
     {
         yield return new WaitForSeconds(4.0f);
-
+        SoundFXManager.Instance.PlaySoundFXClip(audioClip, transform, 1f);
         _levelEndCheckPoint.SetActive(true);
     }
 }
